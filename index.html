@@ -4,49 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>La Scottoneria | Ristorante di Carne ad Albignasego, Padova</title>
-<meta name="description" content="La Scottoneria: ristorante specializzato in carne alla brace ad Albignasego (Padova). Tagliate, fiorentine, picanha e piatti della tradizione italiana in un ambiente accogliente. Prenota il tuo tavolo.">
+<meta name="description" content="La Scottoneria: dove la carne è l'anima del piacere. Ristorante specializzato in carne alla brace ad Albignasego (Padova). Scopri il menù, la carta dei vini e prenota il tuo tavolo.">
 <meta name="keywords" content="ristorante carne Padova, steakhouse Albignasego, La Scottoneria, carne alla brace, fiorentina, picanha, tagliata, ristorante Albignasego">
 <meta name="author" content="La Scottoneria">
 <meta name="robots" content="index, follow">
 
-<!-- Open Graph -->
 <meta property="og:type" content="restaurant">
 <meta property="og:title" content="La Scottoneria | Dove la carne è l'anima del piacere">
 <meta property="og:description" content="Ristorante specializzato in carne alla brace ad Albignasego, Padova. Scopri il menù, guarda la galleria e prenota il tuo tavolo.">
-<meta property="og:image" content="assets/img/og-cover.jpg">
 <meta property="og:locale" content="it_IT">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230d0b0a'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23e2262f'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ffffff'/%3E%3Crect x='10' y='10' width='80' height='80' rx='14' fill='%23161311'/%3E%3Ctext x='50' y='68' font-size='54' text-anchor='middle' fill='%23cf1a26'%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- ============ PRELOADER ============ -->
 <div id="preloader" aria-hidden="true">
   <div class="preloader-inner">
-    <i class="fa-solid fa-fire"></i>
-    <span>La Scottoneria</span>
+    <span class="pl-logo">LA SCOTTONERIA</span>
+    <span class="pl-line"></span>
   </div>
 </div>
 
-<!-- ============ CUSTOM CURSOR GLOW ============ -->
 <div class="ember-glow" id="emberGlow"></div>
 
 <!-- ============ HEADER / NAV ============ -->
 <header class="site-header" id="siteHeader">
   <div class="container nav-wrap">
     <a href="#home" class="logo">
-      <i class="fa-solid fa-fire"></i>
-      <span>La Scottoneria</span>
+      <span class="logo-word">LA<i class="logo-dot"></i>SCOTT<i class="logo-dot"></i>ONERIA</span>
+      <span class="logo-rule"></span>
     </a>
 
     <nav class="main-nav" id="mainNav">
@@ -54,14 +48,15 @@
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#chi-siamo" class="nav-link">Chi Siamo</a></li>
         <li><a href="#menu" class="nav-link">Menù</a></li>
+        <li><a href="#vini" class="nav-link">Vini</a></li>
         <li><a href="#galleria" class="nav-link">Galleria</a></li>
         <li><a href="#recensioni" class="nav-link">Recensioni</a></li>
         <li><a href="#contatti" class="nav-link">Contatti</a></li>
       </ul>
     </nav>
 
-    <a href="#contatti" class="btn btn-gold nav-cta">
-      <i class="fa-solid fa-utensils"></i> Prenota un Tavolo
+    <a href="#contatti" class="btn btn-red nav-cta">
+      <i class="fa-solid fa-utensils"></i> Prenota
     </a>
 
     <button class="hamburger" id="hamburger" aria-label="Apri il menu di navigazione" aria-expanded="false">
@@ -72,53 +67,13 @@
 
 <!-- ============ HERO ============ -->
 <section id="home" class="hero">
-  <div class="hero-embers" id="emberCanvas"></div>
-  <div class="hero-glow"></div>
-
-  <div class="container hero-content">
-    <p class="eyebrow reveal-up" data-delay="0">Albignasego · Padova</p>
-    <h1 class="hero-title reveal-up" data-delay="1">
-      La Scottoneria
-    </h1>
-    <p class="hero-tagline reveal-up" data-delay="2">Dove la carne è l'anima del piacere</p>
-    <p class="hero-desc reveal-up" data-delay="3">
-      Carni selezionate, cotte alla brace secondo la tradizione, in un ambiente caldo e accogliente.
-      Un viaggio nel gusto tra i migliori sapori della cucina italiana.
-    </p>
-
-    <div class="hero-actions reveal-up" data-delay="4">
-      <a href="#contatti" class="btn btn-gold btn-lg">
-        <i class="fa-solid fa-calendar-check"></i> Prenota Ora
-      </a>
-      <a href="#menu" class="btn btn-outline btn-lg">
-        <i class="fa-solid fa-book-open"></i> Scopri il Menù
-      </a>
+  <div class="hero-photo tilt-card" data-tilt>
+    <div class="hero-photo-inner">
+      <i class="fa-solid fa-fire"></i>
     </div>
-
-    <div class="hero-ratings reveal-up" data-delay="5">
-      <div class="rating-pill">
-        <i class="fa-solid fa-star"></i>
-        <div>
-          <strong>4.9 / 5</strong>
-          <span>Tripadvisor</span>
-        </div>
-      </div>
-      <div class="rating-pill">
-        <i class="fa-solid fa-star"></i>
-        <div>
-          <strong>4.7 / 5</strong>
-          <span>237 recensioni Google</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero-plate" id="heroPlate">
-    <div class="plate-3d">
-      <i class="fa-solid fa-fire plate-icon icon-1"></i>
-      <i class="fa-solid fa-utensils plate-icon icon-2"></i>
-      <i class="fa-solid fa-wine-glass plate-icon icon-3"></i>
-      <div class="plate-ring"></div>
+    <div class="hero-embers" id="emberCanvas"></div>
+    <div class="hero-photo-overlay">
+      <p class="hero-brand-mark">LA SCOTTONERIA</p>
     </div>
   </div>
 
@@ -128,60 +83,95 @@
   </a>
 </section>
 
+<section class="intro">
+  <div class="container intro-content reveal-up">
+    <p class="eyebrow"><i class="fa-solid fa-location-dot"></i> Albignasego · Padova</p>
+    <h1 class="intro-title">
+      Un abbraccio di sapori italiani: <span class="script-accent">La Scottoneria</span>,
+      dove la carne è l'anima del piacere
+    </h1>
+    <p class="lead intro-desc">
+      Carni selezionate, cotte alla brace secondo la tradizione, in un ambiente caldo e accogliente.
+      Un viaggio nel gusto tra i migliori sapori della cucina italiana.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#contatti" class="btn btn-red btn-lg">
+        <i class="fa-solid fa-calendar-check"></i> Prenota Ora
+      </a>
+      <a href="#menu" class="btn btn-outline-dark btn-lg">
+        <i class="fa-solid fa-book-open"></i> Scopri il Menù
+      </a>
+    </div>
+
+    <div class="hero-ratings">
+      <div class="rating-pill">
+        <i class="fa-solid fa-star"></i>
+        <div><strong>4.9 / 5</strong><span>Tripadvisor</span></div>
+      </div>
+      <div class="rating-pill">
+        <i class="fa-solid fa-star"></i>
+        <div><strong>4.7 / 5</strong><span>237 recensioni Google</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CHI SIAMO ============ -->
 <section id="chi-siamo" class="about">
-  <div class="container about-grid">
-    <div class="about-media reveal-left">
-      <div class="tilt-card about-photo" data-tilt>
-        <div class="photo-placeholder">
-          <i class="fa-solid fa-fire"></i>
-          <span>La Brace, Il Nostro Cuore</span>
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal-up">
+        <p class="eyebrow">Chi Siamo</p>
+        <h2 class="script-title">Chi siamo..</h2>
+        <p class="lead">
+          La Scottoneria Ristorante è un'accogliente trattoria che celebra la diversità culinaria delle
+          varie regioni italiane, con un'attenzione particolare alla carne di alta qualità. Situato ad
+          Albignasego, in provincia di Padova, il ristorante si distingue per la sua cucina autentica e
+          creativa, che esplora i sapori tradizionali e offre reinterpretazioni moderne dei piatti classici.
+        </p>
+        <div class="about-badge">
+          <i class="fa-solid fa-award"></i>
+          <div><strong>#5</strong><span>su 52 ristoranti ad Albignasego (Tripadvisor)</span></div>
         </div>
       </div>
-      <div class="about-badge">
-        <i class="fa-solid fa-award"></i>
-        <div>
-          <strong>#5</strong>
-          <span>su 52 ristoranti ad Albignasego</span>
+
+      <div class="about-photos reveal-up">
+        <div class="tilt-card about-photo" data-tilt>
+          <div class="photo-placeholder dark">
+            <i class="fa-solid fa-bowl-food"></i>
+            <span>Tagliolini al Tartufo</span>
+          </div>
+        </div>
+        <div class="tilt-card about-photo" data-tilt>
+          <div class="photo-placeholder dark">
+            <i class="fa-solid fa-cubes"></i>
+            <span>Tartare di Scottona</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="about-text reveal-up">
-      <p class="eyebrow">Chi Siamo</p>
-      <h2 class="section-title">La passione per la carne, <em>dal 1900... alla brace di oggi</em></h2>
-      <p class="lead">
-        La Scottoneria è una trattoria accogliente nel cuore di Albignasego, dove la cucina regionale
-        italiana incontra l'arte della cottura alla brace. Ogni taglio viene selezionato con cura e
-        cotto al punto giusto, per portare in tavola un'esperienza autentica, generosa e senza tempo.
-      </p>
-      <p>
-        Il nostro team lavora ogni giorno con dedizione per offrire piatti semplici ma curati nei
-        minimi dettagli: dalla scelta della materia prima alla presentazione, fino al servizio in sala,
-        pensato per farvi sentire a casa.
-      </p>
-
-      <div class="feature-grid">
-        <div class="feature-item tilt-card" data-tilt>
-          <i class="fa-solid fa-drumstick-bite"></i>
-          <h3>Carni Selezionate</h3>
-          <p>Scottona, manzo e tagli pregiati scelti con cura.</p>
-        </div>
-        <div class="feature-item tilt-card" data-tilt>
-          <i class="fa-solid fa-fire-flame-curved"></i>
-          <h3>Brace Tradizionale</h3>
-          <p>Cotture lente e sapienti, come da tradizione.</p>
-        </div>
-        <div class="feature-item tilt-card" data-tilt>
-          <i class="fa-solid fa-house-chimney"></i>
-          <h3>Ambiente Accogliente</h3>
-          <p>Un'atmosfera calda, ideale per ogni occasione.</p>
-        </div>
-        <div class="feature-item tilt-card" data-tilt>
-          <i class="fa-solid fa-heart"></i>
-          <h3>Cucina Italiana</h3>
-          <p>Ricette regionali con un tocco di autenticità.</p>
-        </div>
+    <div class="feature-grid reveal-up">
+      <div class="feature-item tilt-card" data-tilt>
+        <i class="fa-solid fa-drumstick-bite"></i>
+        <h3>Carni Selezionate</h3>
+        <p>Scottona, Black Angus e tagli pregiati scelti con cura.</p>
+      </div>
+      <div class="feature-item tilt-card" data-tilt>
+        <i class="fa-solid fa-fire-flame-curved"></i>
+        <h3>Brace Tradizionale</h3>
+        <p>Cotture lente e sapienti, come da tradizione.</p>
+      </div>
+      <div class="feature-item tilt-card" data-tilt>
+        <i class="fa-solid fa-house-chimney"></i>
+        <h3>Ambiente Accogliente</h3>
+        <p>Un'atmosfera calda, ideale per ogni occasione.</p>
+      </div>
+      <div class="feature-item tilt-card" data-tilt>
+        <i class="fa-solid fa-heart"></i>
+        <h3>Cucina Italiana</h3>
+        <p>Ricette regionali con un tocco di autenticità.</p>
       </div>
     </div>
   </div>
@@ -190,215 +180,261 @@
 <!-- ============ MENU DIGITALE ============ -->
 <section id="menu" class="menu-section">
   <div class="container">
-    <div class="section-head reveal-up">
-      <p class="eyebrow">Menù Digitale</p>
-      <h2 class="section-title">La Nostra Carta</h2>
-      <p class="lead">Sfoglia le nostre proposte: dagli antipasti alla brace, fino ai dolci della casa.</p>
+    <div class="section-head-split reveal-up">
+      <div>
+        <p class="eyebrow">Menù Digitale</p>
+        <h2 class="script-title">le nostre specialità</h2>
+        <p class="lead">una ricerca e selezione sempre in movimento</p>
+      </div>
+
+      <div class="circle-badge" aria-hidden="true">
+        <div class="circle-photo"><i class="fa-solid fa-utensils"></i></div>
+        <svg class="circle-text-svg" viewBox="0 0 200 200">
+          <defs>
+            <path id="circlePath" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"/>
+          </defs>
+          <text font-size="9.5" letter-spacing="2.2">
+            <textPath href="#circlePath" startOffset="0%">
+              DOVE LA CARNE È L'ANIMA DEL PIACERE &#8226; DOVE LA CARNE È L'ANIMA DEL PIACERE &#8226;
+            </textPath>
+          </text>
+        </svg>
+      </div>
     </div>
 
     <div class="menu-tabs reveal-up" role="tablist" aria-label="Categorie del menù">
-      <button class="tab-btn active" data-tab="antipasti" role="tab" aria-selected="true">
-        <i class="fa-solid fa-seedling"></i> Antipasti
-      </button>
-      <button class="tab-btn" data-tab="primi" role="tab" aria-selected="false">
-        <i class="fa-solid fa-bowl-food"></i> Primi
-      </button>
-      <button class="tab-btn" data-tab="carne" role="tab" aria-selected="false">
-        <i class="fa-solid fa-fire"></i> Carne alla Brace
-      </button>
-      <button class="tab-btn" data-tab="contorni" role="tab" aria-selected="false">
-        <i class="fa-solid fa-carrot"></i> Contorni
-      </button>
-      <button class="tab-btn" data-tab="dolci" role="tab" aria-selected="false">
-        <i class="fa-solid fa-ice-cream"></i> Dolci
-      </button>
-      <button class="tab-btn" data-tab="vini" role="tab" aria-selected="false">
-        <i class="fa-solid fa-wine-glass"></i> Vini &amp; Bevande
-      </button>
+      <button class="tab-btn active" data-tab="antipasti" role="tab" aria-selected="true">Antipasti</button>
+      <button class="tab-btn" data-tab="primi" role="tab" aria-selected="false">Primi</button>
+      <button class="tab-btn" data-tab="secondi" role="tab" aria-selected="false">Secondi</button>
+      <button class="tab-btn" data-tab="contorni" role="tab" aria-selected="false">Contorni</button>
+      <button class="tab-btn" data-tab="sfiziosita" role="tab" aria-selected="false">Bruschettine</button>
+      <button class="tab-btn" data-tab="insalatone" role="tab" aria-selected="false">Insalatone</button>
+      <button class="tab-btn" data-tab="dolci" role="tab" aria-selected="false">Dolci</button>
+      <button class="tab-btn" data-tab="bevande" role="tab" aria-selected="false">Bevande</button>
     </div>
 
     <div class="menu-panels">
 
+      <!-- ANTIPASTI -->
       <div class="menu-panel active" id="panel-antipasti" role="tabpanel">
-        <div class="dish-grid">
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-bacon"></i></div>
-            <div class="dish-info">
-              <h4>Carpaccio di Scottona</h4>
-              <p>Fettine sottili di scottona, rucola, grana e scaglie di parmigiano.</p>
-            </div>
-            <span class="dish-price">€ 12</span>
+        <div class="dish-list">
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Tagliere Veneto <span class="tag">per 2 persone</span></h4><span class="dish-price">€ 18,00</span></div>
+            <p>Affettati misti, mix di formaggi servito con salse <sup>(5,7)</sup></p>
           </div>
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-bread-slice"></i></div>
-            <div class="dish-info">
-              <h4>Bruschette della Casa</h4>
-              <p>Pane tostato con pomodorini, lardo e salumi selezionati.</p>
-            </div>
-            <span class="dish-price">€ 9</span>
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Crocc&#8209;Scott</h4><span class="dish-price">€ 9,00</span></div>
+            <p>Crocchette di patate impanate con Parmigiano D.O.P., pangrattato, scamone affumicato e fior di latte <sup>(1,3,7,9)</sup></p>
           </div>
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-utensils"></i></div>
-            <div class="dish-info">
-              <h4>Antipasto della Scottoneria</h4>
-              <p>Selezione di salumi, formaggi e specialità della casa da condividere.</p>
-            </div>
-            <span class="dish-price">€ 16</span>
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Carpaccio di Scottona</h4><span class="dish-price">€ 12,00</span></div>
+            <p>Carpaccio di scottona su letto di rucola e scaglie di Grana D.O.P., condito con citronette <sup>(7)</sup></p>
           </div>
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-cubes"></i></div>
-            <div class="dish-info">
-              <h4>Tartare di Manzo</h4>
-              <p>Battuta al coltello, condita secondo la ricetta dello chef.</p>
-            </div>
-            <span class="dish-price">€ 14</span>
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Antipasto della Casa <span class="tag">consigliato per 2</span></h4><span class="dish-price">€ 16,00</span></div>
+            <p>Varietà di bruschette, salsiccia e friarielli, polpette di scottona, involtino di parmigiana <sup>(1,3,5,7,8,9)</sup></p>
           </div>
         </div>
       </div>
 
+      <!-- PRIMI -->
       <div class="menu-panel" id="panel-primi" role="tabpanel" hidden>
-        <div class="dish-grid">
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-bowl-food"></i></div>
-            <div class="dish-info">
-              <h4>Tagliatelle al Ragù</h4>
-              <p>Pasta fresca fatta in casa con ragù di manzo cotto a lungo.</p>
-            </div>
-            <span class="dish-price">€ 12</span>
+        <div class="dish-list">
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Tagliatella al Ragù</h4><span class="dish-price">€ 12,00</span></div>
+            <p>Tagliatella di pasta fresca al ragù di scottona <sup>(1,3,7,9)</sup></p>
           </div>
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-wheat-awn"></i></div>
-            <div class="dish-info">
-              <h4>Orecchiette al Cappello del Prete</h4>
-              <p>Pasta fresca con brasato di manzo e pecorino romano.</p>
-            </div>
-            <span class="dish-price">€ 13</span>
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Orecchiette alla Brasciola</h4><span class="dish-price">€ 12,00</span></div>
+            <p>Orecchiette di pasta fresca con brasciola di cappello del prete e pecorino romano D.O.P. <sup>(1,3,7)</sup></p>
           </div>
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-mortar-pestle"></i></div>
-            <div class="dish-info">
-              <h4>Risotto della Tradizione</h4>
-              <p>Riso Carnaroli, brodo di carne e una finitura al parmigiano.</p>
-            </div>
-            <span class="dish-price">€ 13</span>
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Cacio&amp;Pepe</h4><span class="dish-price">€ 12,00</span></div>
+            <p>Spaghettone di pasta fresca con pecorino romano D.O.P. e pepe nero <sup>(1,3,7,10)</sup></p>
+          </div>
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Fave e Cicoria</h4><span class="dish-price">€ 10,00</span></div>
+            <p>Purea di fave con cicoria sbollentata, crostini di pane e cipolla fritta <sup>(1,8,9)</sup></p>
           </div>
         </div>
       </div>
 
-      <div class="menu-panel" id="panel-carne" role="tabpanel" hidden>
-        <div class="dish-grid">
-          <div class="dish-card featured tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
-            <div class="dish-info">
-              <h4>Bombetta <span class="tag">dolce o piccante</span></h4>
-              <p>Involtino di carne farcito, grigliato sulla brace viva.</p>
-            </div>
-            <span class="dish-price">€ 14</span>
+      <!-- SECONDI -->
+      <div class="menu-panel" id="panel-secondi" role="tabpanel" hidden>
+        <p class="dish-subhead"><i class="fa-solid fa-fire"></i> Alla Brace</p>
+        <div class="dish-list">
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Hamburger di Scottona</h4><span class="dish-price">€ 14,00</span></div>
+            <p>Con cipolla caramellata, burrata, glassa al balsamico I.G.P., con verdure grigliate <sup>(7)</sup></p>
           </div>
-          <div class="dish-card featured tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
-            <div class="dish-info">
-              <h4>Picanha alla Brace</h4>
-              <p>Il taglio brasiliano per eccellenza, grigliato al punto giusto.</p>
-            </div>
-            <span class="dish-price">€ 18</span>
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Panino con Hamburger</h4><span class="dish-price">€ 14,00</span></div>
+            <p>Pane, hamburger di scottona, cheddar, pomodoro, insalata, cetrioli e salsa BBQ <sup>(1,7,9,10,12)</sup></p>
           </div>
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
-            <div class="dish-info">
-              <h4>Filetto di Manzo</h4>
-              <p>Cuore di filetto scottato alla brace, morbido e succoso.</p>
-            </div>
-            <span class="dish-price">€ 22</span>
+          <div class="dish-row featured tilt-card" data-tilt>
+            <div class="dish-head"><h4>Entrecôte di Scottona</h4><span class="dish-price">€ 22,00</span></div>
+            <p>Servita con verdure grigliate</p>
           </div>
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
-            <div class="dish-info">
-              <h4>Costata di Manzo</h4>
-              <p>Un classico intramontabile, cotta lentamente sulla griglia.</p>
-            </div>
-            <span class="dish-price">€ 24</span>
+          <div class="dish-row featured tilt-card" data-tilt>
+            <div class="dish-head"><h4>Filetto di Scottona</h4><span class="dish-price">€ 25,00</span></div>
+            <p>Servito con verdure grigliate</p>
           </div>
-          <div class="dish-card featured tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-fire"></i></div>
-            <div class="dish-info">
-              <h4>Fiorentina <span class="tag">al kg</span></h4>
-              <p>La regina delle bistecche, per i veri amanti della carne.</p>
-            </div>
-            <span class="dish-price">€ 55 /kg</span>
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Costata di Scottona</h4><span class="dish-price">€ 4,50 <small>/hg</small></span></div>
+            <p>Servita con patatine fritte</p>
           </div>
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-burger"></i></div>
-            <div class="dish-info">
-              <h4>Hamburger di Scottona</h4>
-              <p>Impasto artigianale, cottura alla brace, guarnizioni a scelta.</p>
-            </div>
-            <span class="dish-price">€ 13</span>
+          <div class="dish-row featured tilt-card" data-tilt>
+            <div class="dish-head"><h4>Fiorentina di Scottona <span class="tag">min. 800 g</span></h4><span class="dish-price">€ 5,50 <small>/hg</small></span></div>
+            <p>Servita con patatine fritte</p>
+          </div>
+          <div class="dish-row featured tilt-card" data-tilt>
+            <div class="dish-head"><h4>Picanha di Scottona</h4><span class="dish-price">€ 22,00</span></div>
+            <p>Servita con patatine fritte</p>
+          </div>
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Babytop</h4><span class="dish-price">€ 22,00</span></div>
+            <p>Tagliata dal basso costato del manzo, servita su un letto di avocado, con semi di papavero, citronella e salsa teriyaki <sup>(1,6,8,12)</sup></p>
+          </div>
+          <div class="dish-row featured tilt-card" data-tilt>
+            <div class="dish-head"><h4>Tagliata di Black Angus Argentino</h4><span class="dish-price">€ 28,00</span></div>
+            <p>250g tagliata, rucola e grana con contorno a scelta <sup>(7)</sup></p>
           </div>
         </div>
-        <p class="menu-note"><i class="fa-solid fa-circle-info"></i> Prezzi indicativi &mdash; il menù completo e aggiornato con eventuali allergeni è disponibile in sala. Scarica la carta in PDF qui sotto.</p>
+
+        <p class="dish-subhead"><i class="fa-solid fa-utensils"></i> Altri Secondi</p>
+        <div class="dish-list">
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Tartare di Filetto di Scottona <span class="tag">180 g</span></h4><span class="dish-price">€ 22,00</span></div>
+            <p>Tartare al naturale servita con crostini di pane, burro, acciughe, capperi, senape e cipolla di Tropea <sup>(1,4,7,10,12)</sup></p>
+          </div>
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Galletto allo Spiedo</h4><span class="dish-price">€ 15,00</span></div>
+            <p>Servito con patatine fritte e salsa tartara <sup>(3,4,9,10,12)</sup></p>
+          </div>
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Cotoletta di Scottona</h4><span class="dish-price">€ 15,00</span></div>
+            <p>Servita con patatine fritte <sup>(1,3)</sup></p>
+          </div>
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Pulled Scott</h4><span class="dish-price">€ 18,00</span></div>
+            <p>Stinco di scottona cotto 12h a temperature basse, con salsa BBQ, purè di patate, senape dolce e miele <sup>(1,3,9,10,12)</sup></p>
+          </div>
+        </div>
       </div>
 
+      <!-- CONTORNI -->
       <div class="menu-panel" id="panel-contorni" role="tabpanel" hidden>
-        <div class="dish-grid">
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-carrot"></i></div>
-            <div class="dish-info"><h4>Patate al Forno</h4><p>Croccanti fuori, morbide dentro.</p></div>
-            <span class="dish-price">€ 5</span>
-          </div>
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-leaf"></i></div>
-            <div class="dish-info"><h4>Verdure Grigliate</h4><p>Verdure di stagione alla brace.</p></div>
-            <span class="dish-price">€ 6</span>
-          </div>
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-leaf"></i></div>
-            <div class="dish-info"><h4>Insalata Mista</h4><p>Insalatina fresca di stagione.</p></div>
-            <span class="dish-price">€ 5</span>
-          </div>
+        <div class="dish-list">
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Verdure Grigliate</h4><span class="dish-price">€ 5,00</span></div><p>Melanzane, zucchine, cipolle, pomodorini piccadilly</p></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Cicoria Saltata</h4><span class="dish-price">€ 5,00</span></div><p>Cicoria saltata in padella al profumo d'aglio</p></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Insalata Mista</h4><span class="dish-price">€ 5,00</span></div><p>Insalata verde, radicchio, carote, pomodori</p></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Patata al Sale</h4><span class="dish-price">€ 5,00</span></div><p>Patate al sale servite con la buccia</p></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Patate Fritte</h4><span class="dish-price">€ 4,00</span></div></div>
         </div>
       </div>
 
+      <!-- BRUSCHETTINE -->
+      <div class="menu-panel" id="panel-sfiziosita" role="tabpanel" hidden>
+        <p class="dish-subhead">Le Sfiziosità &mdash; Bruschettine</p>
+        <div class="dish-list">
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Mediterranea</h4><span class="dish-price">€ 3,50</span></div><p>Con pomodorini <sup>(1)</sup></p></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Galletta</h4><span class="dish-price">€ 3,50</span></div><p>Insalata di galletto e sedano <sup>(1,3,9,12)</sup></p></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Peperoni</h4><span class="dish-price">€ 3,50</span></div><p>Crema di olive taggiasche e peperoni marinati <sup>(1)</sup></p></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Mortazza</h4><span class="dish-price">€ 3,50</span></div><p>Mortadella I.G.P., burrata campana, granella di pistacchi di Bronte <sup>(1,7,8)</sup></p></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Straccetto</h4><span class="dish-price">€ 3,50</span></div><p>Straccetti di scottona e guacamole <sup>(1,3,4,6,7,8)</sup></p></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Girello</h4><span class="dish-price">€ 3,50</span></div><p>Carpaccio di scottona, rucola, Grana D.O.P. <sup>(7)</sup></p></div>
+        </div>
+      </div>
+
+      <!-- INSALATONE -->
+      <div class="menu-panel" id="panel-insalatone" role="tabpanel" hidden>
+        <p class="dish-subhead">Le Fresche &mdash; Insalatone</p>
+        <div class="dish-list">
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Uno</h4><span class="dish-price">€ 11,00</span></div><p>Spinacino crudo, pecorino romano D.O.P. in scaglie e trito di mandorle <sup>(7,8)</sup></p></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Due</h4><span class="dish-price">€ 11,00</span></div><p>Insalata gentile, finocchi, agrumi, mele e noci <sup>(8)</sup></p></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Simone</h4><span class="dish-price">€ 15,00</span></div><p>Spinacino, carote, carpaccio di scottona e grana <sup>(7)</sup></p></div>
+        </div>
+      </div>
+
+      <!-- DOLCI -->
       <div class="menu-panel" id="panel-dolci" role="tabpanel" hidden>
-        <div class="dish-grid">
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-mug-hot"></i></div>
-            <div class="dish-info"><h4>Tiramisù della Casa</h4><p>La ricetta classica, fatta in casa ogni giorno.</p></div>
-            <span class="dish-price">€ 6</span>
-          </div>
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-ice-cream"></i></div>
-            <div class="dish-info"><h4>Panna Cotta</h4><p>Con coulis di frutti di bosco.</p></div>
-            <span class="dish-price">€ 6</span>
+        <div class="dish-list">
+          <div class="dish-row tilt-card" data-tilt>
+            <div class="dish-head"><h4>Dolce del Giorno</h4><span class="dish-price">€ 6,00</span></div>
+            <p>Chiedi al nostro staff le proposte fatte in casa disponibili oggi.</p>
           </div>
         </div>
       </div>
 
-      <div class="menu-panel" id="panel-vini" role="tabpanel" hidden>
-        <div class="dish-grid">
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-wine-glass"></i></div>
-            <div class="dish-info"><h4>Selezione Vini Rossi</h4><p>Etichette del territorio, perfette con la carne alla brace.</p></div>
-            <span class="dish-price">da € 15</span>
-          </div>
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-beer-mug-empty"></i></div>
-            <div class="dish-info"><h4>Birre Artigianali</h4><p>Selezione di birre alla spina e in bottiglia.</p></div>
-            <span class="dish-price">da € 5</span>
-          </div>
-          <div class="dish-card tilt-card" data-tilt>
-            <div class="dish-icon"><i class="fa-solid fa-glass-water"></i></div>
-            <div class="dish-info"><h4>Acqua &amp; Bibite</h4><p>Acqua minerale e bibite analcoliche.</p></div>
-            <span class="dish-price">€ 3</span>
-          </div>
+      <!-- BEVANDE -->
+      <div class="menu-panel" id="panel-bevande" role="tabpanel" hidden>
+        <div class="dish-list two-col">
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Acqua San Benedetto <span class="tag">0,65 l</span></h4><span class="dish-price">€ 3,00</span></div></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Vino Sfuso <span class="tag">1/4 · 1/2 · 1 L</span></h4><span class="dish-price">€ 3,50&ndash;10,00</span></div></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Birra Artigianale <span class="tag">bionda/ambrata</span></h4><span class="dish-price">€ 5,00</span></div></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Bibite &amp; Tè</h4><span class="dish-price">€ 3,00</span></div></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Spritz</h4><span class="dish-price">€ 4,00</span></div></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Drinks <span class="tag">Gin Tonic · Negroni...</span></h4><span class="dish-price">€ 8,00</span></div></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Amaro &amp; Grappe</h4><span class="dish-price">€ 4,00</span></div></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Whisky &amp; Rum</h4><span class="dish-price">€ 6,00&ndash;10,00</span></div></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Caffè Espresso</h4><span class="dish-price">€ 2,00</span></div></div>
+          <div class="dish-row tilt-card" data-tilt><div class="dish-head"><h4>Coperto</h4><span class="dish-price">€ 2,50</span></div></div>
         </div>
       </div>
 
     </div>
 
+    <p class="menu-note"><i class="fa-solid fa-circle-info"></i> Numeri tra parentesi = allergeni presenti (lista completa disponibile in sala e sul PDF). Menù e prezzi possono variare, si consiglia di verificare in loco.</p>
+
     <div class="menu-download reveal-up">
-      <a href="assets/menu-la-scottoneria.pdf" class="btn btn-outline" download>
-        <i class="fa-solid fa-file-pdf"></i> Scarica il Menù Completo in PDF
+      <a href="assets/menu/menu-la-scottoneria.pdf" class="btn btn-outline-dark" target="_blank" rel="noopener">
+        <i class="fa-solid fa-file-pdf"></i> Scarica il Menù in PDF
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARTA DEI VINI ============ -->
+<section id="vini" class="wine-section">
+  <div class="container">
+    <div class="section-head reveal-up">
+      <p class="eyebrow">Carta dei Vini</p>
+      <h2 class="script-title">Un Calice per Ogni Piatto</h2>
+      <p class="lead">Bollicine, bianchi e rossi selezionati per accompagnare la nostra cucina.</p>
+    </div>
+
+    <div class="wine-grid reveal-up">
+      <div class="wine-col">
+        <h3><i class="fa-solid fa-wine-bottle"></i> Bollicine</h3>
+        <div class="wine-row"><div><strong>Prosecco Superiore Valdobbiadene DOCG</strong><span>Colli del Soligo &middot; Veneto &middot; Glera</span></div><span class="wine-price">€ 18 <small>/ € 3,50</small></span></div>
+        <div class="wine-row"><div><strong>Metodo Classico Extra Brut "Fulvio Beo"</strong><span>Cà Rugate &middot; Veneto &middot; Garganega</span></div><span class="wine-price">€ 26 <small>/ € 6</small></span></div>
+        <div class="wine-row"><div><strong>Oltrepò Pavese DOCG Rosé</strong><span>Berte &amp; Cordini &middot; Lombardia &middot; Pinot Nero</span></div><span class="wine-price">€ 30</span></div>
+        <div class="wine-row"><div><strong>Franciacorta DOCG Brut</strong><span>Bosio &middot; Lombardia &middot; Chardonnay/Pinot Nero</span></div><span class="wine-price">€ 35</span></div>
+        <div class="wine-row"><div><strong>Trento DOC Brut Blanc de Blancs</strong><span>Dorigati &middot; Trentino &middot; Chardonnay</span></div><span class="wine-price">€ 38</span></div>
+      </div>
+
+      <div class="wine-col">
+        <h3><i class="fa-solid fa-wine-glass"></i> Bianchi</h3>
+        <div class="wine-row"><div><strong>Soave Classico DOC</strong><span>Cà Rugate &middot; Veneto &middot; Garganega</span></div><span class="wine-price">€ 19 <small>/ € 4</small></span></div>
+        <div class="wine-row"><div><strong>Manzoni Bianco Colli Euganei</strong><span>Monte Fasolo &middot; Veneto</span></div><span class="wine-price">€ 21</span></div>
+        <div class="wine-row"><div><strong>Chardonnay</strong><span>Tenuta Luisa &middot; Friuli Venezia Giulia</span></div><span class="wine-price">€ 26</span></div>
+        <div class="wine-row"><div><strong>Pinot Bianco</strong><span>Von Blumen &middot; Alto Adige</span></div><span class="wine-price">€ 28 <small>/ € 5</small></span></div>
+        <div class="wine-row"><div><strong>Sauvignon</strong><span>Ploner &middot; Alto Adige</span></div><span class="wine-price">€ 32</span></div>
+      </div>
+
+      <div class="wine-col">
+        <h3><i class="fa-solid fa-wine-glass-empty"></i> Rossi</h3>
+        <div class="wine-row"><div><strong>Carmenère Colli Euganei</strong><span>Monte Fasolo &middot; Veneto</span></div><span class="wine-price">€ 18 <small>/ € 3,50</small></span></div>
+        <div class="wine-row"><div><strong>Chianti Classico DOCG</strong><span>Tenuta di Lilliano &middot; Toscana</span></div><span class="wine-price">€ 25</span></div>
+        <div class="wine-row"><div><strong>Valpolicella Superiore Ripasso DOC "Campi Lavei"</strong><span>Cà Rugate &middot; Veneto</span></div><span class="wine-price">€ 32 <small>/ € 5</small></span></div>
+        <div class="wine-row"><div><strong>Montepulciano d'Abruzzo DOC "Centovie"</strong><span>Umani Ronchi &middot; Abruzzo</span></div><span class="wine-price">€ 38</span></div>
+        <div class="wine-row"><div><strong>Amarone della Valpolicella DOCG "Punta 470"</strong><span>Cà Rugate &middot; Veneto</span></div><span class="wine-price">€ 70</span></div>
+      </div>
+    </div>
+
+    <div class="menu-download reveal-up">
+      <a href="assets/menu/carta-vini-la-scottoneria.pdf" class="btn btn-outline-dark" target="_blank" rel="noopener">
+        <i class="fa-solid fa-file-pdf"></i> Scarica la Carta dei Vini Completa
       </a>
     </div>
   </div>
@@ -409,36 +445,36 @@
   <div class="container">
     <div class="section-head reveal-up">
       <p class="eyebrow">Galleria</p>
-      <h2 class="section-title">Un Assaggio con gli Occhi</h2>
-      <p class="lead">Scorci del nostro locale e dei nostri piatti — seguici anche su Instagram e Facebook.</p>
+      <h2 class="script-title">Un Assaggio con gli Occhi</h2>
+      <p class="lead">Scorci del nostro locale e dei nostri piatti &mdash; seguici anche su Instagram e Facebook.</p>
     </div>
 
     <div class="gallery-grid reveal-up">
-      <div class="gallery-item tilt-card big" data-tilt data-caption="Carne alla brace, il nostro segno distintivo">
-        <div class="photo-placeholder"><i class="fa-solid fa-fire"></i><span>Alla Brace</span></div>
+      <div class="gallery-item tilt-card big" data-tilt data-caption="Tagliata alla brace, il nostro segno distintivo">
+        <div class="photo-placeholder dark"><i class="fa-solid fa-fire"></i><span>Alla Brace</span></div>
       </div>
       <div class="gallery-item tilt-card" data-tilt data-caption="La sala, calda e accogliente">
-        <div class="photo-placeholder"><i class="fa-solid fa-house-chimney"></i><span>La Sala</span></div>
+        <div class="photo-placeholder dark"><i class="fa-solid fa-house-chimney"></i><span>La Sala</span></div>
       </div>
       <div class="gallery-item tilt-card" data-tilt data-caption="Taglio pregiato di scottona">
-        <div class="photo-placeholder"><i class="fa-solid fa-drumstick-bite"></i><span>Le Carni</span></div>
+        <div class="photo-placeholder dark"><i class="fa-solid fa-drumstick-bite"></i><span>Le Carni</span></div>
       </div>
       <div class="gallery-item tilt-card" data-tilt data-caption="Antipasti della casa">
-        <div class="photo-placeholder"><i class="fa-solid fa-bacon"></i><span>Antipasti</span></div>
+        <div class="photo-placeholder dark"><i class="fa-solid fa-bacon"></i><span>Antipasti</span></div>
       </div>
       <div class="gallery-item tilt-card" data-tilt data-caption="Un calice per accompagnare il pasto">
-        <div class="photo-placeholder"><i class="fa-solid fa-wine-glass"></i><span>I Vini</span></div>
+        <div class="photo-placeholder dark"><i class="fa-solid fa-wine-glass"></i><span>I Vini</span></div>
       </div>
       <div class="gallery-item tilt-card big" data-tilt data-caption="Il momento del servizio in tavola">
-        <div class="photo-placeholder"><i class="fa-solid fa-utensils"></i><span>In Tavola</span></div>
+        <div class="photo-placeholder dark"><i class="fa-solid fa-utensils"></i><span>In Tavola</span></div>
       </div>
     </div>
 
     <div class="social-cta reveal-up">
-      <a href="https://www.instagram.com/la_scottoneria_ristorante/" target="_blank" rel="noopener" class="btn btn-outline">
+      <a href="https://www.instagram.com/la_scottoneria_ristorante/" target="_blank" rel="noopener" class="btn btn-outline-dark">
         <i class="fa-brands fa-instagram"></i> Seguici su Instagram
       </a>
-      <a href="https://www.facebook.com/RistoranteLaScottoneria/" target="_blank" rel="noopener" class="btn btn-outline">
+      <a href="https://www.facebook.com/RistoranteLaScottoneria/" target="_blank" rel="noopener" class="btn btn-outline-dark">
         <i class="fa-brands fa-facebook"></i> Seguici su Facebook
       </a>
     </div>
@@ -450,16 +486,10 @@
   <div class="container">
     <div class="section-head reveal-up">
       <p class="eyebrow">Recensioni</p>
-      <h2 class="section-title">Cosa Dicono di Noi</h2>
+      <h2 class="script-title">Cosa Dicono di Noi</h2>
       <div class="review-scores">
-        <div class="score-badge">
-          <i class="fa-brands fa-tripadvisor"></i>
-          <div><strong>4.9/5</strong><span>Tripadvisor</span></div>
-        </div>
-        <div class="score-badge">
-          <i class="fa-brands fa-google"></i>
-          <div><strong>4.7/5</strong><span>237 recensioni</span></div>
-        </div>
+        <div class="score-badge"><i class="fa-brands fa-tripadvisor"></i><div><strong>4.9/5</strong><span>Tripadvisor</span></div></div>
+        <div class="score-badge"><i class="fa-brands fa-google"></i><div><strong>4.7/5</strong><span>237 recensioni</span></div></div>
       </div>
     </div>
 
@@ -469,40 +499,25 @@
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
           <i class="fa-solid fa-quote-left quote-icon"></i>
           <p>"Carne eccellente, servizio ottimo e prezzi onesti. Location comodissima e porzioni abbondanti: un must della zona."</p>
-          <div class="review-author">
-            <span class="avatar"><i class="fa-solid fa-user"></i></span>
-            <div><strong>Cliente Tripadvisor</strong><span>Recensione verificata</span></div>
-          </div>
+          <div class="review-author"><span class="avatar"><i class="fa-solid fa-user"></i></span><div><strong>Cliente Tripadvisor</strong><span>Recensione verificata</span></div></div>
         </article>
-
         <article class="review-card tilt-card" data-tilt>
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
           <i class="fa-solid fa-quote-left quote-icon"></i>
           <p>"Ambiente piacevole, tartare e bistecche di grande qualità. Staff professionale, gentile e sempre disponibile."</p>
-          <div class="review-author">
-            <span class="avatar"><i class="fa-solid fa-user"></i></span>
-            <div><strong>Cliente Google</strong><span>Recensione verificata</span></div>
-          </div>
+          <div class="review-author"><span class="avatar"><i class="fa-solid fa-user"></i></span><div><strong>Cliente Google</strong><span>Recensione verificata</span></div></div>
         </article>
-
         <article class="review-card tilt-card" data-tilt>
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
           <i class="fa-solid fa-quote-left quote-icon"></i>
           <p>"Piatti semplici ma curati, cottura perfetta e tempi di attesa giusti. Presentazione impeccabile: torneremo di sicuro."</p>
-          <div class="review-author">
-            <span class="avatar"><i class="fa-solid fa-user"></i></span>
-            <div><strong>Cliente Tripadvisor</strong><span>Recensione verificata</span></div>
-          </div>
+          <div class="review-author"><span class="avatar"><i class="fa-solid fa-user"></i></span><div><strong>Cliente Tripadvisor</strong><span>Recensione verificata</span></div></div>
         </article>
-
         <article class="review-card tilt-card" data-tilt>
           <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
           <i class="fa-solid fa-quote-left quote-icon"></i>
-          <p>"La meta ideale per gli amanti della carne. Bombetta e picanha da provare assolutamente!"</p>
-          <div class="review-author">
-            <span class="avatar"><i class="fa-solid fa-user"></i></span>
-            <div><strong>Cliente Google</strong><span>Recensione verificata</span></div>
-          </div>
+          <p>"La meta ideale per gli amanti della carne. Picanha e fiorentina da provare assolutamente!"</p>
+          <div class="review-author"><span class="avatar"><i class="fa-solid fa-user"></i></span><div><strong>Cliente Google</strong><span>Recensione verificata</span></div></div>
         </article>
       </div>
 
@@ -521,45 +536,18 @@
 
     <div class="contact-info reveal-left">
       <p class="eyebrow">Prenotazioni &amp; Contatti</p>
-      <h2 class="section-title">Ti Aspettiamo alla Nostra Tavola</h2>
+      <h2 class="script-title">Ti Aspettiamo alla Nostra Tavola</h2>
       <p class="lead">Chiamaci o scrivici per prenotare il tuo tavolo: ti risponderemo il prima possibile.</p>
 
       <ul class="contact-list">
-        <li>
-          <i class="fa-solid fa-location-dot"></i>
-          <div>
-            <strong>Indirizzo</strong>
-            <span>Via Battaglia, 145 &mdash; 35020 Albignasego (PD)</span>
-          </div>
-        </li>
-        <li>
-          <i class="fa-solid fa-phone"></i>
-          <div>
-            <strong>Telefono</strong>
-            <span><a href="tel:+390495735845">049 573 5845</a></span>
-          </div>
-        </li>
-        <li>
-          <i class="fa-solid fa-envelope"></i>
-          <div>
-            <strong>Email</strong>
-            <span><a href="mailto:info@lascottoneria.it">info@lascottoneria.it</a></span>
-          </div>
-        </li>
-        <li>
-          <i class="fa-solid fa-clock"></i>
-          <div>
-            <strong>Orari</strong>
-            <span>Pranzo 12:00&ndash;14:30 &middot; Cena 19:00&ndash;00:00</span>
-            <span class="muted">Chiuso domenica sera e martedì</span>
-          </div>
-        </li>
+        <li><i class="fa-solid fa-location-dot"></i><div><strong>Indirizzo</strong><span>Via Strada Battaglia, 145 &mdash; 35020 Albignasego (PD)</span></div></li>
+        <li><i class="fa-solid fa-phone"></i><div><strong>Telefono</strong><span><a href="tel:+390495735845">049 573 5845</a></span></div></li>
+        <li><i class="fa-solid fa-envelope"></i><div><strong>Email</strong><span><a href="mailto:info@lascottoneria.it">info@lascottoneria.it</a></span></div></li>
+        <li><i class="fa-solid fa-clock"></i><div><strong>Orari</strong><span>Pranzo 12:00&ndash;14:30 &middot; Cena 19:00&ndash;00:00</span><span class="muted">Chiuso domenica sera e martedì</span></div></li>
       </ul>
 
       <div class="contact-actions">
-        <a href="tel:+390495735845" class="btn btn-gold">
-          <i class="fa-solid fa-phone"></i> Chiama Ora
-        </a>
+        <a href="tel:+390495735845" class="btn btn-red"><i class="fa-solid fa-phone"></i> Chiama Ora</a>
         <div class="social-icons">
           <a href="https://www.instagram.com/la_scottoneria_ristorante/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://www.facebook.com/RistoranteLaScottoneria/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
@@ -581,29 +569,14 @@
         <h3><i class="fa-solid fa-calendar-check"></i> Richiedi una Prenotazione</h3>
 
         <div class="form-row">
-          <div class="form-field">
-            <label for="name">Nome e Cognome</label>
-            <input type="text" id="name" name="name" required placeholder="Il tuo nome">
-          </div>
-          <div class="form-field">
-            <label for="phone">Telefono</label>
-            <input type="tel" id="phone" name="phone" required placeholder="Il tuo numero">
-          </div>
+          <div class="form-field"><label for="name">Nome e Cognome</label><input type="text" id="name" name="name" required placeholder="Il tuo nome"></div>
+          <div class="form-field"><label for="phone">Telefono</label><input type="tel" id="phone" name="phone" required placeholder="Il tuo numero"></div>
         </div>
 
         <div class="form-row">
-          <div class="form-field">
-            <label for="date">Data</label>
-            <input type="date" id="date" name="date" required>
-          </div>
-          <div class="form-field">
-            <label for="time">Ora</label>
-            <input type="time" id="time" name="time" required>
-          </div>
-          <div class="form-field">
-            <label for="guests">Persone</label>
-            <input type="number" id="guests" name="guests" min="1" max="30" value="2" required>
-          </div>
+          <div class="form-field"><label for="date">Data</label><input type="date" id="date" name="date" required></div>
+          <div class="form-field"><label for="time">Ora</label><input type="time" id="time" name="time" required></div>
+          <div class="form-field"><label for="guests">Persone</label><input type="number" id="guests" name="guests" min="1" max="30" value="2" required></div>
         </div>
 
         <div class="form-field">
@@ -611,7 +584,7 @@
           <textarea id="message" name="message" rows="3" placeholder="Allergie, occasioni speciali, seggioloni..."></textarea>
         </div>
 
-        <button type="submit" class="btn btn-gold btn-lg btn-block">
+        <button type="submit" class="btn btn-red btn-lg btn-block">
           <i class="fa-solid fa-paper-plane"></i> Invia Richiesta
         </button>
         <p class="form-note">Riceverai una conferma via email/telefono. Per richieste urgenti chiamaci direttamente.</p>
@@ -628,9 +601,9 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <a href="#home" class="logo">
-        <i class="fa-solid fa-fire"></i>
-        <span>La Scottoneria</span>
+      <a href="#home" class="logo logo-light">
+        <span class="logo-word">LA<i class="logo-dot"></i>SCOTT<i class="logo-dot"></i>ONERIA</span>
+        <span class="logo-rule"></span>
       </a>
       <p>Dove la carne è l'anima del piacere. Ristorante specializzato in carne alla brace ad Albignasego, Padova.</p>
       <div class="social-icons">
@@ -645,6 +618,7 @@
       <ul>
         <li><a href="#chi-siamo">Chi Siamo</a></li>
         <li><a href="#menu">Menù</a></li>
+        <li><a href="#vini">Vini</a></li>
         <li><a href="#galleria">Galleria</a></li>
         <li><a href="#recensioni">Recensioni</a></li>
         <li><a href="#contatti">Contatti</a></li>
@@ -654,7 +628,7 @@
     <div class="footer-col">
       <h4>Contatti</h4>
       <ul>
-        <li><i class="fa-solid fa-location-dot"></i> Via Battaglia, 145, Albignasego (PD)</li>
+        <li><i class="fa-solid fa-location-dot"></i> Via Strada Battaglia, 145, Albignasego (PD)</li>
         <li><i class="fa-solid fa-phone"></i> <a href="tel:+390495735845">049 573 5845</a></li>
         <li><i class="fa-solid fa-envelope"></i> <a href="mailto:info@lascottoneria.it">info@lascottoneria.it</a></li>
       </ul>
@@ -677,42 +651,28 @@
   </div>
 </footer>
 
-<button id="backToTop" class="back-to-top" aria-label="Torna in alto">
-  <i class="fa-solid fa-chevron-up"></i>
-</button>
-
-<a href="tel:+390495735845" class="mobile-fab" aria-label="Chiama il ristorante">
-  <i class="fa-solid fa-phone"></i>
-</a>
+<button id="backToTop" class="back-to-top" aria-label="Torna in alto"><i class="fa-solid fa-chevron-up"></i></button>
+<a href="tel:+390495735845" class="mobile-fab" aria-label="Chiama il ristorante"><i class="fa-solid fa-phone"></i></a>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Restaurant",
   "name": "La Scottoneria",
-  "image": "assets/img/og-cover.jpg",
   "servesCuisine": ["Italiana", "Grigliata", "Steakhouse"],
   "priceRange": "€€",
   "telephone": "+39 049 573 5845",
   "email": "info@lascottoneria.it",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Via Battaglia, 145",
+    "streetAddress": "Via Strada Battaglia, 145",
     "addressLocality": "Albignasego",
     "addressRegion": "PD",
     "postalCode": "35020",
     "addressCountry": "IT"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 45.3647737,
-    "longitude": 11.8422864
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "reviewCount": "237"
-  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 45.3647737, "longitude": 11.8422864 },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "237" },
   "sameAs": [
     "https://www.instagram.com/la_scottoneria_ristorante/",
     "https://www.facebook.com/RistoranteLaScottoneria/",
