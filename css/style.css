@@ -289,19 +289,18 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
 .tab-panel{ display:none; }
 .tab-panel.active{ display:block; animation: fadeIn .5s ease; }
 @keyframes fadeIn{ from{ opacity:0; transform: translateY(10px);} to{ opacity:1; transform:translateY(0);} }
-.svc-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.svc-card{ background:#fff; border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); }
-.svc-card .ic{ width:1.9rem; height:1.9rem; color: var(--copper); margin-bottom:12px; }
-.svc-card h3{ font-size:1.05rem; margin-bottom:6px; }
-.svc-card p{ font-size:.88rem; margin:0; }
 .svc-note{ text-align:center; margin-top: 34px; color: var(--muted); }
 .svc-note a{ color: var(--copper-dark); font-weight:600; text-decoration: underline; }
 
-.svc-card-priced{ padding-top:24px; }
-.svc-card-head{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
-.svc-card-head .ic{ margin-bottom:0; }
-.svc-card-head h3{ margin:0; flex:1 1 auto; }
-.svc-price{ font-family: var(--ff-serif); font-weight:700; color: var(--copper-dark); font-size:1.05rem; white-space:nowrap; }
+/* ---------- price list (listino prezzi) ---------- */
+.price-list{ display:grid; grid-template-columns: 1fr 1fr; gap: 6px 48px; column-fill: balance; }
+.price-row{ padding: 14px 0; border-bottom: 1px solid var(--line); transition: background var(--speed) ease, padding-left var(--speed) ease; }
+.price-row:hover{ padding-left: 8px; background: rgba(184,118,63,.05); }
+.price-row-top{ display:flex; align-items:baseline; gap:10px; }
+.price-row-top h3{ margin:0; font-size:1rem; white-space:nowrap; color: var(--ink); }
+.price-row .dots{ flex:1 1 auto; border-bottom: 1px dotted rgba(27,21,18,.28); transform: translateY(-5px); min-width: 20px; }
+.price-row-price{ font-family: var(--ff-serif); font-weight:700; color: var(--copper-dark); font-size:1rem; white-space:nowrap; }
+.price-row p{ margin: 4px 0 0; font-size:.84rem; color: var(--muted); }
 
 /* ---------- fidelity ---------- */
 .fidelity{ background: var(--cream); }
@@ -453,7 +452,6 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
 @media (max-width: 980px){
   .split, .contact-grid{ grid-template-columns: 1fr; }
   .split-rev{ direction: ltr; }
-  .svc-grid{ grid-template-columns: repeat(2, 1fr); }
   .gallery-grid{ grid-template-columns: repeat(3, 1fr); }
   .blog-grid{ grid-template-columns: repeat(2, 1fr); }
   .footer-grid{ grid-template-columns: 1fr 1fr; }
@@ -466,7 +464,7 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
   .nav-cta{ display:none; }
   .hamburger{ display:flex; }
   .feature-grid{ grid-template-columns: 1fr; }
-  .svc-grid{ grid-template-columns: 1fr; }
+  .price-list{ grid-template-columns: 1fr; }
   .promo-grid{ grid-template-columns: 1fr; }
   .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
   .blog-grid{ grid-template-columns: 1fr; }
