@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         speed: Math.random() * 0.6 + 0.25,
         drift: (Math.random() - 0.5) * 0.6,
         alpha: Math.random() * 0.5 + 0.3,
-        hue: Math.random() > 0.5 ? '212,175,55' : '255,107,53'
+        hue: Math.random() > 0.5 ? '179,20,31' : '255,59,63'
       };
     }
     function init() {
