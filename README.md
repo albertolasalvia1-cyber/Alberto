@@ -56,6 +56,19 @@ sfondo scuro elegante: il sito non risulta mai "rotto".
 - Icone SVG integrate: nessuna libreria esterna, caricamento immediato anche offline.
 - Responsive da mobile a desktop e supporto `prefers-reduced-motion`.
 
+## Versione in un unico file (hosting drag-and-drop)
+
+Per pubblicare il sito trascinando un solo file (es. Netlify Drop):
+
+```bash
+python3 build-singlefile.py
+```
+
+Genera `dist/index.html` con CSS, JavaScript, foto e PDF incorporati: non dipende da
+nessun'altra cartella. È la versione da usare se il pannello dell'hosting accetta un
+singolo file; per un deploy normale (GitHub, FTP, Netlify da repo) usa la versione in
+cartella, che è più leggera da caricare.
+
 ## Anteprima locale
 
 ```bash
