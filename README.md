@@ -17,22 +17,22 @@ assets/menu/menu-la-scottoneria.pdf          menù ufficiale scaricabile dal sit
 assets/menu/carta-vini-la-scottoneria.pdf    carta dei vini ufficiale scaricabile dal sito
 ```
 
-## Come inserire le foto vere (l'unica cosa che manca)
+## Foto
 
-Il sito è **già collegato** ai file qui sotto: basta salvare le immagini in `assets/img/`
-con esattamente questi nomi e compaiono da sole al posto degli sfondi stilizzati.
-Non serve toccare il codice.
+Le foto attualmente nel sito (`assets/img/`) sono state estratte dalle immagini del sito
+ufficiale lascottoneria.it. Sono a risoluzione da schermo: per la pubblicazione definitiva
+conviene sostituirle con i file originali ad alta risoluzione, mantenendo gli stessi nomi —
+il sito le riprende in automatico, senza toccare il codice.
 
-| File da salvare in `assets/img/` | Dove appare |
+| File in `assets/img/` | Dove appare |
 | --- | --- |
-| `hero.jpg` | sfondo grande della prima schermata (consigliata: tagliata o fiorentina su ardesia) |
-| `chi-siamo-1.jpg` | sezione "Chi siamo" – piatto di pasta fresca |
-| `chi-siamo-2.jpg` | sezione "Chi siamo" – tartare |
+| `hero.jpg` | sfondo della prima schermata |
+| `chi-siamo-1.jpg` / `chi-siamo-2.jpg` | sezione "Chi siamo" |
 | `specialita.jpg` | tondo animato accanto a "le nostre specialità" |
 | `galleria-1.jpg` … `galleria-6.jpg` | griglia della galleria |
 
-Formato consigliato: JPG, lato lungo ~1600 px, foto scure/con fondo nero rendono meglio.
-Finché i file non ci sono, il sito mostra sfondi eleganti e non risulta mai "rotto".
+Formato consigliato: JPG, lato lungo ~1600 px. Se un file manca, al suo posto compare uno
+sfondo scuro elegante: il sito non risulta mai "rotto".
 
 ## Dati usati (fonti reali)
 

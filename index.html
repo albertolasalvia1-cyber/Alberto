@@ -19,7 +19,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -27,6 +27,20 @@
 
 <!-- ============ SVG ICON SPRITE (nessuna dipendenza esterna) ============ -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><defs>
+  <symbol id="logo-mark" viewBox="0 0 600 100">
+    <text font-family="Jost, Poppins, 'Century Gothic', sans-serif" font-size="62" font-weight="500" fill="currentColor" text-anchor="middle" lengthAdjust="spacingAndGlyphs">
+      <tspan x="32"  y="68" textLength="32">L</tspan><tspan x="75"  y="68" textLength="42">A</tspan><tspan x="122" y="68" textLength="40">S</tspan><tspan x="170" y="68" textLength="44">C</tspan><tspan x="221" y="68" textLength="46">O</tspan><tspan x="269" y="68" textLength="38">T</tspan><tspan x="313" y="68" textLength="38">T</tspan><tspan x="361" y="68" textLength="46">O</tspan><tspan x="412" y="68" textLength="44">N</tspan><tspan x="457" y="68" textLength="34">E</tspan><tspan x="500" y="68" textLength="40">R</tspan><tspan x="530" y="68" textLength="8">I</tspan><tspan x="561" y="68" textLength="42">A</tspan>
+    </text>
+    <rect x="265" y="6" width="8" height="8" fill="currentColor"/>
+    <rect x="309" y="6" width="8" height="8" fill="currentColor"/>
+    <rect x="448" y="6" width="8" height="8" fill="#cc1f2d"/>
+    <rect x="461" y="6" width="8" height="8" fill="#cc1f2d"/>
+    <rect x="216" y="41" width="9" height="9" fill="#cc1f2d"/>
+    <rect x="356" y="41" width="9" height="9" fill="#cc1f2d"/>
+    <rect x="62"  y="57" width="8" height="8" fill="#cc1f2d"/>
+    <rect x="567" y="57" width="8" height="8" fill="#cc1f2d"/>
+    <rect x="16"  y="86" width="566" height="3" fill="#cc1f2d"/>
+  </symbol>
   <symbol id="ic-flame" viewBox="0 0 24 24"><path d="M12 2s6 5.4 6 9.8a6 6 0 0 1-12 0C6 7.4 12 2 12 2z"/><path d="M12 15.5a2.4 2.4 0 0 0 2.4-2.4c0-1.8-2.4-3.8-2.4-3.8s-2.4 2-2.4 3.8A2.4 2.4 0 0 0 12 15.5z"/></symbol>
   <symbol id="ic-utensils" viewBox="0 0 24 24"><path d="M6 3v5.5a2.5 2.5 0 0 0 5 0V3M8.5 11v10"/><path d="M17.5 21V3c1.8 1.7 2.5 4.2 2.5 6.6s-.8 3.9-2.5 3.9"/></symbol>
   <symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 2.4l2.9 6 6.6.9-4.8 4.6 1.2 6.6L12 17.4 6.1 20.5l1.2-6.6L2.5 9.3l6.6-.9z"/></symbol>
@@ -67,7 +81,7 @@
 
 <div id="preloader" aria-hidden="true">
   <div class="preloader-inner">
-    <span class="pl-logo">LA<i class="logo-dot"></i>SCOTT<i class="logo-dot"></i>ONERIA</span>
+    <svg class="logo-svg pl-logo" viewBox="0 0 600 100" role="img" aria-label="La Scottoneria"><use href="#logo-mark"/></svg>
     <span class="pl-line"></span>
   </div>
 </div>
@@ -77,9 +91,8 @@
 <!-- ============ HEADER / NAV ============ -->
 <header class="site-header" id="siteHeader">
   <div class="container nav-wrap">
-    <a href="#home" class="logo">
-      <span class="logo-word">LA<i class="logo-dot"></i>SCOTT<i class="logo-dot"></i>ONERIA</span>
-      <span class="logo-rule"></span>
+    <a href="#home" class="logo" aria-label="La Scottoneria — home">
+      <svg class="logo-svg" viewBox="0 0 600 100" role="img" aria-label="La Scottoneria"><use href="#logo-mark"/></svg>
     </a>
 
     <nav class="main-nav" id="mainNav">
@@ -452,7 +465,7 @@
     </p>
 
     <div class="menu-download reveal-up">
-      <a href="assets/menu/menu-la-scottoneria.pdf" class="btn btn-dark" target="_blank" rel="noopener">
+      <a href="assets/menu/menu-la-scottoneria.pdf" class="btn btn-dark">
         <svg class="ic" aria-hidden="true"><use href="#ic-file"/></svg> Scarica il Menù in PDF
       </a>
     </div>
@@ -476,6 +489,7 @@
         <div class="wine-row"><div><strong>Prosecco Superiore Valdobbiadene DOCG</strong><span>Colli del Soligo &middot; Veneto &middot; Glera</span></div><span class="wine-price">€ 18 <small>/ € 3,50</small></span></div>
         <div class="wine-row"><div><strong>Metodo Classico Extra Brut "Fulvio Beo"</strong><span>Cà Rugate &middot; Veneto &middot; Garganega</span></div><span class="wine-price">€ 26 <small>/ € 6</small></span></div>
         <div class="wine-row"><div><strong>Oltrepò Pavese DOCG Rosé</strong><span>Berte &amp; Cordini &middot; Lombardia &middot; Pinot Nero</span></div><span class="wine-price">€ 30</span></div>
+        <div class="wine-row"><div><strong>Metodo Classico Brut "Sansanne'e"</strong><span>Marcalberto &middot; Piemonte &middot; Pinot Nero/Chardonnay</span></div><span class="wine-price">€ 32</span></div>
         <div class="wine-row"><div><strong>Franciacorta DOCG Brut</strong><span>Bosio &middot; Lombardia &middot; Chardonnay/Pinot Nero</span></div><span class="wine-price">€ 35</span></div>
         <div class="wine-row"><div><strong>Trento DOC Brut Blanc de Blancs</strong><span>Dorigati &middot; Trentino &middot; Chardonnay</span></div><span class="wine-price">€ 38</span></div>
       </div>
@@ -492,15 +506,20 @@
       <div class="wine-col">
         <h3><svg class="ic" aria-hidden="true"><use href="#ic-wine"/></svg> Rossi</h3>
         <div class="wine-row"><div><strong>Carmenère Colli Euganei</strong><span>Monte Fasolo &middot; Veneto</span></div><span class="wine-price">€ 18 <small>/ € 3,50</small></span></div>
+        <div class="wine-row"><div><strong>Rosso Colli Euganei DOC</strong><span>Monte Fasolo &middot; Veneto &middot; Merlot/Cabernet</span></div><span class="wine-price">€ 22</span></div>
+        <div class="wine-row"><div><strong>Nebbiolo "Regret"</strong><span>Monchiero Carbone &middot; Piemonte</span></div><span class="wine-price">€ 25</span></div>
         <div class="wine-row"><div><strong>Chianti Classico DOCG</strong><span>Tenuta di Lilliano &middot; Toscana</span></div><span class="wine-price">€ 25</span></div>
+        <div class="wine-row"><div><strong>Valpolicella Superiore DOC "Campi Lavei"</strong><span>Cà Rugate &middot; Veneto</span></div><span class="wine-price">€ 32 <small>/ € 5</small></span></div>
         <div class="wine-row"><div><strong>Valpolicella Sup. Ripasso "Campi Lavei"</strong><span>Cà Rugate &middot; Veneto</span></div><span class="wine-price">€ 32 <small>/ € 5</small></span></div>
+        <div class="wine-row"><div><strong>Barbera d'Asti Superiore "Genio"</strong><span>Gianni Doglia &middot; Piemonte</span></div><span class="wine-price">€ 34</span></div>
         <div class="wine-row"><div><strong>Montepulciano d'Abruzzo "Centovie"</strong><span>Umani Ronchi &middot; Abruzzo</span></div><span class="wine-price">€ 38</span></div>
+        <div class="wine-row"><div><strong>La Madonnina Toscana IGP</strong><span>La Madonnina &middot; Toscana &middot; blend bordolese</span></div><span class="wine-price">€ 43</span></div>
         <div class="wine-row"><div><strong>Amarone della Valpolicella DOCG "Punta 470"</strong><span>Cà Rugate &middot; Veneto</span></div><span class="wine-price">€ 70</span></div>
       </div>
     </div>
 
     <div class="menu-download reveal-up">
-      <a href="assets/menu/carta-vini-la-scottoneria.pdf" class="btn btn-red" target="_blank" rel="noopener">
+      <a href="assets/menu/carta-vini-la-scottoneria.pdf" class="btn btn-red">
         <svg class="ic" aria-hidden="true"><use href="#ic-file"/></svg> Carta dei Vini Completa
       </a>
     </div>
@@ -523,19 +542,19 @@
         <figcaption><svg class="ic" aria-hidden="true"><use href="#ic-flame"/></svg><span>La brace, il nostro segno distintivo</span></figcaption>
       </figure>
       <figure class="gallery-item tilt-card ph ph-gal-2" data-tilt>
-        <figcaption><svg class="ic" aria-hidden="true"><use href="#ic-home"/></svg><span>La sala</span></figcaption>
+        <figcaption><svg class="ic" aria-hidden="true"><use href="#ic-utensils"/></svg><span>Il taglio perfetto</span></figcaption>
       </figure>
       <figure class="gallery-item tilt-card ph ph-gal-3" data-tilt>
-        <figcaption><svg class="ic" aria-hidden="true"><use href="#ic-steak"/></svg><span>I tagli di scottona</span></figcaption>
+        <figcaption><svg class="ic" aria-hidden="true"><use href="#ic-flame"/></svg><span>Fiorentina di scottona</span></figcaption>
       </figure>
       <figure class="gallery-item tilt-card ph ph-gal-4" data-tilt>
-        <figcaption><svg class="ic" aria-hidden="true"><use href="#ic-bread"/></svg><span>Le bruschettine</span></figcaption>
+        <figcaption><svg class="ic" aria-hidden="true"><use href="#ic-bread"/></svg><span>Le sfiziosità</span></figcaption>
       </figure>
       <figure class="gallery-item tilt-card ph ph-gal-5" data-tilt>
         <figcaption><svg class="ic" aria-hidden="true"><use href="#ic-wine"/></svg><span>La cantina</span></figcaption>
       </figure>
       <figure class="gallery-item tilt-card big ph ph-gal-6" data-tilt>
-        <figcaption><svg class="ic" aria-hidden="true"><use href="#ic-utensils"/></svg><span>In tavola</span></figcaption>
+        <figcaption><svg class="ic" aria-hidden="true"><use href="#ic-bowl"/></svg><span>Orecchiette alla brasciola</span></figcaption>
       </figure>
     </div>
 
@@ -717,9 +736,8 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <a href="#home" class="logo logo-light">
-        <span class="logo-word">LA<i class="logo-dot"></i>SCOTT<i class="logo-dot"></i>ONERIA</span>
-        <span class="logo-rule"></span>
+      <a href="#home" class="logo logo-light" aria-label="La Scottoneria — home">
+        <svg class="logo-svg" viewBox="0 0 600 100" role="img" aria-label="La Scottoneria"><use href="#logo-mark"/></svg>
       </a>
       <p>Dove la carne è l'anima del piacere. Ristorante specializzato in carne alla brace ad Albignasego, Padova.</p>
       <div class="social-icons">
