@@ -278,6 +278,22 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
 .feature p{ font-size:.9rem; margin:0; }
 .mini-map{ display:flex; align-items:center; gap:10px; color: var(--copper-dark); font-size:.9rem; font-weight:500; }
 
+/* ---------- quote strip ---------- */
+.quote-strip{
+  max-width: 720px; margin: 0 auto; padding: 56px 24px; text-align:center;
+  background: var(--cream);
+}
+.quote-ic{ width:1.6rem; height:1.6rem; color: var(--copper); margin-bottom:10px; }
+.quote-text{ font-family: var(--ff-serif); font-style:italic; font-size: clamp(1.3rem, 3vw, 1.7rem); color: var(--ink); margin:0 0 .4em; }
+.quote-author{ font-size:.85rem; color: var(--muted); letter-spacing:.03em; }
+
+/* ---------- script brand accent ---------- */
+.script-tag{
+  display:inline-block; font-family: "Playfair Display", Georgia, serif; font-style:italic; font-weight:500;
+  font-size: 1.7rem; color: var(--copper-2); margin-bottom: 10px;
+}
+.script-tag-center{ display:block; text-align:center; }
+
 /* ---------- marquee ---------- */
 .marquee{ background: var(--ink); color: var(--copper-2); overflow:hidden; padding: 18px 0; border-top: 1px solid rgba(215,154,92,.2); border-bottom: 1px solid rgba(215,154,92,.2); }
 .marquee-track{ display:flex; gap: 18px; white-space:nowrap; width:max-content; animation: marquee 26s linear infinite; font-family: var(--ff-serif); font-size:1.3rem; }
@@ -305,12 +321,24 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
 .svc-note{ text-align:center; margin-top: 34px; color: var(--muted); }
 .svc-note a{ color: var(--copper-dark); font-weight:600; text-decoration: underline; }
 
+.svc-card-priced{ padding-top:24px; }
+.svc-card-head{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:8px; }
+.svc-card-head .ic{ margin-bottom:0; }
+.svc-card-head h3{ margin:0; flex:1 1 auto; }
+.svc-price{ font-family: var(--ff-serif); font-weight:700; color: var(--copper-dark); font-size:1.05rem; white-space:nowrap; }
+
 /* ---------- fidelity ---------- */
 .fidelity{ background: var(--cream); }
 .fidelity-list{ display:flex; flex-direction:column; gap: 14px; margin: 22px 0 28px; }
 .fidelity-list li{ display:flex; align-items:flex-start; gap:12px; font-size:.96rem; color: var(--ink-soft); }
 .fidelity-list .ic{ color: var(--copper); flex-shrink:0; margin-top:2px; }
 .fine-print{ font-size:.78rem; color: var(--muted); margin-top:12px; }
+
+.promo-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 26px; }
+.promo-card{ background:#fff; border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+.promo-card .ic{ width:1.7rem; height:1.7rem; color: var(--copper); margin-bottom:10px; }
+.promo-card h3{ font-size:1.02rem; margin-bottom:6px; }
+.promo-card p{ font-size:.86rem; margin:0; }
 
 .flip-card{ width: 100%; max-width: 380px; height: 240px; margin: 0 auto; perspective: 1400px; cursor:pointer; }
 .flip-inner{ position:relative; width:100%; height:100%; transition: transform .7s cubic-bezier(.2,.8,.2,1); transform-style: preserve-3d; }
@@ -345,6 +373,16 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
 .g-item figcaption{ position:absolute; bottom:14px; left:14px; z-index:1; color:#fff; font-size:.82rem; font-weight:600; letter-spacing:.03em; }
 .g-item.hide{ display:none; }
 .gallery-cta{ text-align:center; margin-top: 40px; }
+
+/* ---------- blog ---------- */
+.blog{ background: var(--cream); }
+.blog-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.blog-card{ display:block; background:#fff; border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); transition: transform var(--speed) ease, box-shadow var(--speed) ease; }
+.blog-card:hover{ box-shadow: var(--shadow-lg); }
+.blog-card > .ic{ width:1.8rem; height:1.8rem; color: var(--copper); margin-bottom:14px; }
+.blog-card h3{ font-size:1.05rem; margin-bottom:8px; }
+.blog-card p{ font-size:.88rem; margin-bottom:12px; }
+.blog-card .link-arrow{ font-size:.85rem; font-weight:600; color: var(--copper-dark); }
 
 /* ---------- recensioni ---------- */
 .recensioni{ background: var(--ink); color: var(--offwhite); }
@@ -441,18 +479,21 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
   .split-rev{ direction: ltr; }
   .svc-grid{ grid-template-columns: repeat(2, 1fr); }
   .gallery-grid{ grid-template-columns: repeat(3, 1fr); }
+  .blog-grid{ grid-template-columns: repeat(2, 1fr); }
   .footer-grid{ grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 760px){
-  .main-nav{ position: fixed; top: var(--header-h); left:0; right:0; background: var(--cream); box-shadow: var(--shadow); max-height:0; overflow:hidden; transition: max-height var(--speed) ease; }
-  .main-nav.open{ max-height: 420px; }
+  .main-nav{ position: fixed; top: var(--header-h); left:0; right:0; background: var(--cream); box-shadow: var(--shadow); max-height:0; overflow:hidden; overflow-y:auto; transition: max-height var(--speed) ease; }
+  .main-nav.open{ max-height: calc(100vh - var(--header-h)); }
   .main-nav ul{ flex-direction:column; gap:0; padding: 10px 24px 20px; }
   .nav-link{ display:block; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--ink) !important; }
   .nav-cta{ display:none; }
   .hamburger{ display:flex; }
   .feature-grid{ grid-template-columns: 1fr; }
   .svc-grid{ grid-template-columns: 1fr; }
+  .promo-grid{ grid-template-columns: 1fr; }
   .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
+  .blog-grid{ grid-template-columns: 1fr; }
   .form-row{ grid-template-columns: 1fr; }
   .footer-grid{ grid-template-columns: 1fr; text-align:left; }
   .hero-stats{ gap: 26px; }
@@ -520,8 +561,9 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#chi-siamo" class="nav-link">Chi Siamo</a></li>
         <li><a href="#servizi" class="nav-link">Servizi</a></li>
-        <li><a href="#fidelity" class="nav-link">Fidelity Card</a></li>
+        <li><a href="#promozioni" class="nav-link">Promozioni</a></li>
         <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
         <li><a href="#recensioni" class="nav-link">Recensioni</a></li>
         <li><a href="#contatti" class="nav-link">Contatti</a></li>
       </ul>
@@ -583,6 +625,13 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
     <span></span>
   </a>
 </section>
+
+<!-- ============ QUOTE STRIP ============ -->
+<div class="quote-strip" data-reveal>
+  <svg class="ic quote-ic" aria-hidden="true"><use href="#ic-quote"/></svg>
+  <p class="quote-text">"La bellezza salverà il mondo."</p>
+  <span class="quote-author">— Fëdor Dostoevskij</span>
+</div>
 
 <!-- ============ CHI SIAMO ============ -->
 <section class="section chi-siamo" id="chi-siamo">
@@ -667,6 +716,7 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
 
       <div class="tabs-panels">
         <div class="tab-panel active" data-panel="donna">
+          <span class="script-tag">Lovely</span>
           <div class="svc-grid">
             <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-scissors"/></svg><h3>Taglio &amp; Piega</h3><p>Taglio su misura e piega finale, per un look sempre in ordine.</p></div>
             <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-dryer"/></svg><h3>Aperitivo Hairstyle</h3><p>Piega rapida per un'uscita last minute, sempre curata.</p></div>
@@ -678,6 +728,7 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
         </div>
 
         <div class="tab-panel" data-panel="uomo">
+          <span class="script-tag">Sharp</span>
           <div class="svc-grid">
             <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-scissors"/></svg><h3>Taglio Uomo</h3><p>Dal classico al contemporaneo, taglio su misura per ogni personalità.</p></div>
             <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-comb"/></svg><h3>Barba</h3><p>Rasatura e modellatura precisa per una barba sempre curata.</p></div>
@@ -687,6 +738,7 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
         </div>
 
         <div class="tab-panel" data-panel="colore">
+          <span class="script-tag">Change</span>
           <div class="svc-grid">
             <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-drop"/></svg><h3>Colore &amp; Pigmentazione</h3><p>Tinta personalizzata e trattamento pigmentante per luminosità duratura.</p></div>
             <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-drop"/></svg><h3>Colorazione Vegetale</h3><p>Tinte a base di pigmenti vegetali, naturali e delicate sul capello.</p></div>
@@ -697,60 +749,96 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
         </div>
 
         <div class="tab-panel" data-panel="styling">
-          <div class="svc-grid">
-            <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-dryer"/></svg><h3>Piega &amp; Styling</h3><p>Finish personalizzato: liscio, voluminoso o naturale.</p></div>
-            <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-sparkle"/></svg><h3>Extension</h3><p>Allungamento e infoltimento naturale, su richiesta e valutazione in salone.</p></div>
-            <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-award"/></svg><h3>Acconciature Cerimonia</h3><p>Raccolti e styling su misura per matrimoni ed eventi.</p></div>
-            <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-comb"/></svg><h3>Consulenza Immagine</h3><p>Un consiglio sincero sul taglio e colore più adatti a te.</p></div>
+          <span class="script-tag">Perfect</span>
+          <div class="svc-grid svc-grid-priced">
+            <div class="svc-card svc-card-priced tilt-card" data-tilt>
+              <div class="svc-card-head"><svg class="ic" aria-hidden="true"><use href="#ic-dryer"/></svg><h3>Acconciatura Easy</h3><span class="svc-price">da &euro;45</span></div>
+              <p>Acconciatura veloce, chiamata anche "acconciatura da aperitivo". Servizio abbinato alla piega.</p>
+            </div>
+            <div class="svc-card svc-card-priced tilt-card" data-tilt>
+              <div class="svc-card-head"><svg class="ic" aria-hidden="true"><use href="#ic-drop"/></svg><h3>Piega Intensive</h3><span class="svc-price">da &euro;23</span></div>
+              <p>Piega con shampoo e maschera specifica in base alle esigenze del capello.</p>
+            </div>
+            <div class="svc-card svc-card-priced tilt-card" data-tilt>
+              <div class="svc-card-head"><svg class="ic" aria-hidden="true"><use href="#ic-sparkle"/></svg><h3>Piega Luxury</h3><span class="svc-price">da &euro;40</span></div>
+              <p>Piega con trattamento di ricostruzione del capello, effettuato al lavaggio.</p>
+            </div>
+            <div class="svc-card svc-card-priced tilt-card" data-tilt>
+              <div class="svc-card-head"><svg class="ic" aria-hidden="true"><use href="#ic-comb"/></svg><h3>Piega Master</h3><span class="svc-price">da &euro;20</span></div>
+              <p>Piega con shampoo o crema specifica per il tuo tipo di capello.</p>
+            </div>
+            <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-award"/></svg><h3>Extension</h3><p>Allungamento e infoltimento naturale, su richiesta e valutazione in salone.</p></div>
+            <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-user"/></svg><h3>Acconciature Cerimonia</h3><p>Raccolti e styling su misura per matrimoni ed eventi.</p></div>
           </div>
         </div>
       </div>
     </div>
 
-    <p class="svc-note" data-reveal>Listino prezzi e disponibilità su richiesta: <a href="#contatti">scrivici</a> o chiama il salone al <a href="tel:+39049680603">049 680603</a>.</p>
+    <p class="svc-note" data-reveal>Prezzi indicativi "da": il costo finale dipende da lunghezza e densità del capello. Per un preventivo preciso <a href="#contatti">scrivici</a> o chiama il salone al <a href="tel:+39049680603">049 680603</a>.</p>
   </div>
 </section>
 
-<!-- ============ FIDELITY CARD ============ -->
-<section class="section fidelity" id="fidelity">
-  <div class="container split split-rev">
-    <div class="split-text">
-      <p class="eyebrow" data-reveal>Fidelity Card</p>
-      <h2 data-reveal>La fedeltà <span class="accent">premia sempre</span></h2>
-      <p data-reveal>Ogni visita in salone ha valore. Con la Hair Room 74 Card accumuli vantaggi ad ogni trattamento e li trasformi in premi pensati per chi ci sceglie ogni volta.</p>
-
-      <ul class="fidelity-list" data-reveal>
-        <li><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> Punti fedeltà su ogni trattamento effettuato in salone</li>
-        <li><svg class="ic" aria-hidden="true"><use href="#ic-gift"/></svg> Sconti e trattamenti in omaggio al raggiungimento della soglia</li>
-        <li><svg class="ic" aria-hidden="true"><use href="#ic-sparkle"/></svg> Un pensiero speciale nel mese del tuo compleanno</li>
-        <li><svg class="ic" aria-hidden="true"><use href="#ic-user"/></svg> Bonus se porti un'amica o un amico da noi</li>
-      </ul>
-
-      <div class="hero-actions" data-reveal>
-        <a href="#contatti" class="btn btn-copper">
-          <svg class="ic" aria-hidden="true"><use href="#ic-send"/></svg> Richiedi la tua Card
-        </a>
-      </div>
-      <p class="fine-print" data-reveal>Condizioni e dettagli del programma fedeltà disponibili direttamente in salone.</p>
+<!-- ============ PROMOZIONI & FIDELITY ============ -->
+<section class="section fidelity" id="promozioni">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="script-tag script-tag-center">Vip</span>
+      <p class="eyebrow">Promozioni &amp; Fidelity</p>
+      <h2>Premiamo chi <span class="accent">ci sceglie</span></h2>
+      <p class="section-sub">Quattro modi per essere ancora più coccolata/o in Hair Room 74.</p>
     </div>
 
-    <div class="split-media" data-reveal>
-      <div class="flip-card" id="flipCard" tabindex="0" role="button" aria-label="Gira la card per vedere i vantaggi">
-        <div class="flip-inner">
-          <div class="flip-face flip-front">
-            <span class="fc-eyebrow">HAIR ROOM 74</span>
-            <span class="fc-title">CARD FEDELTÀ</span>
-            <svg class="ic fc-ic" aria-hidden="true"><use href="#ic-sparkle"/></svg>
-            <span class="fc-hint">Tocca per girare</span>
+    <div class="split split-rev">
+      <div class="split-text">
+        <div class="promo-grid" data-reveal>
+          <div class="promo-card tilt-card" data-tilt>
+            <svg class="ic" aria-hidden="true"><use href="#ic-gift"/></svg>
+            <h3>Gift Card</h3>
+            <p>Regala la Gift Card Hair Room 74: spediamo il tuo pensiero direttamente a casa del festeggiato.</p>
           </div>
-          <div class="flip-face flip-back">
-            <span class="fc-title fc-title-sm">I tuoi vantaggi</span>
-            <ul>
-              <li>Punti ad ogni visita</li>
-              <li>Sconti &amp; omaggi</li>
-              <li>Regalo di compleanno</li>
-              <li>Bonus amico</li>
-            </ul>
+          <div class="promo-card tilt-card" data-tilt>
+            <svg class="ic" aria-hidden="true"><use href="#ic-sparkle"/></svg>
+            <h3>VIP Card</h3>
+            <p>Acquistabile online e valida su tutti i servizi e prodotti Hair Room 74, con in regalo un bonus del 10%.</p>
+          </div>
+          <div class="promo-card tilt-card" data-tilt>
+            <svg class="ic" aria-hidden="true"><use href="#ic-award"/></svg>
+            <h3>VIP Client</h3>
+            <p>Riservata ai clienti più fedeli: sconti e promozioni dedicate in base alle tue esigenze.</p>
+          </div>
+          <div class="promo-card tilt-card" data-tilt>
+            <svg class="ic" aria-hidden="true"><use href="#ic-user"/></svg>
+            <h3>Porta un Amico</h3>
+            <p>Porta un'amica o un amico da noi: per entrambi uno sconto esclusivo del 50%.</p>
+          </div>
+        </div>
+
+        <div class="hero-actions" data-reveal>
+          <a href="#contatti" class="btn btn-copper">
+            <svg class="ic" aria-hidden="true"><use href="#ic-send"/></svg> Scopri di più
+          </a>
+        </div>
+        <p class="fine-print" data-reveal>Condizioni e dettagli delle promozioni disponibili in salone o sul sito ufficiale.</p>
+      </div>
+
+      <div class="split-media" data-reveal>
+        <div class="flip-card" id="flipCard" tabindex="0" role="button" aria-label="Gira la card per vedere i vantaggi">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <span class="fc-eyebrow">HAIR ROOM 74</span>
+              <span class="fc-title">VIP CARD</span>
+              <svg class="ic fc-ic" aria-hidden="true"><use href="#ic-sparkle"/></svg>
+              <span class="fc-hint">Tocca per girare</span>
+            </div>
+            <div class="flip-face flip-back">
+              <span class="fc-title fc-title-sm">+10% in omaggio</span>
+              <ul>
+                <li>Acquistabile online</li>
+                <li>Valida su tutti i servizi</li>
+                <li>Valida su tutti i prodotti</li>
+                <li>Bonus 10% incluso</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -789,6 +877,44 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
     <div class="gallery-cta" data-reveal>
       <a href="https://www.instagram.com/hair_room74/" target="_blank" rel="noopener" class="btn btn-dark">
         <svg class="ic" aria-hidden="true"><use href="#ic-instagram"/></svg> Guarda tutti i lavori su Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG ============ -->
+<section class="section blog" id="blog">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Blog</p>
+      <h2>Consigli <span class="accent">dal salone</span></h2>
+      <p class="section-sub">Curiosità e consigli su capelli, colore e trattamenti, dal blog di Hair Room 74.</p>
+    </div>
+
+    <div class="blog-grid" data-reveal>
+      <a href="https://www.hairroom74.it/blog-hair-room-74" target="_blank" rel="noopener" class="blog-card tilt-card" data-tilt>
+        <svg class="ic" aria-hidden="true"><use href="#ic-drop"/></svg>
+        <h3>Chimica sui capelli, a cosa serve?</h3>
+        <p>Sfatiamo un falso mito: cosa significa davvero prodotto cosmetico biologico o naturale per capelli.</p>
+        <span class="link-arrow">Leggi sul blog →</span>
+      </a>
+      <a href="https://www.hairroom74.it/blog-hair-room-74" target="_blank" rel="noopener" class="blog-card tilt-card" data-tilt>
+        <svg class="ic" aria-hidden="true"><use href="#ic-sparkle"/></svg>
+        <h3>Quale colore sui capelli dura più a lungo?</h3>
+        <p>Non sempre il colore che desideriamo è quello più duraturo: alcuni consigli per farlo durare di più.</p>
+        <span class="link-arrow">Leggi sul blog →</span>
+      </a>
+      <a href="https://www.hairroom74.it/blog-hair-room-74" target="_blank" rel="noopener" class="blog-card tilt-card" data-tilt>
+        <svg class="ic" aria-hidden="true"><use href="#ic-comb"/></svg>
+        <h3>Quali sono i motivi della perdita dei capelli?</h3>
+        <p>La perdita dei capelli colpisce molte persone: conoscerne le cause aiuta prevenzione e cura.</p>
+        <span class="link-arrow">Leggi sul blog →</span>
+      </a>
+    </div>
+
+    <div class="gallery-cta" data-reveal>
+      <a href="https://www.hairroom74.it/blog-hair-room-74" target="_blank" rel="noopener" class="btn btn-dark">
+        <svg class="ic" aria-hidden="true"><use href="#ic-send"/></svg> Vai al Blog
       </a>
     </div>
   </div>
@@ -951,8 +1077,9 @@ section[id]{ scroll-margin-top: calc(var(--header-h) + 10px); }
         <li><a href="#home">Home</a></li>
         <li><a href="#chi-siamo">Chi Siamo</a></li>
         <li><a href="#servizi">Servizi</a></li>
-        <li><a href="#fidelity">Fidelity Card</a></li>
+        <li><a href="#promozioni">Promozioni</a></li>
         <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#recensioni">Recensioni</a></li>
         <li><a href="#contatti">Contatti</a></li>
       </ul>

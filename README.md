@@ -39,14 +39,19 @@ al suo posto resta uno sfondo scuro/rame elegante: il sito non risulta mai "rott
 - **Contatti**: Via F. G. D'Acquapendente 74, 35126 Padova · 049 680603 · roomh74@gmail.com.
 - **Titolare**: Stefano Borella.
 - **Servizi**: taglio uomo/donna, colore, balayage, colpi di sole, trattamenti,
-  styling — dalle pagine pubbliche del sito ufficiale hairroom74.it.
+  styling — dalle pagine pubbliche del sito ufficiale hairroom74.it. I prezzi
+  delle acconciature (Easy €45, Intensive €23, Luxury €40, Master €20) sono
+  presi dal listino reale mostrato sul sito ufficiale.
+- **Promozioni**: Gift Card, VIP Card (bonus 10%), VIP Client, Porta un Amico
+  (sconto 50% per entrambi) — riprese dalla sezione "Promozioni" del sito ufficiale.
+- **Blog**: i tre articoli in home rimandano al blog reale (hairroom74.it/blog-hair-room-74).
 - **Prenotazioni**: tramite Treatwell (collegamento diretto in tutto il sito).
 - **Social**: Instagram @hair_room74, Facebook Hair Room 74.
 - **Valutazioni**: ~4.6/5 con oltre 130 recensioni Google (dati pubblici).
 - **Orari**: indicativi da fonti pubbliche; verificare sempre con il salone,
   come indicato anche nel sito stesso.
-- Nessun prezzo o dettaglio del programma fedeltà è stato inventato: il sito
-  invita sempre a contattare il salone per listino e condizioni della Fidelity Card.
+- La citazione in home ("La bellezza salverà il mondo" — Dostoevskij) è la stessa
+  presente sul sito ufficiale.
 
 ## Funzionalità
 

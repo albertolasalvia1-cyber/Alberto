@@ -78,8 +78,9 @@
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#chi-siamo" class="nav-link">Chi Siamo</a></li>
         <li><a href="#servizi" class="nav-link">Servizi</a></li>
-        <li><a href="#fidelity" class="nav-link">Fidelity Card</a></li>
+        <li><a href="#promozioni" class="nav-link">Promozioni</a></li>
         <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
         <li><a href="#recensioni" class="nav-link">Recensioni</a></li>
         <li><a href="#contatti" class="nav-link">Contatti</a></li>
       </ul>
@@ -141,6 +142,13 @@
     <span></span>
   </a>
 </section>
+
+<!-- ============ QUOTE STRIP ============ -->
+<div class="quote-strip" data-reveal>
+  <svg class="ic quote-ic" aria-hidden="true"><use href="#ic-quote"/></svg>
+  <p class="quote-text">"La bellezza salverà il mondo."</p>
+  <span class="quote-author">— Fëdor Dostoevskij</span>
+</div>
 
 <!-- ============ CHI SIAMO ============ -->
 <section class="section chi-siamo" id="chi-siamo">
@@ -225,6 +233,7 @@
 
       <div class="tabs-panels">
         <div class="tab-panel active" data-panel="donna">
+          <span class="script-tag">Lovely</span>
           <div class="svc-grid">
             <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-scissors"/></svg><h3>Taglio &amp; Piega</h3><p>Taglio su misura e piega finale, per un look sempre in ordine.</p></div>
             <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-dryer"/></svg><h3>Aperitivo Hairstyle</h3><p>Piega rapida per un'uscita last minute, sempre curata.</p></div>
@@ -236,6 +245,7 @@
         </div>
 
         <div class="tab-panel" data-panel="uomo">
+          <span class="script-tag">Sharp</span>
           <div class="svc-grid">
             <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-scissors"/></svg><h3>Taglio Uomo</h3><p>Dal classico al contemporaneo, taglio su misura per ogni personalità.</p></div>
             <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-comb"/></svg><h3>Barba</h3><p>Rasatura e modellatura precisa per una barba sempre curata.</p></div>
@@ -245,6 +255,7 @@
         </div>
 
         <div class="tab-panel" data-panel="colore">
+          <span class="script-tag">Change</span>
           <div class="svc-grid">
             <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-drop"/></svg><h3>Colore &amp; Pigmentazione</h3><p>Tinta personalizzata e trattamento pigmentante per luminosità duratura.</p></div>
             <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-drop"/></svg><h3>Colorazione Vegetale</h3><p>Tinte a base di pigmenti vegetali, naturali e delicate sul capello.</p></div>
@@ -255,60 +266,96 @@
         </div>
 
         <div class="tab-panel" data-panel="styling">
-          <div class="svc-grid">
-            <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-dryer"/></svg><h3>Piega &amp; Styling</h3><p>Finish personalizzato: liscio, voluminoso o naturale.</p></div>
-            <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-sparkle"/></svg><h3>Extension</h3><p>Allungamento e infoltimento naturale, su richiesta e valutazione in salone.</p></div>
-            <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-award"/></svg><h3>Acconciature Cerimonia</h3><p>Raccolti e styling su misura per matrimoni ed eventi.</p></div>
-            <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-comb"/></svg><h3>Consulenza Immagine</h3><p>Un consiglio sincero sul taglio e colore più adatti a te.</p></div>
+          <span class="script-tag">Perfect</span>
+          <div class="svc-grid svc-grid-priced">
+            <div class="svc-card svc-card-priced tilt-card" data-tilt>
+              <div class="svc-card-head"><svg class="ic" aria-hidden="true"><use href="#ic-dryer"/></svg><h3>Acconciatura Easy</h3><span class="svc-price">da &euro;45</span></div>
+              <p>Acconciatura veloce, chiamata anche "acconciatura da aperitivo". Servizio abbinato alla piega.</p>
+            </div>
+            <div class="svc-card svc-card-priced tilt-card" data-tilt>
+              <div class="svc-card-head"><svg class="ic" aria-hidden="true"><use href="#ic-drop"/></svg><h3>Piega Intensive</h3><span class="svc-price">da &euro;23</span></div>
+              <p>Piega con shampoo e maschera specifica in base alle esigenze del capello.</p>
+            </div>
+            <div class="svc-card svc-card-priced tilt-card" data-tilt>
+              <div class="svc-card-head"><svg class="ic" aria-hidden="true"><use href="#ic-sparkle"/></svg><h3>Piega Luxury</h3><span class="svc-price">da &euro;40</span></div>
+              <p>Piega con trattamento di ricostruzione del capello, effettuato al lavaggio.</p>
+            </div>
+            <div class="svc-card svc-card-priced tilt-card" data-tilt>
+              <div class="svc-card-head"><svg class="ic" aria-hidden="true"><use href="#ic-comb"/></svg><h3>Piega Master</h3><span class="svc-price">da &euro;20</span></div>
+              <p>Piega con shampoo o crema specifica per il tuo tipo di capello.</p>
+            </div>
+            <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-award"/></svg><h3>Extension</h3><p>Allungamento e infoltimento naturale, su richiesta e valutazione in salone.</p></div>
+            <div class="svc-card tilt-card" data-tilt><svg class="ic" aria-hidden="true"><use href="#ic-user"/></svg><h3>Acconciature Cerimonia</h3><p>Raccolti e styling su misura per matrimoni ed eventi.</p></div>
           </div>
         </div>
       </div>
     </div>
 
-    <p class="svc-note" data-reveal>Listino prezzi e disponibilità su richiesta: <a href="#contatti">scrivici</a> o chiama il salone al <a href="tel:+39049680603">049 680603</a>.</p>
+    <p class="svc-note" data-reveal>Prezzi indicativi "da": il costo finale dipende da lunghezza e densità del capello. Per un preventivo preciso <a href="#contatti">scrivici</a> o chiama il salone al <a href="tel:+39049680603">049 680603</a>.</p>
   </div>
 </section>
 
-<!-- ============ FIDELITY CARD ============ -->
-<section class="section fidelity" id="fidelity">
-  <div class="container split split-rev">
-    <div class="split-text">
-      <p class="eyebrow" data-reveal>Fidelity Card</p>
-      <h2 data-reveal>La fedeltà <span class="accent">premia sempre</span></h2>
-      <p data-reveal>Ogni visita in salone ha valore. Con la Hair Room 74 Card accumuli vantaggi ad ogni trattamento e li trasformi in premi pensati per chi ci sceglie ogni volta.</p>
-
-      <ul class="fidelity-list" data-reveal>
-        <li><svg class="ic" aria-hidden="true"><use href="#ic-check"/></svg> Punti fedeltà su ogni trattamento effettuato in salone</li>
-        <li><svg class="ic" aria-hidden="true"><use href="#ic-gift"/></svg> Sconti e trattamenti in omaggio al raggiungimento della soglia</li>
-        <li><svg class="ic" aria-hidden="true"><use href="#ic-sparkle"/></svg> Un pensiero speciale nel mese del tuo compleanno</li>
-        <li><svg class="ic" aria-hidden="true"><use href="#ic-user"/></svg> Bonus se porti un'amica o un amico da noi</li>
-      </ul>
-
-      <div class="hero-actions" data-reveal>
-        <a href="#contatti" class="btn btn-copper">
-          <svg class="ic" aria-hidden="true"><use href="#ic-send"/></svg> Richiedi la tua Card
-        </a>
-      </div>
-      <p class="fine-print" data-reveal>Condizioni e dettagli del programma fedeltà disponibili direttamente in salone.</p>
+<!-- ============ PROMOZIONI & FIDELITY ============ -->
+<section class="section fidelity" id="promozioni">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="script-tag script-tag-center">Vip</span>
+      <p class="eyebrow">Promozioni &amp; Fidelity</p>
+      <h2>Premiamo chi <span class="accent">ci sceglie</span></h2>
+      <p class="section-sub">Quattro modi per essere ancora più coccolata/o in Hair Room 74.</p>
     </div>
 
-    <div class="split-media" data-reveal>
-      <div class="flip-card" id="flipCard" tabindex="0" role="button" aria-label="Gira la card per vedere i vantaggi">
-        <div class="flip-inner">
-          <div class="flip-face flip-front">
-            <span class="fc-eyebrow">HAIR ROOM 74</span>
-            <span class="fc-title">CARD FEDELTÀ</span>
-            <svg class="ic fc-ic" aria-hidden="true"><use href="#ic-sparkle"/></svg>
-            <span class="fc-hint">Tocca per girare</span>
+    <div class="split split-rev">
+      <div class="split-text">
+        <div class="promo-grid" data-reveal>
+          <div class="promo-card tilt-card" data-tilt>
+            <svg class="ic" aria-hidden="true"><use href="#ic-gift"/></svg>
+            <h3>Gift Card</h3>
+            <p>Regala la Gift Card Hair Room 74: spediamo il tuo pensiero direttamente a casa del festeggiato.</p>
           </div>
-          <div class="flip-face flip-back">
-            <span class="fc-title fc-title-sm">I tuoi vantaggi</span>
-            <ul>
-              <li>Punti ad ogni visita</li>
-              <li>Sconti &amp; omaggi</li>
-              <li>Regalo di compleanno</li>
-              <li>Bonus amico</li>
-            </ul>
+          <div class="promo-card tilt-card" data-tilt>
+            <svg class="ic" aria-hidden="true"><use href="#ic-sparkle"/></svg>
+            <h3>VIP Card</h3>
+            <p>Acquistabile online e valida su tutti i servizi e prodotti Hair Room 74, con in regalo un bonus del 10%.</p>
+          </div>
+          <div class="promo-card tilt-card" data-tilt>
+            <svg class="ic" aria-hidden="true"><use href="#ic-award"/></svg>
+            <h3>VIP Client</h3>
+            <p>Riservata ai clienti più fedeli: sconti e promozioni dedicate in base alle tue esigenze.</p>
+          </div>
+          <div class="promo-card tilt-card" data-tilt>
+            <svg class="ic" aria-hidden="true"><use href="#ic-user"/></svg>
+            <h3>Porta un Amico</h3>
+            <p>Porta un'amica o un amico da noi: per entrambi uno sconto esclusivo del 50%.</p>
+          </div>
+        </div>
+
+        <div class="hero-actions" data-reveal>
+          <a href="#contatti" class="btn btn-copper">
+            <svg class="ic" aria-hidden="true"><use href="#ic-send"/></svg> Scopri di più
+          </a>
+        </div>
+        <p class="fine-print" data-reveal>Condizioni e dettagli delle promozioni disponibili in salone o sul sito ufficiale.</p>
+      </div>
+
+      <div class="split-media" data-reveal>
+        <div class="flip-card" id="flipCard" tabindex="0" role="button" aria-label="Gira la card per vedere i vantaggi">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <span class="fc-eyebrow">HAIR ROOM 74</span>
+              <span class="fc-title">VIP CARD</span>
+              <svg class="ic fc-ic" aria-hidden="true"><use href="#ic-sparkle"/></svg>
+              <span class="fc-hint">Tocca per girare</span>
+            </div>
+            <div class="flip-face flip-back">
+              <span class="fc-title fc-title-sm">+10% in omaggio</span>
+              <ul>
+                <li>Acquistabile online</li>
+                <li>Valida su tutti i servizi</li>
+                <li>Valida su tutti i prodotti</li>
+                <li>Bonus 10% incluso</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -347,6 +394,44 @@
     <div class="gallery-cta" data-reveal>
       <a href="https://www.instagram.com/hair_room74/" target="_blank" rel="noopener" class="btn btn-dark">
         <svg class="ic" aria-hidden="true"><use href="#ic-instagram"/></svg> Guarda tutti i lavori su Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG ============ -->
+<section class="section blog" id="blog">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Blog</p>
+      <h2>Consigli <span class="accent">dal salone</span></h2>
+      <p class="section-sub">Curiosità e consigli su capelli, colore e trattamenti, dal blog di Hair Room 74.</p>
+    </div>
+
+    <div class="blog-grid" data-reveal>
+      <a href="https://www.hairroom74.it/blog-hair-room-74" target="_blank" rel="noopener" class="blog-card tilt-card" data-tilt>
+        <svg class="ic" aria-hidden="true"><use href="#ic-drop"/></svg>
+        <h3>Chimica sui capelli, a cosa serve?</h3>
+        <p>Sfatiamo un falso mito: cosa significa davvero prodotto cosmetico biologico o naturale per capelli.</p>
+        <span class="link-arrow">Leggi sul blog →</span>
+      </a>
+      <a href="https://www.hairroom74.it/blog-hair-room-74" target="_blank" rel="noopener" class="blog-card tilt-card" data-tilt>
+        <svg class="ic" aria-hidden="true"><use href="#ic-sparkle"/></svg>
+        <h3>Quale colore sui capelli dura più a lungo?</h3>
+        <p>Non sempre il colore che desideriamo è quello più duraturo: alcuni consigli per farlo durare di più.</p>
+        <span class="link-arrow">Leggi sul blog →</span>
+      </a>
+      <a href="https://www.hairroom74.it/blog-hair-room-74" target="_blank" rel="noopener" class="blog-card tilt-card" data-tilt>
+        <svg class="ic" aria-hidden="true"><use href="#ic-comb"/></svg>
+        <h3>Quali sono i motivi della perdita dei capelli?</h3>
+        <p>La perdita dei capelli colpisce molte persone: conoscerne le cause aiuta prevenzione e cura.</p>
+        <span class="link-arrow">Leggi sul blog →</span>
+      </a>
+    </div>
+
+    <div class="gallery-cta" data-reveal>
+      <a href="https://www.hairroom74.it/blog-hair-room-74" target="_blank" rel="noopener" class="btn btn-dark">
+        <svg class="ic" aria-hidden="true"><use href="#ic-send"/></svg> Vai al Blog
       </a>
     </div>
   </div>
@@ -509,8 +594,9 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#chi-siamo">Chi Siamo</a></li>
         <li><a href="#servizi">Servizi</a></li>
-        <li><a href="#fidelity">Fidelity Card</a></li>
+        <li><a href="#promozioni">Promozioni</a></li>
         <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#recensioni">Recensioni</a></li>
         <li><a href="#contatti">Contatti</a></li>
       </ul>
