@@ -88,16 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---------- hero plate parallax ---------- */
-  const heroPlate = document.getElementById('heroPlate');
-  if (heroPlate) {
-    window.addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 30;
-      const y = (e.clientY / window.innerHeight - 0.5) * 30;
-      heroPlate.style.transform = `translate(calc(-0% + ${x}px), calc(-50% + ${y}px))`;
-    });
-  }
-
   /* ---------- ember particles canvas ---------- */
   (function embersCanvas() {
     const wrap = document.getElementById('emberCanvas');
@@ -119,8 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
         r: Math.random() * 2.2 + 0.6,
         speed: Math.random() * 0.6 + 0.25,
         drift: (Math.random() - 0.5) * 0.6,
-        alpha: Math.random() * 0.5 + 0.3,
-        hue: Math.random() > 0.5 ? '204,31,45' : '226,51,63'
+        alpha: Math.random() * 0.5 + 0.35,
+        hue: Math.random() > 0.45 ? '226,51,63' : '255,138,90'
       };
     }
     function init() {

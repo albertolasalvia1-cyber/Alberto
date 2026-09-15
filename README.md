@@ -1,55 +1,65 @@
 # La Scottoneria — Sito Web
 
-Sito vetrina per il ristorante **La Scottoneria** (Via Strada Battaglia 145, Albignasego – Padova), pensato per invogliare i visitatori a prenotare un tavolo. Nessun framework/build: HTML + CSS + JS puri, pronto per essere pubblicato su qualsiasi hosting statico (GitHub Pages, Netlify, hosting tradizionale...).
+Sito vetrina per il ristorante **La Scottoneria** (Via Strada Battaglia 145, Albignasego – Padova).
+HTML + CSS + JS puri, nessun framework e nessuna dipendenza esterna (a parte i Google Fonts):
+si pubblica su qualsiasi hosting statico — GitHub Pages, Netlify, Aruba, hosting tradizionale.
 
-Stile grafico: bianco / nero / rosso, coerente con l'identità reale del locale (logo, menù e carta vini "rosso e nero").
+Stile: bianco / nero / rosso, coerente con l'identità reale del locale (logo, menù e carta vini "rosso e nero").
 
 ## Struttura
 
 ```
-index.html                         pagina unica con tutte le sezioni
-css/style.css                      stile, animazioni, effetti 3D
-js/main.js                         interattività (menu a tab, carosello recensioni, form, particelle, tilt 3D)
-assets/img/                        cartella per le foto reali del locale
-assets/menu/menu-la-scottoneria.pdf         menù ufficiale (scaricabile dal sito)
-assets/menu/carta-vini-la-scottoneria.pdf   carta dei vini ufficiale (scaricabile dal sito)
+index.html                                   pagina unica con tutte le sezioni + icone SVG integrate
+css/style.css                                stile, animazioni, effetti 3D
+js/main.js                                   menu a tab, carosello recensioni, form, particelle, tilt 3D
+assets/img/                                  ← qui vanno le foto del ristorante (vedi sotto)
+assets/menu/menu-la-scottoneria.pdf          menù ufficiale scaricabile dal sito
+assets/menu/carta-vini-la-scottoneria.pdf    carta dei vini ufficiale scaricabile dal sito
 ```
+
+## Come inserire le foto vere (l'unica cosa che manca)
+
+Il sito è **già collegato** ai file qui sotto: basta salvare le immagini in `assets/img/`
+con esattamente questi nomi e compaiono da sole al posto degli sfondi stilizzati.
+Non serve toccare il codice.
+
+| File da salvare in `assets/img/` | Dove appare |
+| --- | --- |
+| `hero.jpg` | sfondo grande della prima schermata (consigliata: tagliata o fiorentina su ardesia) |
+| `chi-siamo-1.jpg` | sezione "Chi siamo" – piatto di pasta fresca |
+| `chi-siamo-2.jpg` | sezione "Chi siamo" – tartare |
+| `specialita.jpg` | tondo animato accanto a "le nostre specialità" |
+| `galleria-1.jpg` … `galleria-6.jpg` | griglia della galleria |
+
+Formato consigliato: JPG, lato lungo ~1600 px, foto scure/con fondo nero rendono meglio.
+Finché i file non ci sono, il sito mostra sfondi eleganti e non risulta mai "rotto".
 
 ## Dati usati (fonti reali)
 
-- **Menù e prezzi**: presi dal PDF ufficiale `MENU-scottoneria-2026-x-sito.pdf` fornito dal locale — tutti i piatti, prezzi e allergeni riportati nella sezione "Menù Digitale" sono quelli reali.
-- **Carta dei vini**: presa dal PDF ufficiale `CARTA-DEI-VINI-scottoneria-rosso-e-nero.pdf` — bollicine, bianchi e rossi con prezzi reali.
-- **Testo "Chi siamo"**: ripreso dal sito ufficiale lascottoneria.it.
-- **Contatti**: indirizzo, telefono (049 573 5845) ed email (info@lascottoneria.it) da fonti pubbliche verificate.
-- **Colori/stile**: replicati dalle foto dello schermo del sito reale fornite dall'utente (logo nero con accenti rossi, sfondo bianco, foto scure a tutta larghezza, titoli in serif corsivo).
+- **Menù e prezzi**: dal PDF ufficiale `MENU-scottoneria-2026-x-sito.pdf` — piatti, prezzi e allergeni reali.
+- **Carta dei vini**: dal PDF ufficiale — bollicine, bianchi e rossi con prezzi bottiglia/calice reali.
+- **Testo "Chi siamo"**: dal sito ufficiale lascottoneria.it.
+- **Contatti**: Via Strada Battaglia 145, 049 573 5845, info@lascottoneria.it.
+- **Valutazioni**: 4.9/5 Tripadvisor (#5 su 52 ad Albignasego), 4.7/5 con 237 recensioni Google.
+- **Recensioni in home**: riformulate dai commenti pubblici; sostituibili con recensioni reali.
 
-## Cosa completare prima della pubblicazione
+## Funzionalità
 
-Instagram, Facebook, TripAdvisor e il sito lascottoneria.it non erano raggiungibili da questo ambiente di lavoro (rete bloccata), quindi:
-
-1. **Foto** — al posto delle immagini reali ci sono dei riquadri stilizzati scuri (icona + etichetta), pensati per essere sostituiti 1:1 con le foto vere. Aggiorna i placeholder `.photo-placeholder` in `index.html` con le foto migliori da Instagram [@la_scottoneria_ristorante](https://www.instagram.com/la_scottoneria_ristorante/) e dalla pagina Facebook: hero (tagliata alla brace), sala, tagliolini al tartufo, tartare, galleria.
-2. **Recensioni** — le testimonianze in home sono riformulate a partire dai commenti pubblici trovati su Tripadvisor/Google; sostituiscile pure con recensioni vere (con il permesso dei clienti) quando disponibili.
-3. **Verifica prezzi/orari** — il menù caricato è quello più recente disponibile: controlla che non ne esista una versione più aggiornata prima di pubblicare online.
-
-## Funzionalità incluse
-
-- Hero a tutta larghezza con foto scura, particelle "brace" animate e overlay con il nome del locale.
-- Effetto tilt 3D al passaggio del mouse su tutte le card (menu, galleria, recensioni, feature, vini).
-- Badge circolare con testo curvo animato (stile "dove la carne è l'anima del piacere" del menù originale).
-- Menu digitale a tab con 8 categorie reali (Antipasti, Primi, Secondi, Contorni, Bruschettine, Insalatone, Dolci, Bevande) e download del PDF ufficiale.
-- Sezione Carta dei Vini con Bollicine/Bianchi/Rossi e download del PDF ufficiale.
-- Galleria con hover e caption in overlay.
-- Carosello recensioni con autoplay, dot e freccette.
-- Form di prenotazione che compone automaticamente un'email con i dettagli inseriti (nome, telefono, data, ora, persone).
-- Mappa Google integrata, click-to-call, link diretti a Instagram/Facebook/Tripadvisor.
-- Design responsive (da mobile a desktop), rispetto di `prefers-reduced-motion` per l'accessibilità.
+- Hero a tutta pagina con claim, particelle "brace" animate, zoom lento e pulsanti di prenotazione.
+- Header bianco sticky con il logo in stile originale (accenti rossi + riga rossa).
+- Menù digitale a 8 categorie reali con animazioni di transizione e download del PDF.
+- Carta dei vini (Bollicine / Bianchi / Rossi) con download del PDF.
+- Galleria, carosello recensioni, banner rosso di richiamo alla prenotazione.
+- Form di prenotazione che compone in automatico l'email con i dati inseriti.
+- Pulsante WhatsApp flottante, click-to-call, card mappa che apre Google Maps.
+- Effetto tilt 3D sulle card, animazioni allo scroll, badge circolare con testo curvo rotante.
+- Icone SVG integrate: nessuna libreria esterna, caricamento immediato anche offline.
+- Responsive da mobile a desktop e supporto `prefers-reduced-motion`.
 
 ## Anteprima locale
-
-Basta aprire `index.html` in un browser, oppure servire la cartella con un piccolo server statico, ad esempio:
 
 ```bash
 python3 -m http.server 8080
 ```
 
-e visitare `http://localhost:8080`.
+poi apri `http://localhost:8080`.
