@@ -1,58 +1,67 @@
-# La Scottoneria — Sito Web
+# Hair Room 74 — Sito Web
 
-Sito vetrina per il ristorante **La Scottoneria** (Via Strada Battaglia 145, Albignasego – Padova).
-HTML + CSS + JS puri, nessun framework e nessuna dipendenza esterna (a parte i Google Fonts):
-si pubblica su qualsiasi hosting statico — GitHub Pages, Netlify, Aruba, hosting tradizionale.
+Sito vetrina per il salone **Hair Room 74** (Via F. G. D'Acquapendente 74, Padova),
+il salone di Stefano Borella per uomo e donna. HTML + CSS + JS puri, nessun
+framework e nessuna dipendenza esterna (a parte i Google Fonts): si pubblica
+su qualsiasi hosting statico — GitHub Pages, Netlify, Aruba, hosting tradizionale.
 
-Stile: bianco / nero / rosso, coerente con l'identità reale del locale (logo, menù e carta vini "rosso e nero").
+Stile: nero / crema / rame, elegante e leggero, con effetti 3D e animazioni
+pensati per non appesantire la navigazione.
 
 ## Struttura
 
 ```
-index.html                                   pagina unica con tutte le sezioni + icone SVG integrate
-css/style.css                                stile, animazioni, effetti 3D
-js/main.js                                   menu a tab, carosello recensioni, form, particelle, tilt 3D
-assets/img/                                  ← qui vanno le foto del ristorante (vedi sotto)
-assets/menu/menu-la-scottoneria.pdf          menù ufficiale scaricabile dal sito
-assets/menu/carta-vini-la-scottoneria.pdf    carta dei vini ufficiale scaricabile dal sito
+index.html                pagina unica con tutte le sezioni + icone SVG integrate
+css/style.css              stile, animazioni, effetti 3D
+js/main.js                 menu, tab servizi, carosello recensioni, filtri gallery,
+                            tilt 3D, contatori animati, flip card fidelity, form
+assets/img/                ← qui vanno le foto reali del salone (vedi sotto)
 ```
 
 ## Foto
 
-Le foto attualmente nel sito (`assets/img/`) sono state estratte dalle immagini del sito
-ufficiale lascottoneria.it. Sono a risoluzione da schermo: per la pubblicazione definitiva
-conviene sostituirle con i file originali ad alta risoluzione, mantenendo gli stessi nomi —
-il sito le riprende in automatico, senza toccare il codice.
+Il sito è stato costruito senza foto reali del salone: le sezioni Hero,
+Chi Siamo e Gallery usano sfondi vettoriali/CSS eleganti che funzionano
+perfettamente anche senza immagini. Per usare le foto vere del salone basta
+salvarle in `assets/img/` con questi nomi esatti — il sito le riprende in
+automatico, senza toccare il codice:
 
 | File in `assets/img/` | Dove appare |
 | --- | --- |
-| `hero.jpg` | sfondo della prima schermata |
-| `chi-siamo-1.jpg` / `chi-siamo-2.jpg` | sezione "Chi siamo" |
-| `specialita.jpg` | tondo animato accanto a "le nostre specialità" |
-| `galleria-1.jpg` … `galleria-6.jpg` | griglia della galleria |
+| `hero-salone.jpg` | sfondo (attenuato) della prima schermata |
+| `salone-1.jpg` / `salone-2.jpg` | sezione "Chi siamo" |
+| `gallery-1.jpg` … `gallery-8.jpg` | griglia della gallery (taglio donna, uomo, colore, salone) |
 
-Formato consigliato: JPG, lato lungo ~1600 px. Se un file manca, al suo posto compare uno
-sfondo scuro elegante: il sito non risulta mai "rotto".
+Formato consigliato: JPG, lato lungo ~1600 px. Se un file manca, al suo posto
+resta uno sfondo scuro/rame elegante: il sito non risulta mai "rotto".
 
-## Dati usati (fonti reali)
+## Dati usati (fonti pubbliche)
 
-- **Menù e prezzi**: dal PDF ufficiale `MENU-scottoneria-2026-x-sito.pdf` — piatti, prezzi e allergeni reali.
-- **Carta dei vini**: dal PDF ufficiale — bollicine, bianchi e rossi con prezzi bottiglia/calice reali.
-- **Testo "Chi siamo"**: dal sito ufficiale lascottoneria.it.
-- **Contatti**: Via Strada Battaglia 145, 049 573 5845, info@lascottoneria.it.
-- **Valutazioni**: 4.9/5 Tripadvisor (#5 su 52 ad Albignasego), 4.7/5 con 237 recensioni Google.
-- **Recensioni in home**: riformulate dai commenti pubblici; sostituibili con recensioni reali.
+- **Contatti**: Via F. G. D'Acquapendente 74, 35126 Padova · 049 680603 · roomh74@gmail.com.
+- **Titolare**: Stefano Borella.
+- **Servizi**: taglio uomo/donna, colore, balayage, colpi di sole, trattamenti,
+  styling — dalle pagine pubbliche del sito ufficiale hairroom74.it.
+- **Prenotazioni**: tramite Treatwell (collegamento diretto in tutto il sito).
+- **Social**: Instagram @hair_room74, Facebook Hair Room 74.
+- **Valutazioni**: ~4.6/5 con oltre 130 recensioni Google (dati pubblici).
+- **Orari**: indicativi da fonti pubbliche; verificare sempre con il salone,
+  come indicato anche nel sito stesso.
+- Nessun prezzo o dettaglio del programma fedeltà è stato inventato: il sito
+  invita sempre a contattare il salone per listino e condizioni della Fidelity Card.
 
 ## Funzionalità
 
-- Hero a tutta pagina con claim, particelle "brace" animate, zoom lento e pulsanti di prenotazione.
-- Header bianco sticky con il logo in stile originale (accenti rossi + riga rossa).
-- Menù digitale a 8 categorie reali con animazioni di transizione e download del PDF.
-- Carta dei vini (Bollicine / Bianchi / Rossi) con download del PDF.
-- Galleria, carosello recensioni, banner rosso di richiamo alla prenotazione.
-- Form di prenotazione che compone in automatico l'email con i dati inseriti.
-- Pulsante WhatsApp flottante, click-to-call, card mappa che apre Google Maps.
-- Effetto tilt 3D sulle card, animazioni allo scroll, badge circolare con testo curvo rotante.
+- Hero a tutta pagina con claim, fili "capelli" animati in SVG, particelle
+  fluttuanti e pulsanti di prenotazione/chiamata.
+- Header sticky che si compatta allo scroll, menu mobile a comparsa.
+- Sezione "Chi Siamo" con card a tilt 3D e badge circolare con testo rotante.
+- Servizi divisi in tab (Donna · Uomo & Barba · Colore & Trattamenti · Styling & Extension).
+- Sezione **Fidelity Card** con card 3D che si gira al click/tap.
+- Gallery con filtri per categoria e card a tilt 3D.
+- Carosello recensioni con contatori animati (rating, numero recensioni).
+- Banner di richiamo alla prenotazione, mappa Google integrata, form contatti
+  che compone in automatico l'email con i dati inseriti.
+- Pulsanti flottanti "Chiama" e "Prenota", pulsante torna-su.
 - Icone SVG integrate: nessuna libreria esterna, caricamento immediato anche offline.
 - Responsive da mobile a desktop e supporto `prefers-reduced-motion`.
 
@@ -64,10 +73,10 @@ Per pubblicare il sito trascinando un solo file (es. Netlify Drop):
 python3 build-singlefile.py
 ```
 
-Genera `dist/index.html` con CSS, JavaScript, foto e PDF incorporati: non dipende da
-nessun'altra cartella. È la versione da usare se il pannello dell'hosting accetta un
-singolo file; per un deploy normale (GitHub, FTP, Netlify da repo) usa la versione in
-cartella, che è più leggera da caricare.
+Genera `dist/index.html` con CSS, JavaScript e foto incorporati: non dipende
+da nessun'altra cartella. È la versione da usare se il pannello dell'hosting
+accetta un singolo file; per un deploy normale (GitHub, FTP, Netlify da repo)
+usa la versione in cartella, che è più leggera da caricare.
 
 ## Anteprima locale
 

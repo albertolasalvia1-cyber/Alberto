@@ -1,227 +1,244 @@
-/* =========================================================
-   LA SCOTTONERIA — script principale
-   ========================================================= */
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
+  "use strict";
 
-  document.getElementById('year').textContent = new Date().getFullYear();
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- preloader ---------- */
-  const preloader = document.getElementById('preloader');
-  window.addEventListener('load', () => {
-    setTimeout(() => preloader.classList.add('hidden'), 400);
+  window.addEventListener("load", function () {
+    var pl = document.getElementById("preloader");
+    if (pl) setTimeout(function () { pl.classList.add("done"); }, 350);
   });
-  // fallback in case 'load' already fired
-  setTimeout(() => preloader.classList.add('hidden'), 2500);
 
   /* ---------- header scroll state ---------- */
-  const header = document.getElementById('siteHeader');
-  const onScroll = () => {
-    header.classList.toggle('scrolled', window.scrollY > 40);
-    backToTop.classList.toggle('show', window.scrollY > 500);
-  };
-  const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', onScroll, { passive: true });
+  var header = document.getElementById("siteHeader");
+  var backToTop = document.getElementById("backToTop");
+  function onScroll() {
+    var y = window.scrollY || window.pageYOffset;
+    if (header) header.classList.toggle("scrolled", y > 40);
+    if (backToTop) backToTop.hidden = y < 500;
+  }
+  document.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
-  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  if (backToTop) {
+    backToTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  }
 
   /* ---------- mobile nav ---------- */
-  const hamburger = document.getElementById('hamburger');
-  const mainNav = document.getElementById('mainNav');
-  hamburger.addEventListener('click', () => {
-    const open = mainNav.classList.toggle('open');
-    hamburger.classList.toggle('open', open);
-    hamburger.setAttribute('aria-expanded', open);
-  });
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      mainNav.classList.remove('open');
-      hamburger.classList.remove('open');
-      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
+  var hamburger = document.getElementById("hamburger");
+  var mainNav = document.getElementById("mainNav");
+  if (hamburger && mainNav) {
+    hamburger.addEventListener("click", function () {
+      var open = mainNav.classList.toggle("open");
+      hamburger.setAttribute("aria-expanded", open ? "true" : "false");
     });
-  });
-
-  /* ---------- scroll reveal ---------- */
-  const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        revealObserver.unobserve(entry.target);
-      }
+    mainNav.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        mainNav.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+      });
     });
-  }, { threshold: 0.15 });
-  revealEls.forEach(el => revealObserver.observe(el));
+  }
 
   /* ---------- active nav link on scroll ---------- */
-  const sections = document.querySelectorAll('main, section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${id}`));
+  var navLinks = document.querySelectorAll(".nav-link");
+  var sections = Array.prototype.slice.call(document.querySelectorAll("section[id]"));
+  if (sections.length && navLinks.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var id = entry.target.id;
+        navLinks.forEach(function (l) {
+          l.classList.toggle("active", l.getAttribute("href") === "#" + id);
+        });
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    sections.forEach(function (s) { spy.observe(s); });
+  }
+
+  /* ---------- scroll reveal ---------- */
+  var revealEls = document.querySelectorAll("[data-reveal]");
+  if (revealEls.length) {
+    if (reduceMotion) {
+      revealEls.forEach(function (el) { el.classList.add("in"); });
+    } else {
+      var revealObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            revealObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach(function (el) { revealObs.observe(el); });
+    }
+  }
+
+  /* ---------- animated counters ---------- */
+  var counters = document.querySelectorAll(".num[data-count]");
+  function animateCount(el) {
+    var target = parseFloat(el.getAttribute("data-count"));
+    var isDecimal = String(target).indexOf(".") !== -1;
+    var start = 0;
+    var duration = 1400;
+    var t0 = null;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / duration, 1);
+      var val = start + (target - start) * (1 - Math.pow(1 - p, 3));
+      el.textContent = isDecimal ? val.toFixed(1) : Math.round(val);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = isDecimal ? target.toFixed(1) : target;
+    }
+    if (reduceMotion) { el.textContent = isDecimal ? target.toFixed(1) : target; return; }
+    requestAnimationFrame(step);
+  }
+  if (counters.length) {
+    var countObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          countObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (c) { countObs.observe(c); });
+  }
+
+  /* ---------- 3D tilt cards ---------- */
+  if (!reduceMotion && window.matchMedia("(hover: hover)").matches) {
+    document.querySelectorAll("[data-tilt]").forEach(function (card) {
+      var rect;
+      card.addEventListener("mouseenter", function () { rect = card.getBoundingClientRect(); });
+      card.addEventListener("mousemove", function (e) {
+        if (!rect) rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = "rotateY(" + (x * 10) + "deg) rotateX(" + (-y * 10) + "deg) translateY(-4px)";
+      });
+      card.addEventListener("mouseleave", function () {
+        card.style.transform = "rotateY(0) rotateX(0) translateY(0)";
+      });
+    });
+  }
+
+  /* ---------- hero particles ---------- */
+  var particleHost = document.getElementById("heroParticles");
+  if (particleHost && !reduceMotion) {
+    var n = window.innerWidth < 700 ? 14 : 26;
+    for (var i = 0; i < n; i++) {
+      var s = document.createElement("span");
+      s.style.left = Math.random() * 100 + "%";
+      s.style.bottom = "-10px";
+      s.style.animationDuration = (10 + Math.random() * 14) + "s";
+      s.style.animationDelay = (Math.random() * 14) + "s";
+      s.style.opacity = String(0.3 + Math.random() * 0.5);
+      particleHost.appendChild(s);
+    }
+  }
+
+  /* ---------- tabs (servizi) ---------- */
+  var tabBtns = document.querySelectorAll(".tab-btn");
+  var panels = document.querySelectorAll(".tab-panel");
+  tabBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var name = btn.getAttribute("data-tab");
+      tabBtns.forEach(function (b) {
+        b.classList.toggle("active", b === btn);
+        b.setAttribute("aria-selected", b === btn ? "true" : "false");
+      });
+      panels.forEach(function (p) {
+        p.classList.toggle("active", p.getAttribute("data-panel") === name);
+      });
+    });
+  });
+
+  /* ---------- fidelity flip card ---------- */
+  var flipCard = document.getElementById("flipCard");
+  if (flipCard) {
+    flipCard.addEventListener("click", function () { flipCard.classList.toggle("flipped"); });
+    flipCard.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        flipCard.classList.toggle("flipped");
       }
     });
-  }, { rootMargin: '-45% 0px -45% 0px' });
-  document.querySelectorAll('section[id]').forEach(sec => navObserver.observe(sec));
+  }
 
-  /* ---------- ember cursor glow ---------- */
-  const emberGlow = document.getElementById('emberGlow');
-  window.addEventListener('mousemove', (e) => {
-    emberGlow.style.left = `${e.clientX}px`;
-    emberGlow.style.top = `${e.clientY}px`;
-  });
-
-  /* ---------- 3D tilt effect ---------- */
-  const tiltCards = document.querySelectorAll('.tilt-card');
-  const maxTilt = 8;
-  tiltCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `perspective(900px) rotateX(${(-y * maxTilt).toFixed(2)}deg) rotateY(${(x * maxTilt).toFixed(2)}deg) translateZ(6px)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(900px) rotateX(0) rotateY(0) translateZ(0)';
-    });
-  });
-
-  /* ---------- ember particles canvas ---------- */
-  (function embersCanvas() {
-    const wrap = document.getElementById('emberCanvas');
-    if (!wrap) return;
-    const canvas = document.createElement('canvas');
-    wrap.appendChild(canvas);
-    const ctx = canvas.getContext('2d');
-    let w, h, particles = [];
-    const count = window.innerWidth < 700 ? 25 : 55;
-
-    function resize() {
-      w = canvas.width = wrap.offsetWidth;
-      h = canvas.height = wrap.offsetHeight;
-    }
-    function makeParticle() {
-      return {
-        x: Math.random() * w,
-        y: h + Math.random() * 100,
-        r: Math.random() * 2.2 + 0.6,
-        speed: Math.random() * 0.6 + 0.25,
-        drift: (Math.random() - 0.5) * 0.6,
-        alpha: Math.random() * 0.5 + 0.35,
-        hue: Math.random() > 0.45 ? '226,51,63' : '255,138,90'
-      };
-    }
-    function init() {
-      resize();
-      particles = Array.from({ length: count }, makeParticle);
-    }
-    function tick() {
-      ctx.clearRect(0, 0, w, h);
-      particles.forEach(p => {
-        p.y -= p.speed;
-        p.x += p.drift;
-        if (p.y < -10) { Object.assign(p, makeParticle(), { y: h + 10 }); }
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${p.hue},${p.alpha})`;
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = `rgba(${p.hue},0.8)`;
-        ctx.fill();
-      });
-      requestAnimationFrame(tick);
-    }
-    init();
-    tick();
-    window.addEventListener('resize', resize);
-  })();
-
-  /* ---------- menu tabs ---------- */
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const panels = document.querySelectorAll('.menu-panel');
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-      const target = btn.dataset.tab;
-      panels.forEach(p => {
-        const match = p.id === `panel-${target}`;
-        p.classList.toggle('active', match);
-        p.hidden = !match;
+  /* ---------- gallery filter ---------- */
+  var filterBtns = document.querySelectorAll(".filter-btn");
+  var galleryItems = document.querySelectorAll(".g-item");
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var f = btn.getAttribute("data-filter");
+      filterBtns.forEach(function (b) { b.classList.toggle("active", b === btn); });
+      galleryItems.forEach(function (item) {
+        var match = f === "all" || item.getAttribute("data-cat") === f;
+        item.classList.toggle("hide", !match);
       });
     });
   });
 
-  /* ---------- reviews carousel ---------- */
-  const track = document.getElementById('reviewsTrack');
-  const cards = track ? Array.from(track.children) : [];
-  const dotsWrap = document.getElementById('reviewDots');
-  let current = 0;
-  let autoplayId;
+  /* ---------- testimonial carousel ---------- */
+  var track = document.getElementById("carouselTrack");
+  if (track) {
+    var cards = Array.prototype.slice.call(track.querySelectorAll(".review-card"));
+    var dotsHost = document.getElementById("carDots");
+    var idx = 0;
+    var timer;
 
-  function renderDots() {
-    dotsWrap.innerHTML = '';
-    cards.forEach((_, i) => {
-      const dot = document.createElement('span');
-      if (i === current) dot.classList.add('active');
-      dot.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(dot);
+    cards.forEach(function (_, i) {
+      var d = document.createElement("span");
+      d.addEventListener("click", function () { show(i); });
+      dotsHost.appendChild(d);
     });
-  }
-  function goTo(index) {
-    cards[current].classList.remove('active');
-    current = (index + cards.length) % cards.length;
-    cards[current].classList.add('active');
-    dotsWrap.querySelectorAll('span').forEach((d, i) => d.classList.toggle('active', i === current));
-  }
-  function startAutoplay() {
-    clearInterval(autoplayId);
-    autoplayId = setInterval(() => goTo(current + 1), 6000);
-  }
-  if (cards.length) {
-    cards[0].classList.add('active');
-    renderDots();
-    startAutoplay();
-    document.getElementById('nextReview').addEventListener('click', () => { goTo(current + 1); startAutoplay(); });
-    document.getElementById('prevReview').addEventListener('click', () => { goTo(current - 1); startAutoplay(); });
+    var dots = Array.prototype.slice.call(dotsHost.children);
+
+    function show(i) {
+      idx = (i + cards.length) % cards.length;
+      cards.forEach(function (c, ci) { c.classList.toggle("active", ci === idx); });
+      dots.forEach(function (d, di) { d.classList.toggle("active", di === idx); });
+    }
+    function next() { show(idx + 1); }
+    function prev() { show(idx - 1); }
+
+    document.getElementById("carNext").addEventListener("click", function () { next(); restart(); });
+    document.getElementById("carPrev").addEventListener("click", function () { prev(); restart(); });
+
+    function restart() {
+      clearInterval(timer);
+      if (!reduceMotion) timer = setInterval(next, 6000);
+    }
+    show(0);
+    restart();
   }
 
-  /* ---------- reservation form ---------- */
-  const form = document.getElementById('reservationForm');
-  const successMsg = document.getElementById('formSuccess');
+  /* ---------- contact form (mailto compose) ---------- */
+  var form = document.getElementById("contactForm");
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var data = new FormData(form);
+      var nome = (data.get("nome") || "").toString();
+      var telefono = (data.get("telefono") || "").toString();
+      var email = (data.get("email") || "").toString();
+      var messaggio = (data.get("messaggio") || "").toString();
 
-      const data = new FormData(form);
-      const name = data.get('name');
-      const phone = data.get('phone');
-      const date = data.get('date');
-      const time = data.get('time');
-      const guests = data.get('guests');
-      const message = data.get('message') || 'Nessuna richiesta particolare';
+      var subject = "Richiesta informazioni — " + nome;
+      var body = "Nome: " + nome + "\n" +
+        "Email: " + email + "\n" +
+        (telefono ? "Telefono: " + telefono + "\n" : "") +
+        "\nMessaggio:\n" + messaggio;
 
-      const subject = encodeURIComponent(`Richiesta di prenotazione - ${name}`);
-      const body = encodeURIComponent(
-        `Nome: ${name}\nTelefono: ${phone}\nData: ${date}\nOra: ${time}\nPersone: ${guests}\nNote: ${message}`
-      );
-
-      window.location.href = `mailto:info@lascottoneria.it?subject=${subject}&body=${body}`;
-
-      successMsg.hidden = false;
-      form.reset();
-      setTimeout(() => { successMsg.hidden = true; }, 6000);
+      window.location.href = "mailto:roomh74@gmail.com" +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
     });
   }
 
-  /* ---------- gallery lightbox (simple caption toast) ---------- */
-  document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', () => {
-      item.classList.add('in-view');
-    });
-  });
+  /* ---------- footer year ---------- */
+  var yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-});
+})();

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Costruisce dist/index.html: un unico file con CSS, JS, foto e PDF incorporati.
+"""Costruisce dist/index.html: un unico file con CSS, JS e foto incorporati.
 
 Serve per caricare il sito su hosting drag-and-drop (es. Netlify Drop) trascinando
 un solo file. La versione multi-file in cartella resta quella di riferimento.
@@ -21,7 +21,7 @@ def read(path):
         return f.read()
 
 
-MAX_WIDTH = {"hero.jpg": 1400}
+MAX_WIDTH = {"hero-salone.jpg": 1400}
 DEFAULT_MAX_WIDTH = 1000
 JPEG_QUALITY = 78
 
@@ -68,48 +68,24 @@ def main():
 
     css = re.sub(r"url\('(\.\./assets/img/[^']+)'\)", css_img, css)
 
-    # PDF: incorporati come base64 e aperti via Blob (i link data: vengono bloccati)
-    pdfs = {
-        "menu": "assets/menu/menu-la-scottoneria.pdf",
-        "vini": "assets/menu/carta-vini-la-scottoneria.pdf",
-    }
-    pdf_js_parts = []
-    for key, rel in pdfs.items():
-        with open(os.path.join(ROOT, rel), "rb") as f:
-            b64 = base64.b64encode(f.read()).decode("ascii")
-        name = os.path.basename(rel)
-        pdf_js_parts.append(f'  {key}: {{ name: "{name}", b64: "{b64}" }}')
+    # foto referenziate direttamente nell'HTML (style="background-image:url('assets/img/x.jpg')")
+    def html_img(match):
+        rel = match.group(1)
+        full = os.path.join(ROOT, rel)
+        if not os.path.exists(full):
+            print(f"  ! manca {rel}, lascio il riferimento originale")
+            return match.group(0)
         print(f"  + {rel}")
+        return f"url('{data_uri(rel)}')"
 
-    pdf_js = (
-        "\nvar EMBEDDED_PDFS = {\n" + ",\n".join(pdf_js_parts) + "\n};\n"
-        "document.addEventListener('click', function (e) {\n"
-        "  var a = e.target.closest('a[data-pdf]');\n"
-        "  if (!a) return;\n"
-        "  e.preventDefault();\n"
-        "  var item = EMBEDDED_PDFS[a.dataset.pdf];\n"
-        "  if (!item) return;\n"
-        "  var bin = atob(item.b64);\n"
-        "  var bytes = new Uint8Array(bin.length);\n"
-        "  for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);\n"
-        "  var url = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));\n"
-        "  if (!window.open(url, '_blank')) window.location.href = url;\n"
-        "});\n"
-    )
-
-    html = html.replace(
-        '<a href="assets/menu/menu-la-scottoneria.pdf" class="btn btn-dark">',
-        '<a href="#menu" data-pdf="menu" class="btn btn-dark">')
-    html = html.replace(
-        '<a href="assets/menu/carta-vini-la-scottoneria.pdf" class="btn btn-red">',
-        '<a href="#vini" data-pdf="vini" class="btn btn-red">')
+    html = re.sub(r"url\('(assets/img/[^']+)'\)", html_img, html)
 
     html = html.replace(
         '<link rel="stylesheet" href="css/style.css">',
         "<style>\n" + css + "\n</style>")
     html = html.replace(
         '<script src="js/main.js"></script>',
-        "<script>\n" + js + pdf_js + "\n</script>")
+        "<script>\n" + js + "\n</script>")
 
     os.makedirs(DIST, exist_ok=True)
     out = os.path.join(DIST, "index.html")
