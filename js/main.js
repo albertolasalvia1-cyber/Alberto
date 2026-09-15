@@ -123,6 +123,22 @@
     });
   }
 
+  /* ---------- hero 3D parallax ---------- */
+  var heroSection = document.querySelector(".hero");
+  if (heroSection && !reduceMotion && window.matchMedia("(hover: hover)").matches) {
+    heroSection.addEventListener("mousemove", function (e) {
+      var r = heroSection.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5;
+      var y = (e.clientY - r.top) / r.height - 0.5;
+      heroSection.style.setProperty("--mx", x.toFixed(3));
+      heroSection.style.setProperty("--my", y.toFixed(3));
+    });
+    heroSection.addEventListener("mouseleave", function () {
+      heroSection.style.setProperty("--mx", 0);
+      heroSection.style.setProperty("--my", 0);
+    });
+  }
+
   /* ---------- hero particles ---------- */
   var particleHost = document.getElementById("heroParticles");
   if (particleHost && !reduceMotion) {

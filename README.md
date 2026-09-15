@@ -20,20 +20,19 @@ assets/img/                ← qui vanno le foto reali del salone (vedi sotto)
 
 ## Foto
 
-Il sito è stato costruito senza foto reali del salone: le sezioni Hero,
-Chi Siamo e Gallery usano sfondi vettoriali/CSS eleganti che funzionano
-perfettamente anche senza immagini. Per usare le foto vere del salone basta
-salvarle in `assets/img/` con questi nomi esatti — il sito le riprende in
-automatico, senza toccare il codice:
+Le foto in `assets/img/` sono quelle reali del salone, fornite direttamente
+dal titolare. Il sito le riprende in automatico in base al nome del file,
+senza bisogno di toccare il codice:
 
 | File in `assets/img/` | Dove appare |
 | --- | --- |
-| `hero-salone.jpg` | sfondo (attenuato) della prima schermata |
-| `salone-1.jpg` / `salone-2.jpg` | sezione "Chi siamo" |
+| `hero-salone.jpg` | sfondo (con parallasse 3D) della prima schermata |
+| `salone-1.jpg` / `salone-2.jpg` | sezione "Chi siamo" (team al lavoro, dettaglio) |
 | `gallery-1.jpg` … `gallery-8.jpg` | griglia della gallery (taglio donna, uomo, colore, salone) |
 
-Formato consigliato: JPG, lato lungo ~1600 px. Se un file manca, al suo posto
-resta uno sfondo scuro/rame elegante: il sito non risulta mai "rotto".
+Per sostituire una foto basta salvarne una nuova con lo stesso nome esatto.
+Formato consigliato: JPG, lato lungo ~1600 px. Se un file dovesse mancare,
+al suo posto resta uno sfondo scuro/rame elegante: il sito non risulta mai "rotto".
 
 ## Dati usati (fonti pubbliche)
 
@@ -51,10 +50,12 @@ resta uno sfondo scuro/rame elegante: il sito non risulta mai "rotto".
 
 ## Funzionalità
 
-- Hero a tutta pagina con claim, fili "capelli" animati in SVG, particelle
-  fluttuanti e pulsanti di prenotazione/chiamata.
+- Hero a tutta pagina con foto reale del salone, parallasse 3D che segue il
+  mouse, zoom cinematico lento, fili "capelli" animati in SVG, particelle
+  fluttuanti, entrata dei testi con effetto 3D e pulsanti di prenotazione/chiamata.
+- Preloader con forbici che ruotano in 3D all'apertura del sito.
 - Header sticky che si compatta allo scroll, menu mobile a comparsa.
-- Sezione "Chi Siamo" con card a tilt 3D e badge circolare con testo rotante.
+- Sezione "Chi Siamo" con foto reali del team a tilt 3D e badge circolare con testo rotante.
 - Servizi divisi in tab (Donna · Uomo & Barba · Colore & Trattamenti · Styling & Extension).
 - Sezione **Fidelity Card** con card 3D che si gira al click/tap.
 - Gallery con filtri per categoria e card a tilt 3D.

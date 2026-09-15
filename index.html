@@ -57,6 +57,9 @@
 
 <div id="preloader" aria-hidden="true">
   <div class="preloader-inner">
+    <div class="pl-scissors" aria-hidden="true">
+      <svg class="ic" viewBox="0 0 24 24"><circle cx="6" cy="6.4" r="2.6"/><circle cx="6" cy="17.6" r="2.6"/><path d="M8.2 8L20.5 19M8.2 16L20.5 5M8.6 12h1.8"/></svg>
+    </div>
     <span class="pl-mark">HR<span class="dot">74</span></span>
     <span class="pl-line"></span>
   </div>
@@ -94,27 +97,31 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="home">
-  <div class="hero-bg" style="background-image:url('assets/img/hero-salone.jpg')"></div>
+  <div class="hero-parallax-bg" id="heroParallaxBg">
+    <div class="hero-bg" style="background-image:url('assets/img/hero-salone.jpg')"></div>
+  </div>
   <div class="hero-veil"></div>
-  <svg class="hero-lines" id="heroLines" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
-    <path class="strand s1" d="M-50 620 C 250 500, 350 750, 650 600 S 1050 420, 1260 560" />
-    <path class="strand s2" d="M-50 260 C 300 180, 420 380, 720 260 S 1080 120, 1260 220" />
-    <path class="strand s3" d="M-50 440 C 260 340, 500 560, 780 420 S 1120 280, 1260 380" />
-  </svg>
-  <div class="hero-orb orb-1" aria-hidden="true"></div>
-  <div class="hero-orb orb-2" aria-hidden="true"></div>
+  <div class="hero-parallax-mid" id="heroParallaxMid">
+    <svg class="hero-lines" id="heroLines" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+      <path class="strand s1" d="M-50 620 C 250 500, 350 750, 650 600 S 1050 420, 1260 560" />
+      <path class="strand s2" d="M-50 260 C 300 180, 420 380, 720 260 S 1080 120, 1260 220" />
+      <path class="strand s3" d="M-50 440 C 260 340, 500 560, 780 420 S 1120 280, 1260 380" />
+    </svg>
+    <div class="hero-orb orb-1" aria-hidden="true"></div>
+    <div class="hero-orb orb-2" aria-hidden="true"></div>
+  </div>
   <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
 
   <div class="container hero-inner">
-    <p class="eyebrow" data-reveal>Parrucchiere Uomo &amp; Donna · Padova</p>
-    <h1 class="hero-title" data-reveal>
+    <p class="eyebrow reveal-3d" data-reveal>Parrucchiere Uomo &amp; Donna · Padova</p>
+    <h1 class="hero-title reveal-3d" data-reveal>
       <span class="hero-title-line">Hair Room</span>
       <span class="hero-title-line hero-title-accent">74</span>
     </h1>
-    <p class="hero-claim" data-reveal>Men &amp; Women Hairstyle</p>
-    <p class="hero-text" data-reveal>Nel cuore di Padova, a due passi dall'Orto Botanico, il salone di <strong>Stefano Borella</strong> unisce tecnica, ascolto e stile per valorizzare i capelli e la personalità di ogni cliente — donna o uomo che sia.</p>
+    <p class="hero-claim reveal-3d" data-reveal>Men &amp; Women Hairstyle</p>
+    <p class="hero-text reveal-3d" data-reveal>Nel cuore di Padova, a due passi dall'Orto Botanico, il salone di <strong>Stefano Borella</strong> unisce tecnica, ascolto e stile per valorizzare i capelli e la personalità di ogni cliente — donna o uomo che sia.</p>
 
-    <div class="hero-actions" data-reveal>
+    <div class="hero-actions reveal-3d" data-reveal>
       <a href="https://www.treatwell.it/salone/hair-room-74/" target="_blank" rel="noopener" class="btn btn-copper btn-lg">
         <svg class="ic" aria-hidden="true"><use href="#ic-calendar"/></svg> Prenota Online
       </a>
@@ -123,7 +130,7 @@
       </a>
     </div>
 
-    <ul class="hero-stats" data-reveal>
+    <ul class="hero-stats reveal-3d" data-reveal>
       <li><span class="num" data-count="4.6">0</span><span class="lbl">★ su Google</span></li>
       <li><span class="num" data-count="130">0</span><span class="lbl">Recensioni</span></li>
       <li><span class="num" data-count="2">0</span><span class="lbl">Anime: Uomo &amp; Donna</span></li>
@@ -333,7 +340,7 @@
       <figure class="g-item tilt-card" data-cat="salone" data-tilt style="background-image:url('assets/img/gallery-4.jpg')"><svg class="ic" aria-hidden="true"><use href="#ic-award"/></svg><figcaption>Il Salone</figcaption></figure>
       <figure class="g-item tilt-card" data-cat="colore" data-tilt style="background-image:url('assets/img/gallery-5.jpg')"><svg class="ic" aria-hidden="true"><use href="#ic-drop"/></svg><figcaption>Colore</figcaption></figure>
       <figure class="g-item tilt-card" data-cat="donna" data-tilt style="background-image:url('assets/img/gallery-6.jpg')"><svg class="ic" aria-hidden="true"><use href="#ic-dryer"/></svg><figcaption>Styling</figcaption></figure>
-      <figure class="g-item tilt-card" data-cat="uomo" data-tilt style="background-image:url('assets/img/gallery-7.jpg')"><svg class="ic" aria-hidden="true"><use href="#ic-comb"/></svg><figcaption>Barba</figcaption></figure>
+      <figure class="g-item tilt-card" data-cat="uomo" data-tilt style="background-image:url('assets/img/gallery-7.jpg')"><svg class="ic" aria-hidden="true"><use href="#ic-comb"/></svg><figcaption>Fade Uomo</figcaption></figure>
       <figure class="g-item tilt-card" data-cat="salone" data-tilt style="background-image:url('assets/img/gallery-8.jpg')"><svg class="ic" aria-hidden="true"><use href="#ic-sparkle"/></svg><figcaption>Atmosfera</figcaption></figure>
     </div>
 
