@@ -43,8 +43,11 @@ al suo posto resta uno sfondo scuro/rame elegante: il sito non risulta mai "rott
   Forma, Depilazione) sono presi dal listino reale del sito ufficiale
   hairroom74.it, incluse le descrizioni di ogni trattamento.
 - **Promozioni**: Gift Card (tagli da €35/€50/€90/€150 o importo
-  personalizzato), VIP Card (bonus 10%), VIP Client, Porta un Amico
-  (sconto 50% per entrambi) — riprese dalla sezione "Promozioni" del sito ufficiale.
+  personalizzato), VIP Card (crediti prepagati €100→€111,11, €150→€176,47,
+  €200→€250, validi 12 mesi), VIP Client (sconto 20% servizi / 10% prodotti
+  sopra i €100 di spesa mensile), Porta un Amico (sconto 50% per entrambi,
+  nuovi clienti) — riprese dalla sezione "Promozioni" del sito ufficiale.
+- **P.IVA**: 05025970285 (dal footer del sito ufficiale).
 - **Blog**: i tre articoli in home rimandano al blog reale (hairroom74.it/blog-hair-room-74).
 - **Prenotazioni**: tramite Treatwell (collegamento diretto in tutto il sito).
 - **Social**: Instagram @hair_room74, Facebook Hair Room 74.
@@ -56,9 +59,10 @@ al suo posto resta uno sfondo scuro/rame elegante: il sito non risulta mai "rott
 
 ## Funzionalità
 
-- Hero a tutta pagina con foto reale del salone, parallasse 3D che segue il
-  mouse, zoom cinematico lento, fili "capelli" animati in SVG, particelle
-  fluttuanti, entrata dei testi con effetto 3D e pulsanti di prenotazione/chiamata.
+- Hero a tutta pagina con la foto reale del salone ben visibile (nessun velo
+  scuro pesante), parallasse 3D che segue il mouse, zoom cinematico lento,
+  testo su un pannello "vetro" (glass panel) con entrata a effetto 3D e
+  pulsanti di prenotazione/chiamata. Palette oro champagne, non arancione.
 - Preloader con forbici che ruotano in 3D all'apertura del sito.
 - Header sticky che si compatta allo scroll, menu mobile a comparsa.
 - Sezione "Chi Siamo" con foto reali del team a tilt 3D e badge circolare con testo rotante.
