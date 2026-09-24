@@ -17,10 +17,9 @@ def data_uri(path):
 html = (ROOT / "index.html").read_text()
 css = (ROOT / "css/style.css").read_text()
 css = re.sub(r"url\(\.\./(assets/[^)]+)\)", lambda m: f"url({data_uri(m.group(1))})", css)
-js = (ROOT / "js/main.js").read_text()
 
 html = html.replace('<link rel="stylesheet" href="css/style.css">', f"<style>{css}</style>")
-html = html.replace('<script src="js/main.js"></script>', f"<script>{js}</script>")
+html = re.sub(r'<script src="(js/[^"]+)"></script>', lambda m: "<script>" + (ROOT / m.group(1)).read_text().replace("</script", "<\\/script") + "</script>", html)
 html = re.sub(r'(src|poster|href)="(assets/[^"]+)"', lambda m: f'{m.group(1)}="{data_uri(m.group(2))}"', html)
 html = re.sub(r"url\((assets/[^)]+)\)", lambda m: f"url({data_uri(m.group(1))})", html)
 html = re.sub(r'<meta property="og:image"[^>]*>\n', "", html)
