@@ -53,7 +53,10 @@
 
     <div class="hero__stage" data-tilt data-tilt-max="10">
       <div class="phone">
-        <video class="phone__video" src="assets/video/rs3-drive.mp4" poster="assets/video/rs3-drive-poster.jpg" autoplay muted loop playsinline></video>
+        <video class="phone__video" poster="assets/video/rs3-drive-poster.jpg" autoplay muted loop playsinline>
+          <source src="assets/video/rs3-drive.mp4" type="video/mp4">
+          <source src="assets/video/rs3-drive.webm" type="video/webm">
+        </video>
         <div class="phone__shine"></div>
       </div>
       <div class="float-card float-card--a" data-depth="60"><small>Potenza</small><b>400 CV</b></div>
