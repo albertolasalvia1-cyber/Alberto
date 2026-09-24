@@ -1,9 +1,9 @@
-# Noleggio RS3 / RSQ3 – Padova · Piano contenuti social
+# AT Luxury Car Rental (@at.luxurycarental) · RS3 / RSQ3 – Padova · Piano contenuti social
 
 Instagram · Facebook · TikTok. Obiettivo: trasformare le visualizzazioni in **messaggi (DM/WhatsApp) e prenotazioni**.
 
-> **Da sostituire prima di pubblicare:** nelle grafiche il nome è segnaposto (`RS3 RENTAL · PADOVA`).
-> Mettete il nome reale del noleggio, l'@ e il numero WhatsApp (i sorgenti sono in `sorgenti/creatives.html`).
+> Profilo Instagram: **@at.luxurycarental**. Il nome e l'@ sono già inseriti in tutte le grafiche.
+> Se volete cambiare testi o prezzi, i sorgenti sono in `sorgenti/creatives.html`.
 
 ---
 
@@ -42,7 +42,7 @@ Inquadratura: il posteriore verde che parte (come la foto tra gli alberi), oppur
 **CTA**
 > *"Commenta **RS3** e ti mandiamo il listino completo in DM. Ritiro a Padova."*
 
-**Caption:** Quanto costa davvero guidare 400 CV? 👀 Listino completo nel carosello fissato in alto. Commenta RS3 e te lo mandiamo in DM. 📍Padova
+**Caption:** Quanto costa davvero guidare 400 CV? 👀 Listino completo nel carosello fissato in alto. Commenta RS3 e te lo mandiamo in DM. 📍Padova · @at.luxurycarental
 **Da abbinare a:** il carosello listino (grafiche `carosello-1…5`), da fissare in cima al profilo.
 
 ---
