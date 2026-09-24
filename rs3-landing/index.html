@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noleggio Audi RS3 400 CV · Padova, Venezia, Treviso | AT Luxury Car Rental</title>
+<meta name="description" content="Noleggia l'Audi RS3 da 400 CV a Padova, Venezia e Treviso da 280€ al giorno, 150 km inclusi. Weekend sabato-lunedì 700€. Prenota su WhatsApp.">
+<meta property="og:title" content="Audi RS3 400 CV a noleggio · da 280€/giorno">
+<meta property="og:description" content="Padova · Venezia · Treviso. Prenota su WhatsApp +39 351 982 2171.">
+<meta property="og:image" content="assets/img/hero-rs3.jpg">
+<meta name="theme-color" content="#050605">
+<link rel="icon" href="assets/img/logo-at.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav__logo"><img src="assets/img/logo-at.png" alt="AT Luxury Car Rental"></a>
+  <nav class="nav__links">
+    <a href="#auto">L'auto</a>
+    <a href="#prezzi">Prezzi</a>
+    <a href="#preventivo">Preventivo</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <a class="btn btn--sm" data-wa="Ciao! Vorrei info sul noleggio dell'Audi RS3" href="#">WhatsApp</a>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <canvas class="hero__lines" id="speedlines"></canvas>
+  <div class="hero__glow"></div>
+  <div class="hero__inner">
+    <div class="hero__text">
+      <p class="eyebrow reveal"><span class="dot"></span> Noleggio a breve termine · Padova · Venezia · Treviso</p>
+      <h1 class="hero__title reveal">
+        <span class="line">400 cavalli.</span>
+        <span class="line g">Da 280€ al giorno.</span>
+      </h1>
+      <p class="hero__sub reveal">Audi RS3 · 5 cilindri turbo · 0-100 in 3,8 s.<br>Ritira le chiavi e guida l'auto che hai sempre guardato passare.</p>
+      <div class="hero__cta reveal">
+        <a class="btn btn--glow" data-wa="Ciao! Vorrei sapere le date libere per l'Audi RS3" href="#">
+          <svg class="ic" viewBox="0 0 24 24"><use href="#i-wa"/></svg> Verifica le date libere
+        </a>
+        <a class="btn btn--ghost" href="#prezzi">Vedi i prezzi</a>
+      </div>
+      <ul class="hero__trust reveal">
+        <li><b>150 km</b> inclusi al giorno</li>
+        <li><b>RS3 e RSQ3</b> disponibili</li>
+        <li><b>Risposta</b> in pochi minuti</li>
+      </ul>
+    </div>
+
+    <div class="hero__stage" data-tilt data-tilt-max="10">
+      <div class="phone">
+        <video class="phone__video" src="assets/video/rs3-drive.mp4" poster="assets/video/rs3-drive-poster.jpg" autoplay muted loop playsinline></video>
+        <div class="phone__shine"></div>
+      </div>
+      <div class="float-card float-card--a" data-depth="60"><small>Potenza</small><b>400 CV</b></div>
+      <div class="float-card float-card--b" data-depth="90"><small>0-100 km/h</small><b>3,8 s</b></div>
+      <div class="float-card float-card--c" data-depth="40"><small>Weekend Sab→Lun</small><b class="g">700€</b></div>
+    </div>
+  </div>
+  <a href="#auto" class="scroll-hint" aria-label="Scorri"><span></span></a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>AUDI RS3</span><i>◆</i><span>400 CV</span><i>◆</i><span>500 NM</span><i>◆</i><span>QUATTRO</span><i>◆</i><span>2.5 TFSI 5 CILINDRI</span><i>◆</i><span>290 KM/H</span><i>◆</i><span>PADOVA · VENEZIA · TREVISO</span><i>◆</i>
+    <span>AUDI RS3</span><i>◆</i><span>400 CV</span><i>◆</i><span>500 NM</span><i>◆</i><span>QUATTRO</span><i>◆</i><span>2.5 TFSI 5 CILINDRI</span><i>◆</i><span>290 KM/H</span><i>◆</i><span>PADOVA · VENEZIA · TREVISO</span><i>◆</i>
+  </div>
+</div>
+
+<!-- ============ SPECS + TACHO ============ -->
+<section class="specs" id="auto">
+  <div class="specs__sticky">
+    <div class="wrap specs__grid">
+      <div>
+        <p class="eyebrow reveal">La macchina</p>
+        <h2 class="h2 reveal">Non è un'auto.<br><span class="g">È un 5 cilindri che urla.</span></h2>
+        <p class="lead reveal">Il 2.5 TFSI dell'RS3 è l'ultimo 5 cilindri turbo in produzione: un suono che non si dimentica. Trazione integrale quattro e cambio a doppia frizione a 7 rapporti: la guidi con facilità, anche se non hai mai avuto una sportiva.</p>
+        <div class="stats">
+          <div class="stat reveal"><b data-count="400">0</b><span>CV</span></div>
+          <div class="stat reveal"><b data-count="500">0</b><span>Nm di coppia</span></div>
+          <div class="stat reveal"><b data-count="3.8" data-dec="1">0</b><span>s · 0-100</span></div>
+          <div class="stat reveal"><b data-count="290">0</b><span>km/h max</span></div>
+        </div>
+      </div>
+      <div class="tacho reveal" id="tacho">
+        <svg viewBox="0 0 400 400" aria-hidden="true">
+          <defs>
+            <linearGradient id="tg" x1="0" x2="1"><stop offset="0" stop-color="#5fbf1a"/><stop offset=".75" stop-color="#8fe31a"/><stop offset="1" stop-color="#ff3b2f"/></linearGradient>
+            <filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <circle cx="200" cy="200" r="190" class="tacho__bg"/>
+          <path class="tacho__track" d="M 69.7 330.3 A 184 184 0 1 1 330.3 330.3" transform="translate(0,0) scale(1)" style="transform-origin:200px 200px;transform:scale(.8)"/>
+          <path class="tacho__fill" id="tachoFill" d="M 69.7 330.3 A 184 184 0 1 1 330.3 330.3" style="transform-origin:200px 200px;transform:scale(.8)" filter="url(#glow)"/>
+          <g id="ticks"></g>
+          <g id="needle" class="tacho__needle"><line x1="200" y1="200" x2="200" y2="70"/><circle cx="200" cy="200" r="14"/></g>
+        </svg>
+        <div class="tacho__read"><b id="rpm">0</b><span>giri/min</span><em id="gear">N</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3D GALLERY ============ -->
+<section class="gallery">
+  <div class="wrap center">
+    <p class="eyebrow reveal">Guardala da vicino</p>
+    <h2 class="h2 reveal">Trascina per <span class="g">girarci intorno</span></h2>
+  </div>
+  <div class="ring-scene" id="ringScene">
+    <div class="ring" id="ring">
+      <figure style="--i:0"><img src="assets/img/hero-rs3.jpg" alt="Audi RS3 verde, posteriore" loading="lazy"></figure>
+      <figure style="--i:1"><img src="assets/img/fari.jpg" alt="Fari Matrix LED" loading="lazy"></figure>
+      <figure style="--i:2"><img src="assets/img/cerchio.jpg" alt="Cerchio e pinza RS" loading="lazy"></figure>
+      <figure style="--i:3"><img src="assets/img/volante.jpg" alt="Volante RS" loading="lazy"></figure>
+      <figure style="--i:4"><img src="assets/img/frontale.jpg" alt="Frontale RS3 in movimento" loading="lazy"></figure>
+      <figure style="--i:5"><img src="assets/img/avvio.jpg" alt="Pulsante di avvio" loading="lazy"></figure>
+      <figure style="--i:6"><img src="assets/img/fiancata.jpg" alt="Fiancata RS3" loading="lazy"></figure>
+      <figure style="--i:7"><img src="assets/img/logo-rs.jpg" alt="Logo RS interni" loading="lazy"></figure>
+      <figure style="--i:8"><img src="assets/img/specchio.jpg" alt="Specchietto nero lucido" loading="lazy"></figure>
+      <figure style="--i:9"><img src="assets/img/posteriore.jpg" alt="Posteriore RS3 in movimento" loading="lazy"></figure>
+    </div>
+    <div class="ring-floor"></div>
+  </div>
+</section>
+
+<!-- ============ HOW ============ -->
+<section class="how">
+  <div class="wrap">
+    <p class="eyebrow reveal">Come funziona</p>
+    <h2 class="h2 reveal">Dalla chat al volante <span class="g">in 3 passi</span></h2>
+    <div class="steps">
+      <article class="step reveal" data-tilt>
+        <span class="step__n">01</span>
+        <h3>Scrivici su WhatsApp</h3>
+        <p>Dicci le date e quanti km pensi di fare. Ti rispondiamo con disponibilità e preventivo preciso.</p>
+      </article>
+      <article class="step reveal" data-tilt>
+        <span class="step__n">02</span>
+        <h3>Blocca la data</h3>
+        <p>Ti spieghiamo documenti e modalità di pagamento. Nessuna sorpresa: km inclusi e costi chiari da subito.</p>
+      </article>
+      <article class="step reveal" data-tilt>
+        <span class="step__n">03</span>
+        <h3>Ritira le chiavi</h3>
+        <p>Consegna tra Padova, Venezia e Treviso. Premi start e senti il 5 cilindri che si sveglia.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="prezzi">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow reveal">Listino 2026 · RS3 e RSQ3 400 CV</p>
+      <h2 class="h2 reveal">Scegli <span class="g">quanto vuoi goderti</span> la strada</h2>
+      <div class="tabs reveal" role="tablist">
+        <button class="tab is-active" data-tab="week" role="tab">In settimana</button>
+        <button class="tab" data-tab="weekend" role="tab">Weekend</button>
+        <button class="tab" data-tab="long" role="tab">Lunghe durate</button>
+        <span class="tabs__ink"></span>
+      </div>
+    </div>
+
+    <div class="plans is-active" data-panel="week">
+      <article class="plan" data-tilt>
+        <h3>1 giorno</h3><p class="plan__when">Dal lunedì al venerdì</p>
+        <div class="plan__price"><b>300€</b></div>
+        <ul><li>150 km inclusi</li><li>Ideale per provarla</li></ul>
+        <a class="btn btn--ghost btn--block" data-wa="Ciao! Vorrei l'RS3 per 1 giorno in settimana (300€). Data: " href="#">Prenota</a>
+      </article>
+      <article class="plan plan--hot" data-tilt>
+        <span class="plan__badge">Più conveniente</span>
+        <h3>2 o più giorni</h3><p class="plan__when">Dal lunedì al venerdì</p>
+        <div class="plan__price"><b>280€</b><span>/giorno</span></div>
+        <ul><li>150 km/giorno inclusi</li><li>Trasferte e giornate lunghe</li></ul>
+        <a class="btn btn--glow btn--block" data-wa="Ciao! Vorrei l'RS3 per più giorni in settimana (280€/giorno). Date: " href="#">Prenota</a>
+      </article>
+    </div>
+
+    <div class="plans" data-panel="weekend">
+      <article class="plan" data-tilt>
+        <h3>1 giorno</h3><p class="plan__when">Sabato o domenica</p>
+        <div class="plan__price"><b>350€</b></div>
+        <ul><li>150 km inclusi</li><li>Il giorno libero perfetto</li></ul>
+        <a class="btn btn--ghost btn--block" data-wa="Ciao! Vorrei l'RS3 per 1 giorno nel weekend (350€). Data: " href="#">Prenota</a>
+      </article>
+      <article class="plan plan--hot" data-tilt>
+        <span class="plan__badge">Il più scelto</span>
+        <h3>Sabato → Lunedì</h3><p class="plan__when">Da sabato mattina a lunedì mattina</p>
+        <div class="plan__price"><b>700€</b></div>
+        <ul><li>300 km inclusi</li><li>Colli, Prosecco, Garda: scegli tu</li></ul>
+        <a class="btn btn--glow btn--block" data-wa="Ciao! Vorrei l'RS3 da sabato a lunedì (700€). Weekend del: " href="#">Blocca il weekend</a>
+      </article>
+      <article class="plan" data-tilt>
+        <h3>Weekend lungo</h3><p class="plan__when">Da venerdì mattina a lunedì mattina</p>
+        <div class="plan__price"><b>1000€</b></div>
+        <ul><li>450 km inclusi</li><li>3 giorni pieni di strada</li></ul>
+        <a class="btn btn--ghost btn--block" data-wa="Ciao! Vorrei l'RS3 da venerdì a lunedì (1000€). Weekend del: " href="#">Prenota</a>
+      </article>
+    </div>
+
+    <div class="plans" data-panel="long">
+      <article class="plan" data-tilt>
+        <h3>1 settimana</h3><p class="plan__when">≈ 243€ al giorno</p>
+        <div class="plan__price"><b>1700€</b></div>
+        <ul><li>900 km inclusi</li><li>Vacanze e viaggi</li></ul>
+        <a class="btn btn--ghost btn--block" data-wa="Ciao! Vorrei l'RS3 per 1 settimana (1700€). Dal: " href="#">Prenota</a>
+      </article>
+      <article class="plan plan--hot" data-tilt>
+        <span class="plan__badge">Miglior prezzo al giorno</span>
+        <h3>2 settimane</h3><p class="plan__when">≈ 214€ al giorno</p>
+        <div class="plan__price"><b>3000€</b></div>
+        <ul><li>1800 km inclusi</li><li>L'estate che ricorderai</li></ul>
+        <a class="btn btn--glow btn--block" data-wa="Ciao! Vorrei l'RS3 per 2 settimane (3000€). Dal: " href="#">Prenota</a>
+      </article>
+      <article class="plan plan--ask" data-tilt>
+        <h3>Su misura</h3><p class="plan__when">Eventi, matrimoni, aziende</p>
+        <div class="plan__price"><b>?</b></div>
+        <ul><li>Durata o richiesta diversa</li><li>Ti facciamo un preventivo</li></ul>
+        <a class="btn btn--ghost btn--block" data-wa="Ciao! Avrei una richiesta particolare per il noleggio: " href="#">Chiedi</a>
+      </article>
+    </div>
+
+    <div class="kmtip reveal">
+      <div class="kmtip__txt">
+        <h3>Km extra? <span class="g">Paghi la metà</span> se li prenoti prima.</h3>
+        <p>Se sai già che sforerai, dillo prima: paghi i km extra <b>1,50€</b> invece di <b>3€</b> alla riconsegna.</p>
+      </div>
+      <div class="kmtip__cmp">
+        <div class="kmtip__box kmtip__box--ok"><small>Prepagati</small><b>1,5€<i>/km</i></b></div>
+        <div class="kmtip__box kmtip__box--no"><small>Alla riconsegna</small><b>3€<i>/km</i></b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section class="calc" id="preventivo">
+  <div class="wrap calc__grid">
+    <div>
+      <p class="eyebrow reveal">Preventivo in 10 secondi</p>
+      <h2 class="h2 reveal">Quanto spendi <span class="g">davvero?</span></h2>
+      <p class="lead reveal">Scegli la formula e i km che pensi di fare. Il calcolo include i km extra al prezzo prepagato. Poi mandaci il preventivo su WhatsApp con un tocco.</p>
+    </div>
+    <form class="calc__card reveal" id="calc" onsubmit="return false" data-tilt data-tilt-max="4">
+      <label class="field">
+        <span>Formula</span>
+        <select id="cPlan">
+          <option value="300|150|1|1 giorno in settimana">1 giorno in settimana · 300€</option>
+          <option value="280|150|2|Più giorni in settimana">2+ giorni in settimana · 280€/giorno</option>
+          <option value="350|150|1|1 giorno nel weekend">1 giorno nel weekend · 350€</option>
+          <option value="700|300|0|Sabato → lunedì" selected>Sabato → lunedì · 700€</option>
+          <option value="1000|450|0|Venerdì → lunedì">Venerdì → lunedì · 1000€</option>
+          <option value="1700|900|0|1 settimana">1 settimana · 1700€</option>
+          <option value="3000|1800|0|2 settimane">2 settimane · 3000€</option>
+        </select>
+      </label>
+      <label class="field" id="daysField" hidden>
+        <span>Giorni <output id="cDaysOut">2</output></span>
+        <input type="range" id="cDays" min="2" max="5" value="2">
+      </label>
+      <label class="field">
+        <span>Km che pensi di fare <output id="cKmOut">300</output></span>
+        <input type="range" id="cKm" min="50" max="2500" step="10" value="300">
+      </label>
+      <div class="calc__res">
+        <div class="calc__row"><span>Noleggio</span><b id="rBase">700€</b></div>
+        <div class="calc__row"><span>Km inclusi</span><b id="rInc">300 km</b></div>
+        <div class="calc__row"><span>Km extra prepagati <small>(1,50€/km)</small></span><b id="rExtra">0€</b></div>
+        <div class="calc__row calc__row--save" id="rSaveRow"><span>Risparmi rispetto alla riconsegna</span><b id="rSave">0€</b></div>
+        <div class="calc__total"><span>Totale stimato</span><b id="rTot">700€</b></div>
+      </div>
+      <a class="btn btn--glow btn--block" id="calcSend" href="#"><svg class="ic" viewBox="0 0 24 24"><use href="#i-wa"/></svg> Invia il preventivo su WhatsApp</a>
+      <p class="fine">Stima indicativa. La conferma arriva su WhatsApp in base alla disponibilità.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ GIFT ============ -->
+<section class="gift">
+  <div class="gift__bg" style="background-image:url(assets/img/avvio.jpg)"></div>
+  <div class="wrap gift__inner">
+    <p class="eyebrow reveal">Idea regalo</p>
+    <h2 class="h2 reveal">Il regalo che<br><span class="g">non dimenticherà.</span></h2>
+    <p class="lead reveal">Compleanno, laurea, anniversario. Una giornata al volante di 400 cavalli, con data da scegliere.</p>
+    <a class="btn btn--glow reveal" data-wa="Ciao! Vorrei regalare una giornata in RS3. Mi dite come funziona il buono regalo?" href="#">Regala una giornata in RS3</a>
+  </div>
+</section>
+
+<!-- ============ ZONES ============ -->
+<section class="zones">
+  <div class="wrap">
+    <p class="eyebrow reveal">Dove</p>
+    <h2 class="h2 reveal">Nel cuore del <span class="g">Veneto</span></h2>
+    <div class="zones__grid">
+      <div class="zone reveal" data-tilt><b>Padova</b><span>Colli Euganei a 20 minuti</span></div>
+      <div class="zone reveal" data-tilt><b>Venezia</b><span>Mestre e riviera del Brenta</span></div>
+      <div class="zone reveal" data-tilt><b>Treviso</b><span>Strada del Prosecco e Dolomiti</span></div>
+    </div>
+    <div class="route reveal">
+      <svg viewBox="0 0 800 220" aria-hidden="true"><path id="routePath" d="M40 170 C 160 40, 260 200, 380 110 S 600 30, 760 80"/></svg>
+      <div class="route__labels"><span>Padova</span><span>Colli Euganei</span><span>Valdobbiadene</span><span>Passo San Boldo</span></div>
+      <p>Il giro da weekend: <b>≈ 290 km</b>. Sta tutto nei 300 km del pacchetto Sabato → Lunedì.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="wrap narrow">
+    <p class="eyebrow reveal center">Domande frequenti</p>
+    <h2 class="h2 reveal center">Tutto quello che <span class="g">ci chiedete</span></h2>
+    <details class="reveal"><summary>Quanti km sono inclusi?</summary><p>150 km al giorno. Nel weekend sabato→lunedì 300 km, venerdì→lunedì 450 km, 900 km a settimana e 1800 km per due settimane.</p></details>
+    <details class="reveal"><summary>E se faccio più km?</summary><p>Se li comunichi e li paghi prima, i km extra costano 1,50€ l'uno. Se li scopriamo alla riconsegna costano 3€ l'uno. Conviene sempre dircelo prima.</p></details>
+    <details class="reveal"><summary>Dove ritiro l'auto?</summary><p>Operiamo tra Padova, Venezia e Treviso. Il punto di consegna lo concordiamo insieme su WhatsApp.</p></details>
+    <details class="reveal"><summary>Avete anche la RSQ3?</summary><p>Sì, anche la RSQ3 da 400 CV, con lo stesso listino. Chiedici la disponibilità.</p></details>
+    <details class="reveal"><summary>Che documenti servono?</summary><p>Ti mandiamo su WhatsApp l'elenco completo di documenti e requisiti prima della prenotazione, così arrivi al ritiro senza sorprese.</p></details>
+    <details class="reveal"><summary>Posso noleggiarla per un periodo diverso?</summary><p>Certo. Per eventi, matrimoni, servizi fotografici o durate diverse scrivici e ti facciamo un preventivo su misura.</p></details>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final">
+  <div class="final__bg" style="background-image:url(assets/img/hero-rs3.jpg)"></div>
+  <div class="wrap center final__inner">
+    <img class="final__logo reveal" src="assets/img/logo-at.png" alt="AT Luxury Car Rental">
+    <h2 class="h2 reveal">Il prossimo weekend<br><span class="g">guidi tu.</span></h2>
+    <p class="lead reveal">Le date del weekend vanno via per prime. Scrivici ora e ti diciamo subito cosa è libero.</p>
+    <a class="btn btn--glow btn--xl reveal" data-wa="Ciao! Vorrei prenotare l'Audi RS3. Le date che mi interessano sono: " href="#"><svg class="ic" viewBox="0 0 24 24"><use href="#i-wa"/></svg> +39 351 982 2171</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <img src="assets/img/logo-at.png" alt="AT Luxury Car Rental">
+    <p>Performance ed emozioni alla tua portata · Noleggio a breve termine<br>Padova · Venezia · Treviso</p>
+    <p><a href="https://www.instagram.com/at.luxurycarental/" target="_blank" rel="noopener">Instagram @at.luxurycarental</a> · <a data-wa="Ciao!" href="#">WhatsApp +39 351 982 2171</a></p>
+    <p class="fine">Audi, RS3 e RSQ3 sono marchi dei rispettivi proprietari. AT Luxury Car Rental è un servizio di noleggio indipendente.</p>
+  </div>
+</footer>
+
+<!-- mobile sticky CTA -->
+<a class="sticky-cta" data-wa="Ciao! Vorrei info sul noleggio dell'Audi RS3" href="#"><svg class="ic" viewBox="0 0 24 24"><use href="#i-wa"/></svg> Verifica date · da 280€/giorno</a>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.1.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.2.5.2.5.4.1.1.1.7-.1 1.3z"/></symbol>
+</svg>
+
+<script src="js/main.js"></script>
+</body>
+</html>
