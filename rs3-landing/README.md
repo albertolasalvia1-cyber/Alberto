@@ -6,7 +6,7 @@ Le sezioni scure (apertura, badge, prezzi, regalo) si alternano a quelle bianche
 Le anteprime della pagina, desktop e telefono, sono in `anteprime/`.
 
 ## Sezioni
-1. **Hero**: video dell'RS3 in un pannello 3D che segue il mouse, linee di velocità animate e prezzo "da 280€ al giorno"
+1. **Hero**: video dell'RS3 in un pannello 3D che segue il mouse, linee di velocità animate e prezzo "da 250€ al giorno"
 2. **Badge RS 3 in 3D**: lettere cromate e blocco rosso in vero 3D (three.js). Entra ruotando, segue mouse e dito e gira con lo scroll. Sotto c'è la targhetta "AT Luxury Car Rental presenta"
 2. **Contagiri**: la lancetta sale con lo scroll fino al limitatore. Accanto, i numeri (400 CV, 500 Nm, 3,8 s, 290 km/h) che si animano
 3. **Galleria 3D**: un anello di foto che gira da solo e si può trascinare

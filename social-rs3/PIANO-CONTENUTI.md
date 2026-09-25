@@ -12,7 +12,7 @@ Oggi ci sono 14 post e 89 follower. Il feed è bello: foto scure e curate, il ve
 |---|---|---|
 | **Post fissati** | nessuno | Fissare 3 post: 1) carosello listino, 2) Reel del prezzo svelato (contenuto 1), 3) Reel del primo avvio con un cliente (contenuto 2) |
 | **In evidenza** | solo "RS3" | Aggiungere: **LISTINO** · **COME FUNZIONA** (documenti, cauzione, età minima, consegna) · **CLIENTI** (storie ricondivise) · **RSQ3** · **FAQ** |
-| **Bio** | numero scritto a mano | Aggiungere il link cliccabile `wa.me/393519822171` e una riga con il prezzo di partenza: *"RS3 · RSQ3 400 CV da 280€/giorno"* |
+| **Bio** | numero scritto a mano | Aggiungere il link cliccabile `wa.me/393519822171` e una riga con il prezzo di partenza: *"RS3 · RSQ3 400 CV da 250€/giorno"* |
 | **Caption** | "Per info in DM o tramite Whatsapp" | Ogni caption con: prezzo, zona, **una** azione (commenta RS3 / WhatsApp) |
 | **RSQ3** | non si vede | È nel listino ma non sul profilo: serve almeno un Reel e un carosello dedicati |
 | **Hashtag** | #rent #audi #RS3 | Hashtag locali: #noleggioauto #padova #venezia #treviso #noleggiopadova #audirs3 #rs3 #rsq3 #veneto #noleggiosportive |
@@ -47,8 +47,8 @@ Inquadratura: il posteriore verde che parte (come la foto tra gli alberi), oppur
 
 **CORPO**
 1. *"Meno di quanto pensi."* → giro veloce attorno all'auto (cerchi, fari, logo RS)
-2. *"In settimana: 300€ per un giorno, 150 km inclusi."* → interni, volante
-3. *"Se la prendi per 2 giorni o più scendi a 280€ al giorno."*
+2. *"In settimana: 250€ al giorno, 150 km inclusi."* → interni, volante
+3. *"E vale anche se la tieni più giorni: sempre 250€ al giorno."*
 4. *"Il weekend da sabato a lunedì mattina: 700€ con 300 km."* → auto su strada dei Colli
 5. *"E c'è anche la RSQ3, sempre 400 cavalli."* → (se c'è, 1 s di RSQ3)
 
@@ -113,7 +113,7 @@ Lui bendato o con le mani sugli occhi davanti all'auto.
 1. Tolgono la benda → reazione
 2. Lei (o lui) gli dà la chiave con un fiocco
 3. Lui che gira attorno all'auto incredulo → si siede → avvio
-4. Testo: *"Una giornata in RS3 da 300€. Altro che il solito regalo."*
+4. Testo: *"Una giornata in RS3 da 250€. Altro che il solito regalo."*
 
 **CTA**
 > *"Commenta **REGALO** e ti mandiamo il buono da regalare."*
@@ -165,7 +165,7 @@ Per modificare testi, nome o prezzi: aprire `sorgenti/creatives.html`, cambiare 
 - **Età:** 23–50. Test A: interessi *Audi, auto sportive, motorsport, supercar*. Test B: **Advantage+ senza interessi** (spesso rende di più).
 - **Budget di test:** 10–15€/giorno per 7 giorni, con 3 annunci in gara: `reel-bozza-rs3.mp4`, `ad-feed-400cv.png`, `ad-3d-ticket.png`. Dopo 7 giorni spegnete i 2 che hanno il costo per conversazione più alto.
 - **Testo annuncio:**
-  > 400 CV a Padova, da 280€ al giorno 🟢 Audi RS3 e RSQ3 a noleggio: 150 km inclusi, consegna tra Padova, Venezia e Treviso. Weekend da sabato a lunedì 700€. Scrivici per le date libere 👇 WhatsApp +39 351 982 2171
+  > 400 CV a Padova, da 250€ al giorno 🟢 Audi RS3 e RSQ3 a noleggio: 150 km inclusi, consegna tra Padova, Venezia e Treviso. Weekend da sabato a lunedì 700€. Scrivici per le date libere 👇 WhatsApp +39 351 982 2171
 - **Retargeting:** chi ha visto il 50% di un Reel negli ultimi 30 giorni riceve l'annuncio del carosello listino e quello del trucco dei km.
 
 ## Calendario delle prime 2 settimane
@@ -183,8 +183,7 @@ Ogni giorno: 3–5 storie (auto pulita, consegne, *"questo weekend è libera / o
 
 ## Risposta rapida da salvare su WhatsApp e DM
 > Ciao! 👋 Grazie per averci scritto. Siamo AT Luxury Car Rental 🏁 RS3 e RSQ3 da 400 CV tra Padova, Venezia e Treviso.
-> • 1 giorno in settimana 300€ (150 km)
-> • 2+ giorni in settimana 280€/giorno
+> • In settimana 250€/giorno (150 km al giorno)
 > • 1 giorno nel weekend 350€
 > • Sabato → lunedì mattina 700€ (300 km)
 > • Venerdì → lunedì mattina 1000€ (450 km)

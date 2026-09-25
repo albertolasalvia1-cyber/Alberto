@@ -17,8 +17,8 @@ Durata ideale: 15–30 s. Formato 9:16, sottotitoli sempre attivi, audio in tend
 |---|---|---|
 | **HOOK** | "Quanto costa guidare 400 cavalli per un giorno a Padova?" | Dito che preme START, primo piano |
 | Corpo | "Meno di una cena di coppia più un weekend al mare." | Giro lento attorno all'auto |
-| | "In settimana 300€ al giorno, 150 km inclusi." | Cerchi e pinza rossa |
-| | "Dal secondo giorno scendi a 280." | Interni, volante |
+| | "In settimana 250€ al giorno, 150 km inclusi." | Cerchi e pinza rossa |
+| | "Anche per più giorni: sempre 250 al giorno." | Interni, volante |
 | | "Il weekend da sabato a lunedì: 700€, 300 km." | Auto in strada tra gli alberi |
 | **CTA** | "Commenta **RS3** e ti mando il listino completo." | Logo AT + @ a schermo |
 
@@ -78,7 +78,7 @@ Durata ideale: 15–30 s. Formato 9:16, sottotitoli sempre attivi, audio in tend
 | **HOOK** | Testo: "Lui pensava fosse un compleanno normale…" | Ragazzo bendato portato per mano |
 | Corpo | Lei: "Pronto? Tre, due, uno…" | Tolgono la benda |
 | | (reazione) | La faccia e poi l'auto verde |
-| | Testo: "400 CV per un giorno. Da 300€." | Lei che gli dà la chiave con un fiocco |
+| | Testo: "400 CV per un giorno. Da 250€." | Lei che gli dà la chiave con un fiocco |
 | **CTA** | "Commenta **REGALO** e ti mando come funziona il buono." | Tutti e due in auto |
 
 **Da pubblicare:** 2–3 settimane prima di San Valentino, Natale, Festa del Papà, stagione delle lauree.
@@ -162,7 +162,7 @@ Durata ideale: 15–30 s. Formato 9:16, sottotitoli sempre attivi, audio in tend
 
 ## Caption base (da adattare)
 > 400 CV tra Padova, Venezia e Treviso 🟢
-> Audi RS3 e RSQ3 da 280€/giorno · 150 km inclusi
+> Audi RS3 e RSQ3 da 250€/giorno · 150 km inclusi
 > 📲 DM o WhatsApp +39 351 982 2171
 > #noleggioauto #audirs3 #rs3 #padova #venezia #treviso #veneto #noleggiopadova #rsq3 #carrental
 
