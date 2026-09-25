@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Officina Mimo — caroselli Instagram</title>
+<!--
+  Sorgente dei caroselli Instagram (1080×1350, formato 4:5).
+  Ogni <section class="slide"> diventa un PNG: node social/render.js
+  Aperto nel browser mostra tutte le slide in colonna, per rivederle.
+-->
+<style>
+@font-face { font-family: "BC"; font-weight: 600; src: url(../assets/fonts/barlow-condensed-latin-600-normal.woff2); }
+@font-face { font-family: "BC"; font-weight: 700; src: url(../assets/fonts/barlow-condensed-latin-700-normal.woff2); }
+@font-face { font-family: "BC"; font-weight: 800; src: url(../assets/fonts/barlow-condensed-latin-800-normal.woff2); }
+@font-face { font-family: "B"; font-weight: 400; src: url(../assets/fonts/barlow-latin-400-normal.woff2); }
+@font-face { font-family: "B"; font-weight: 500; src: url(../assets/fonts/barlow-latin-500-normal.woff2); }
+@font-face { font-family: "B"; font-weight: 600; src: url(../assets/fonts/barlow-latin-600-normal.woff2); }
+
+:root { --ink: #0e1012; --ink2: #1a1e23; --steel: #2a2f35; --y: #ffb400; --o: #ff8a00; --mute: #9aa3ad; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #555; font-family: "B", sans-serif; display: grid; gap: 40px; justify-content: center; padding: 40px 0; }
+body.render { background: none; padding: 0; gap: 0; }
+
+.slide { position: relative; width: 1080px; height: 1350px; overflow: hidden; background: var(--ink); color: #fff; padding: 96px 90px; display: flex; flex-direction: column; }
+.slide--y { background: var(--y); color: var(--ink); }
+.slide--light { background: #eef0f2; color: var(--ink); }
+
+/* Elementi ricorrenti */
+.grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.04) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,.04) 2px, transparent 2px); background-size: 72px 72px; }
+.slide--y .grid, .slide--light .grid { background-image: linear-gradient(rgba(14,16,18,.06) 2px, transparent 2px), linear-gradient(90deg, rgba(14,16,18,.06) 2px, transparent 2px); }
+.haz { position: absolute; left: 0; right: 0; bottom: 0; height: 26px; background: repeating-linear-gradient(-45deg, var(--y) 0 30px, var(--ink) 30px 60px); }
+.slide--y .haz { background: repeating-linear-gradient(-45deg, var(--ink) 0 30px, var(--y) 30px 60px); }
+.top { position: relative; display: flex; align-items: center; justify-content: space-between; margin-bottom: 70px; }
+.brand { display: flex; align-items: center; gap: 18px; }
+.mark { width: 72px; height: 72px; border-radius: 14px; background: var(--y); color: var(--ink); display: grid; place-items: center; font: 800 52px/1 "BC"; clip-path: polygon(0 0, 100% 0, 100% 78%, 78% 100%, 0 100%); }
+.slide--y .mark { background: var(--ink); color: var(--y); }
+.brand b { font: 800 38px/1 "BC"; letter-spacing: .06em; }
+.brand small { display: block; font: 500 20px/1 "B"; color: var(--mute); margin-top: 6px; letter-spacing: .03em; }
+.slide--y .brand small, .slide--light .brand small { color: #4a515a; }
+.count { font: 700 30px/1 "BC"; letter-spacing: .12em; padding: 12px 20px; border-radius: 999px; border: 2px solid currentColor; opacity: .75; }
+
+.foot { position: relative; margin-top: auto; display: flex; align-items: center; justify-content: space-between; font: 600 28px/1 "BC"; letter-spacing: .1em; text-transform: uppercase; padding-bottom: 20px; }
+.foot .swipe { display: flex; align-items: center; gap: 14px; color: var(--y); }
+.slide--y .foot .swipe, .slide--light .foot .swipe { color: var(--ink); }
+.foot .swipe svg { width: 56px; height: 56px; }
+.foot .handle { opacity: .7; }
+
+.eyebrow { position: relative; font: 700 30px/1 "BC"; letter-spacing: .24em; text-transform: uppercase; color: var(--o); display: flex; align-items: center; gap: 16px; margin-bottom: 34px; }
+.eyebrow::before { content: ""; width: 54px; height: 5px; background: currentColor; }
+.slide--y .eyebrow { color: var(--ink); }
+h1, h2 { position: relative; font-family: "BC"; font-weight: 800; text-transform: uppercase; line-height: .94; }
+h1 { font-size: 168px; }
+h2 { font-size: 112px; margin-bottom: 40px; }
+.hl { color: var(--y); }
+.slide--y .hl { display: inline-block; color: #fff; background: var(--ink); padding: 4px 16px 0; margin-top: 12px; }
+.slide--light .hl { color: var(--o); }
+p.lead { position: relative; font: 500 40px/1.35 "B"; color: #c7ced6; max-width: 860px; }
+.slide--y p.lead { color: #2a2f35; }
+.slide--light p.lead { color: #3a4048; }
+
+.num { position: absolute; right: 60px; top: 190px; font: 800 520px/0.8 "BC"; color: rgba(255,255,255,.05); }
+.slide--y .num { color: rgba(14,16,18,.08); }
+
+.list { position: relative; list-style: none; display: grid; gap: 18px; }
+.list li { display: flex; gap: 26px; align-items: flex-start; font: 500 36px/1.28 "B"; background: var(--ink2); border-radius: 22px; padding: 24px 30px; border: 1px solid rgba(255,255,255,.06); }
+.slide--y .list li { background: var(--ink); color: #fff; }
+.list li i { flex: none; width: 54px; height: 54px; border-radius: 14px; background: var(--y); color: var(--ink); display: grid; place-items: center; font: 800 34px/1 "BC"; font-style: normal; margin-top: -2px; }
+.list li b { font-weight: 600; color: #fff; }
+
+.big-ic { position: relative; width: 200px; height: 200px; border-radius: 40px; background: var(--y); color: var(--ink); display: grid; place-items: center; margin-bottom: 56px; }
+.slide--y .big-ic { background: var(--ink); color: var(--y); }
+.big-ic svg { width: 116px; height: 116px; }
+
+.phone { position: relative; display: inline-flex; align-items: center; gap: 26px; background: var(--ink); color: var(--y); padding: 30px 46px; border-radius: 999px; font: 800 86px/1 "BC"; letter-spacing: .03em; align-self: flex-start; }
+.slide:not(.slide--y) .phone { background: var(--y); color: var(--ink); }
+.phone svg { width: 72px; height: 72px; }
+
+.tag { position: relative; display: inline-block; align-self: flex-start; font: 700 30px/1 "BC"; letter-spacing: .14em; text-transform: uppercase; padding: 14px 22px; border-radius: 10px; background: var(--y); color: var(--ink); margin-bottom: 40px; }
+.slide--y .tag { background: var(--ink); color: var(--y); }
+
+.tiles { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.tile { background: var(--ink2); border: 1px solid rgba(255,255,255,.07); border-radius: 22px; padding: 30px; display: flex; flex-direction: column; gap: 18px; }
+.tile svg { width: 58px; height: 58px; color: var(--y); }
+.tile b { font: 700 40px/1.05 "BC"; text-transform: uppercase; letter-spacing: .02em; }
+
+.truck { position: absolute; right: -40px; bottom: 150px; width: 980px; filter: drop-shadow(0 40px 40px rgba(0,0,0,.55)); }
+.ring { position: absolute; width: 900px; height: 900px; right: -80px; bottom: -40px; border-radius: 50%; border: 3px dashed rgba(255,180,0,.3); }
+.ring::after { content: ""; position: absolute; inset: 15%; border-radius: 50%; background: radial-gradient(circle, rgba(255,180,0,.18), transparent 65%); }
+.stripes { position: absolute; right: -160px; top: -60px; bottom: -60px; width: 520px; background: repeating-linear-gradient(-45deg, rgba(14,16,18,.09) 0 36px, transparent 36px 72px); transform: skewX(-8deg); }
+
+.info { position: relative; display: grid; gap: 30px; margin-top: 10px; }
+.info div { display: flex; gap: 26px; align-items: center; font: 500 40px/1.25 "B"; }
+.info svg { flex: none; width: 76px; height: 76px; padding: 18px; border-radius: 18px; background: var(--y); color: var(--ink); }
+.info small { display: block; font: 700 26px/1 "BC"; letter-spacing: .16em; text-transform: uppercase; color: var(--mute); margin-bottom: 6px; }
+
+.timeline { position: relative; list-style: none; border-left: 6px solid var(--y); padding-left: 50px; display: grid; gap: 40px; }
+.timeline li { position: relative; }
+.timeline li::before { content: ""; position: absolute; left: -69px; top: 12px; width: 32px; height: 32px; border-radius: 50%; background: var(--ink); border: 6px solid var(--y); }
+.timeline b { display: block; font: 800 64px/1 "BC"; text-transform: uppercase; color: var(--y); }
+.timeline span { font: 500 36px/1.3 "B"; color: #c7ced6; }
+
+.note { position: relative; font: 400 24px/1.35 "B"; opacity: .6; margin-top: 30px; max-width: 860px; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="arr" viewBox="0 0 24 24"><path d="M4 12h15m-6-6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></symbol>
+    <symbol id="warn" viewBox="0 0 24 24"><path d="M12 3L2 20h20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.3" fill="currentColor"/></symbol>
+    <symbol id="pin" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="tow" viewBox="0 0 24 24"><path d="M2 17V9h8l3 4h5l2 2v2h-2M2 17h2m4 0h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/><circle cx="6" cy="17.5" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="17.5" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 9L16 3l3 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="wrench" viewBox="0 0 24 24"><path d="M21.7 6.3a6 6 0 0 1-7.9 7.2l-7 7a2.1 2.1 0 0 1-3-3l7-7a6 6 0 0 1 7.2-7.9l-3.6 3.6.9 2.8 2.8.9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="shield" viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11V5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 12l3 3 5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="gauge" viewBox="0 0 24 24"><path d="M3.5 17a9 9 0 1 1 17 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 14l4.5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="14" r="1.6" fill="currentColor"/><path d="M7 20h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="box" viewBox="0 0 24 24"><path d="M3 7.5L12 3l9 4.5v9L12 21l-9-4.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 7.5l9 4.5 9-4.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="tire" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v5.5M12 15.5V21M3 12h5.5M15.5 12H21" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11.5 11.5L21 2m-4 4l3 3m-6 0l2 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="5.5" y="8.5" width="5" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M13 10h5.5M13 13.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="down" viewBox="0 0 24 24"><path d="M12 3v12m-5-5l5 5 5-5M4 20h16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></symbol>
+
+    <symbol id="truck" viewBox="0 0 640 300">
+      <linearGradient id="gCab" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a4048"/><stop offset="1" stop-color="#1c2025"/></linearGradient>
+      <linearGradient id="gTrl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c3137"/><stop offset="1" stop-color="#16191d"/></linearGradient>
+      <linearGradient id="gGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7d8a99"/><stop offset="1" stop-color="#2a323c"/></linearGradient>
+      <pattern id="haz" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="12" height="24" fill="#ffb400"/><rect x="12" width="12" height="24" fill="#111"/></pattern>
+      <ellipse cx="320" cy="262" rx="300" ry="10" fill="#000" opacity=".45"/>
+      <rect x="18" y="52" width="384" height="160" rx="6" fill="url(#gTrl)" stroke="#40464e"/>
+      <g stroke="#3a4047" stroke-width="2"><line x1="82" y1="56" x2="82" y2="208"/><line x1="146" y1="56" x2="146" y2="208"/><line x1="210" y1="56" x2="210" y2="208"/><line x1="274" y1="56" x2="274" y2="208"/><line x1="338" y1="56" x2="338" y2="208"/></g>
+      <rect x="40" y="96" width="200" height="54" rx="4" fill="#0e1012" opacity=".6"/>
+      <text x="56" y="133" font-family="BC" font-weight="800" font-size="32" fill="#ffb400" letter-spacing="2">MIMO</text>
+      <text x="140" y="133" font-family="BC" font-weight="600" font-size="18" fill="#c9ced4" letter-spacing="2">FULL SERVICE</text>
+      <rect x="18" y="196" width="384" height="16" fill="url(#haz)"/>
+      <rect x="18" y="212" width="592" height="14" rx="3" fill="#0b0d0f"/>
+      <path d="M424 226V70q0-24 24-28l110-8q26-1 34 22l18 70v90z" fill="url(#gCab)" stroke="#4a515a"/>
+      <path d="M504 52l56-4q14 0 18 14l14 50h-88z" fill="url(#gGlass)"/>
+      <path d="M440 60h52v52h-52z" fill="url(#gGlass)" opacity=".85"/>
+      <rect x="592" y="132" width="18" height="70" rx="3" fill="#0b0d0f"/>
+      <g stroke="#6b737c" stroke-width="3"><line x1="596" y1="142" x2="606" y2="142"/><line x1="596" y1="154" x2="606" y2="154"/><line x1="596" y1="166" x2="606" y2="166"/><line x1="596" y1="178" x2="606" y2="178"/><line x1="596" y1="190" x2="606" y2="190"/></g>
+      <rect x="598" y="206" width="22" height="12" rx="3" fill="#ffb400"/>
+      <rect x="424" y="148" width="168" height="6" fill="#ffb400"/>
+      <rect x="566" y="30" width="30" height="8" rx="4" fill="#ffb400"/>
+      <rect x="442" y="118" width="8" height="30" rx="2" fill="#5a626b"/>
+      <g transform="translate(92 236)"><circle r="30" fill="#0b0d0f"/><circle r="14" fill="#3b4148"/><circle r="5" fill="#ffb400"/></g>
+      <g transform="translate(160 236)"><circle r="30" fill="#0b0d0f"/><circle r="14" fill="#3b4148"/><circle r="5" fill="#ffb400"/></g>
+      <g transform="translate(476 236)"><circle r="30" fill="#0b0d0f"/><circle r="14" fill="#3b4148"/><circle r="5" fill="#ffb400"/></g>
+      <g transform="translate(560 236)"><circle r="30" fill="#0b0d0f"/><circle r="14" fill="#3b4148"/><circle r="5" fill="#ffb400"/></g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ CAROSELLO 1 — SOCCORSO STRADALE ============ -->
+
+<section class="slide slide--y" data-file="01-soccorso-stradale/01.png">
+  <div class="grid"></div><div class="stripes"></div>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Veicoli industriali &amp; bus · Padova</small></div></div><span class="count">1/5</span></div>
+  <p class="eyebrow">Soccorso stradale 24/7</p>
+  <h1>Camion<br>in panne?</h1>
+  <p class="lead" style="margin-top:30px">Cosa fare in <b>4 mosse</b>, prima e dopo la chiamata.<br>Salva il post: può servirti quando meno te lo aspetti.</p>
+  <div class="big-ic" style="position:absolute;right:90px;bottom:200px;margin:0;width:260px;height:260px;border-radius:52px"><svg style="width:150px;height:150px"><use href="#warn"/></svg></div>
+  <div class="foot"><span class="handle">@officinamimo</span><span class="swipe">Scorri <svg><use href="#arr"/></svg></span></div>
+  <div class="haz"></div>
+</section>
+
+<section class="slide" data-file="01-soccorso-stradale/02.png">
+  <div class="grid"></div><span class="num">1</span>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Soccorso stradale 24/7</small></div></div><span class="count">2/5</span></div>
+  <span class="tag">Mossa 01</span>
+  <h2>Prima di tutto,<br><span class="hl">sicurezza.</span></h2>
+  <ul class="list">
+    <li><i>✓</i><span>Accosta il più a destra possibile, fuori dalla carreggiata se puoi.</span></li>
+    <li><i>✓</i><span>Accendi le <b>quattro frecce</b> e indossa il <b>giubbotto alta visibilità</b> prima di scendere.</span></li>
+    <li><i>✓</i><span>Posiziona il <b>triangolo</b> ben distante dal mezzo, visibile a chi arriva.</span></li>
+  </ul>
+  <div class="foot"><span class="handle">@officinamimo</span><span class="swipe">Scorri <svg><use href="#arr"/></svg></span></div>
+  <div class="haz"></div>
+</section>
+
+<section class="slide" data-file="01-soccorso-stradale/03.png">
+  <div class="grid"></div><span class="num">2</span>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Soccorso stradale 24/7</small></div></div><span class="count">3/5</span></div>
+  <span class="tag">Mossa 02</span>
+  <h2>Tieni pronte<br><span class="hl">queste info.</span></h2>
+  <ul class="list">
+    <li><i><svg style="width:30px;height:30px"><use href="#pin"/></svg></i><span><b>Dove sei:</b> strada, km, direzione di marcia.</span></li>
+    <li><i>#</i><span><b>Il mezzo:</b> targa, marca, modello, eventuale rimorchio.</span></li>
+    <li><i>!</i><span><b>Il guasto:</b> spie accese, rumori, cosa è successo.</span></li>
+    <li><i>⚖</i><span><b>Il carico:</b> tipo di merce e se è deperibile o pericolosa.</span></li>
+  </ul>
+  <div class="foot"><span class="handle">@officinamimo</span><span class="swipe">Scorri <svg><use href="#arr"/></svg></span></div>
+  <div class="haz"></div>
+</section>
+
+<section class="slide slide--y" data-file="01-soccorso-stradale/04.png">
+  <div class="grid"></div><div class="stripes"></div><span class="num">3</span>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Soccorso stradale 24/7</small></div></div><span class="count">4/5</span></div>
+  <span class="tag">Mossa 03</span>
+  <h2>Chiama<br>la nostra<br>centrale.</h2>
+  <p class="lead" style="margin-bottom:50px">Attiva <b>24 ore su 24, 7 giorni su 7</b>, dedicata ai veicoli industriali. Siamo partner ufficiale <b>ACI Global</b>.</p>
+  <a class="phone"><svg><use href="#phone"/></svg>049 870 2342</a>
+  <div class="foot"><span class="handle">@officinamimo</span><span class="swipe">Scorri <svg><use href="#arr"/></svg></span></div>
+  <div class="haz"></div>
+</section>
+
+<section class="slide" data-file="01-soccorso-stradale/05.png">
+  <div class="grid"></div><div class="ring"></div>
+  <svg class="truck" viewBox="0 0 640 300" style="bottom:170px"><use href="#truck"/></svg>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Soccorso stradale 24/7</small></div></div><span class="count">5/5</span></div>
+  <span class="tag">Mossa 04</span>
+  <h2>Al resto<br><span class="hl">pensiamo noi.</span></h2>
+  <p class="lead">Riparazione sul posto quando possibile, altrimenti traino in officina, diagnosi e ricambi a magazzino.</p>
+  <div class="foot"><span class="handle">📌 Salva il numero: 049 870 2342</span></div>
+  <div class="haz"></div>
+</section>
+
+<!-- ============ CAROSELLO 2 — TACHIGRAFO ============ -->
+
+<section class="slide" data-file="02-tachigrafo/01.png">
+  <div class="grid"></div><div class="ring" style="bottom:auto;top:260px;right:-260px"></div>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Centro tecnico tachigrafi</small></div></div><span class="count">1/6</span></div>
+  <p class="eyebrow">Promemoria per autotrasportatori</p>
+  <h1>Tachi&shy;grafo:<br><span class="hl">4 scadenze</span></h1>
+  <p class="lead" style="margin-top:34px">da segnare in agenda per non rischiare sanzioni e fermi.</p>
+  <div class="big-ic" style="position:absolute;right:90px;bottom:190px;margin:0;width:240px;height:240px;border-radius:48px"><svg style="width:140px;height:140px"><use href="#gauge"/></svg></div>
+  <div class="foot"><span class="handle">@officinamimo</span><span class="swipe">Scorri <svg><use href="#arr"/></svg></span></div>
+  <div class="haz"></div>
+</section>
+
+<section class="slide" data-file="02-tachigrafo/02.png">
+  <div class="grid"></div><span class="num">1</span>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Centro tecnico tachigrafi</small></div></div><span class="count">2/6</span></div>
+  <div class="big-ic"><svg><use href="#cal"/></svg></div>
+  <span class="tag">Ogni 2 anni</span>
+  <h2>Controllo<br><span class="hl">periodico</span></h2>
+  <p class="lead">Il tachigrafo va verificato e tarato presso un centro tecnico autorizzato almeno ogni due anni. La targhetta di taratura riporta la data dell'ultimo controllo.</p>
+  <div class="foot"><span class="handle">@officinamimo</span><span class="swipe">Scorri <svg><use href="#arr"/></svg></span></div>
+  <div class="haz"></div>
+</section>
+
+<section class="slide" data-file="02-tachigrafo/03.png">
+  <div class="grid"></div><span class="num">2</span>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Centro tecnico tachigrafi</small></div></div><span class="count">3/6</span></div>
+  <div class="big-ic"><svg><use href="#card"/></svg></div>
+  <span class="tag">Ogni 28 giorni</span>
+  <h2>Scarico<br><span class="hl">carta conducente</span></h2>
+  <p class="lead">I dati della carta del conducente vanno scaricati e archiviati dall'azienda almeno ogni 28 giorni.</p>
+  <div class="foot"><span class="handle">@officinamimo</span><span class="swipe">Scorri <svg><use href="#arr"/></svg></span></div>
+  <div class="haz"></div>
+</section>
+
+<section class="slide" data-file="02-tachigrafo/04.png">
+  <div class="grid"></div><span class="num">3</span>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Centro tecnico tachigrafi</small></div></div><span class="count">4/6</span></div>
+  <div class="big-ic"><svg><use href="#down"/></svg></div>
+  <span class="tag">Ogni 90 giorni</span>
+  <h2>Scarico<br><span class="hl">memoria di massa</span></h2>
+  <p class="lead">I dati registrati nella memoria del tachigrafo digitale vanno scaricati almeno ogni 90 giorni con la carta azienda.</p>
+  <div class="foot"><span class="handle">@officinamimo</span><span class="swipe">Scorri <svg><use href="#arr"/></svg></span></div>
+  <div class="haz"></div>
+</section>
+
+<section class="slide" data-file="02-tachigrafo/05.png">
+  <div class="grid"></div><span class="num">4</span>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Centro tecnico tachigrafi</small></div></div><span class="count">5/6</span></div>
+  <div class="big-ic"><svg><use href="#clock"/></svg></div>
+  <span class="tag">Ogni 5 anni</span>
+  <h2>Rinnovo<br><span class="hl">carta conducente</span></h2>
+  <p class="lead">La carta tachigrafica del conducente dura 5 anni: chiedi il rinnovo con anticipo, per non restare fermo in attesa della nuova.</p>
+  <p class="note">Promemoria indicativo: verifica sempre le scadenze aggiornate con il tuo consulente o con la Camera di Commercio.</p>
+  <div class="foot"><span class="handle">@officinamimo</span><span class="swipe">Scorri <svg><use href="#arr"/></svg></span></div>
+  <div class="haz"></div>
+</section>
+
+<section class="slide slide--y" data-file="02-tachigrafo/06.png">
+  <div class="grid"></div><div class="stripes"></div>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Centro tecnico tachigrafi</small></div></div><span class="count">6/6</span></div>
+  <p class="eyebrow">Analogici e digitali</p>
+  <h2>Controllo<br>in scadenza?<br>Ci pensiamo noi.</h2>
+  <p class="lead" style="margin-bottom:50px">Installazione, taratura, controllo periodico e assistenza tachigrafi a Padova. Prenota:</p>
+  <a class="phone"><svg><use href="#phone"/></svg>049 870 2342</a>
+  <div class="foot"><span class="handle">Via Andorra 14 · Padova</span><span class="handle">@officinamimo</span></div>
+  <div class="haz"></div>
+</section>
+
+<!-- ============ CAROSELLO 3 — CHI SIAMO / FULL SERVICE ============ -->
+
+<section class="slide" data-file="03-full-service/01.png">
+  <div class="grid"></div><div class="ring"></div>
+  <svg class="truck" viewBox="0 0 640 300"><use href="#truck"/></svg>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Veicoli industriali &amp; bus · Padova</small></div></div><span class="count">1/5</span></div>
+  <p class="eyebrow">Padova · dal 1969</p>
+  <h1>Oltre 55 anni<br><span class="hl">di camion.</span></h1>
+  <div class="foot" style="margin-top:auto"><span class="handle">@officinamimo</span><span class="swipe">Scorri <svg><use href="#arr"/></svg></span></div>
+  <div class="haz"></div>
+</section>
+
+<section class="slide" data-file="03-full-service/02.png">
+  <div class="grid"></div>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>La nostra storia</small></div></div><span class="count">2/5</span></div>
+  <h2 style="font-size:96px">Da mezzo secolo<br><span class="hl">al fianco di chi trasporta.</span></h2>
+  <ol class="timeline">
+    <li><b>1969</b><span>Apriamo l'officina a Padova.</span></li>
+    <li><b>Volvo Trucks</b><span>Diventiamo specialisti Volvo, ogni giorno anche su tutti gli altri marchi.</span></li>
+    <li><b>Oggi</b><span>Rete internazionale TopTruck e partner ufficiale ACI Global.</span></li>
+  </ol>
+  <div class="foot"><span class="handle">@officinamimo</span><span class="swipe">Scorri <svg><use href="#arr"/></svg></span></div>
+  <div class="haz"></div>
+</section>
+
+<section class="slide" data-file="03-full-service/03.png">
+  <div class="grid"></div>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Full Service</small></div></div><span class="count">3/5</span></div>
+  <h2 style="font-size:100px">Tutto in<br><span class="hl">un solo posto.</span></h2>
+  <div class="tiles">
+    <div class="tile"><svg><use href="#wrench"/></svg><b>Officina &amp; diagnosi</b></div>
+    <div class="tile"><svg><use href="#shield"/></svg><b>Revisioni oltre 3,5 t</b></div>
+    <div class="tile"><svg><use href="#gauge"/></svg><b>Tachigrafi</b></div>
+    <div class="tile"><svg><use href="#box"/></svg><b>Ricambi a magazzino</b></div>
+    <div class="tile"><svg><use href="#tire"/></svg><b>Pneumatici &amp; cristalli</b></div>
+    <div class="tile" style="background:#ffb400;color:#0e1012"><svg style="color:#0e1012"><use href="#tow"/></svg><b>Soccorso 24/7</b></div>
+  </div>
+  <div class="foot"><span class="handle">@officinamimo</span><span class="swipe">Scorri <svg><use href="#arr"/></svg></span></div>
+  <div class="haz"></div>
+</section>
+
+<section class="slide slide--y" data-file="03-full-service/04.png">
+  <div class="grid"></div><div class="stripes"></div>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Vendita &amp; noleggio</small></div></div><span class="count">4/5</span></div>
+  <div class="big-ic"><svg><use href="#key"/></svg></div>
+  <h2>Ti serve<br>un mezzo<br><span class="hl">in più?</span></h2>
+  <p class="lead">Vendita e noleggio di camion e semirimorchi, a breve e a medio-lungo termine. Per i picchi di lavoro o mentre il tuo mezzo è in officina.</p>
+  <div class="foot"><span class="handle">@officinamimo</span><span class="swipe">Scorri <svg><use href="#arr"/></svg></span></div>
+  <div class="haz"></div>
+</section>
+
+<section class="slide" data-file="03-full-service/05.png">
+  <div class="grid"></div>
+  <div class="top"><div class="brand"><span class="mark">M</span><div><b>OFFICINA MIMO</b><small>Veicoli industriali &amp; bus</small></div></div><span class="count">5/5</span></div>
+  <h2>Passa a<br><span class="hl">trovarci.</span></h2>
+  <div class="info">
+    <div><svg><use href="#pin"/></svg><span><small>Indirizzo</small>Via Andorra 14, Padova</span></div>
+    <div><svg><use href="#phone"/></svg><span><small>Telefono</small>049 870 2342</span></div>
+    <div><svg><use href="#clock"/></svg><span><small>Orari officina</small>Lun–Ven 8–12 · 14–18<br>Sabato 8–12</span></div>
+    <div><svg><use href="#tow"/></svg><span><small>Soccorso stradale</small>Sempre attivo, 24/7</span></div>
+  </div>
+  <div class="foot"><span class="handle">officinamimo.com</span><span class="swipe"><svg style="width:44px;height:44px"><use href="#ig"/></svg>@officinamimo</span></div>
+  <div class="haz"></div>
+</section>
+
+</body>
+</html>
