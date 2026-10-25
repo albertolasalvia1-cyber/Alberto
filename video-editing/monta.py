@@ -184,10 +184,10 @@ def text_w(font, s, track):
     return sum(font.getlength(c) for c in s) + track * max(len(s) - 1, 0)
 
 
-def draw_tracked(draw, xy, s, font, fill, track):
+def draw_tracked(draw, xy, s, font, fill, track, stroke=0):
     x, y = xy
     for c in s:
-        draw.text((x, y), c, font=font, fill=fill)
+        draw.text((x, y), c, font=font, fill=fill, stroke_width=stroke, stroke_fill=(0, 0, 0, 255))
         x += font.getlength(c) + track
 
 
@@ -201,7 +201,7 @@ def shadowed(base_draw_fn, blur=4, offset=(0, 3), alpha=170):
     return sh, fg
 
 
-SUB_SIZE, SUB_TRACK, SUB_MAXW = 42, 3, 820
+SUB_SIZE, SUB_TRACK, SUB_MAXW, SUB_STROKE = 42, 3, 820, 2
 
 
 def wrap(words, font):
@@ -242,7 +242,8 @@ def render_sub(words, active, sub_y):
 
     def txt(dr, fill, off):
         for i, w, x, y, ww in placed:
-            draw_tracked(dr, (x + off[0], y + off[1]), w, font, fill, SUB_TRACK)
+            draw_tracked(dr, (x + off[0], y + off[1]), w, font, fill, SUB_TRACK,
+                         stroke=SUB_STROKE if fill[0] == 255 else 0)
     sh, fg = shadowed(txt)
     return Image.alpha_composite(Image.alpha_composite(sh, img), fg)
 
@@ -297,7 +298,63 @@ def title_frame(t, l1, l2):
     return img
 
 
-def build_overlay(tmp, total, blocks, l1, l2, sub_y):
+# ---------------------------------------------------------------- sticker in sovrimpressione
+STICKERS = os.path.join(HERE, "stickers")
+ST_IN, ST_OUT = 0.25, 0.15
+
+
+def _ease_pop(p):
+    """0->1 con leggero rimbalzo (scala 1.15 a metà)."""
+    if p >= 1:
+        return 1.0
+    return 1.15 * (1 - (1 - p / 0.7) ** 2) if p < 0.7 else 1.15 - 0.15 * (p - 0.7) / 0.3
+
+
+def sticker_frame(sp, lt):
+    """sp: {img, label?, pos: left|right|center, size?}; lt: secondi dall'inizio dello sticker."""
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    dur = sp["dur"]
+    if lt < 0 or lt >= dur:
+        return img
+    k = _ease_pop(lt / ST_IN) if lt < ST_IN else (max((dur - lt) / ST_OUT, 0) if lt > dur - ST_OUT else 1.0)
+    if k <= 0.02:
+        return img
+    cx = {"left": W * 0.27, "right": W * 0.73, "center": W * 0.5}[sp.get("pos", "right")]
+    cy = H * sp.get("y", 0.75)
+    icon = Image.open(os.path.join(STICKERS, sp["img"] + ".png")).convert("RGBA")
+    if sp.get("label"):
+        # pillola bianca con icona + testo (tipo etichetta luogo / numero)
+        font = ImageFont.truetype(TITLE_FONT, 44)
+        txt = sp["label"].upper()
+        tw = text_w(font, txt, 1)
+        ih = 84
+        pw, ph = int(tw + ih + 70), 110
+        card = Image.new("RGBA", (pw + 40, ph + 40), (0, 0, 0, 0))
+        sh = Image.new("RGBA", card.size, (0, 0, 0, 0))
+        ImageDraw.Draw(sh).rounded_rectangle([20, 26, 20 + pw, 26 + ph], radius=ph // 2, fill=(0, 0, 0, 110))
+        card = Image.alpha_composite(card, sh.filter(ImageFilter.GaussianBlur(8)))
+        d = ImageDraw.Draw(card)
+        d.rounded_rectangle([20, 20, 20 + pw, 20 + ph], radius=ph // 2, fill=(255, 255, 255, 255))
+        card.alpha_composite(icon.resize((ih, ih), Image.LANCZOS), (20 + 24, 20 + (ph - ih) // 2))
+        bb = font.getbbox("H")
+        draw_tracked(d, (20 + 24 + ih + 14, 20 + (ph - (bb[3] - bb[1])) // 2 - bb[1]), txt, font,
+                     (17, 24, 39, 255), 1)
+        el = card
+    else:
+        size = sp.get("size", 300)
+        el = Image.new("RGBA", (size + 60, size + 60), (0, 0, 0, 0))
+        ic = icon.resize((size, size), Image.LANCZOS)
+        shadow = Image.new("RGBA", el.size, (0, 0, 0, 0))
+        shadow.paste((0, 0, 0, 120), (30, 42), ic.split()[3])
+        el = Image.alpha_composite(el, shadow.filter(ImageFilter.GaussianBlur(10)))
+        el.alpha_composite(ic, (30, 30))
+    nw, nh = max(int(el.width * k), 1), max(int(el.height * k), 1)
+    el = el.resize((nw, nh), Image.LANCZOS)
+    img.alpha_composite(el, (int(cx - nw / 2), int(cy - nh / 2)))
+    return img
+
+
+def build_overlay(tmp, total, blocks, l1, l2, sub_y, stickers=()):
     """Lista concat di PNG (durate allineate ai frame) per titolo + sottotitoli."""
     nframes = int(round(total * FPS))
     states = {}  # frame -> (block_idx, word_idx)
@@ -316,24 +373,35 @@ def build_overlay(tmp, total, blocks, l1, l2, sub_y):
         tk = None
         if l1 and f < TITLE_DUR * FPS:
             tk = f if (f < title_frames or f >= fade_from) else "still"
-        return (tk, states.get(f))
+        sk = None
+        for si, sp in enumerate(stickers):
+            lf = f - int(round(sp["t"] * FPS))
+            if 0 <= lf < int(round(sp["dur"] * FPS)):
+                still = ST_IN * FPS < lf < (sp["dur"] - ST_OUT) * FPS
+                sk = (si, "still" if still else lf)
+        return (tk, states.get(f), sk)
 
     f = 0
     while f < nframes:
         k = key_for(f)
         g = f + 1
-        while g < nframes and key_for(g) == k and not isinstance(k[0], int):
+        while g < nframes and key_for(g) == k and not isinstance(k[0], int) \
+                and not (k[2] and isinstance(k[2][1], int)):
             g += 1
         if k not in cache:
-            tk, st = k
+            tk, st, sk = k
             img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            if sk is not None:
+                sp = stickers[sk[0]]
+                lt = (sk[1] if isinstance(sk[1], int) else int(ST_IN * FPS) + 1) / FPS
+                img = Image.alpha_composite(img, sticker_frame(sp, lt))
             if st is not None:
                 words = [w for w, _, _ in blocks[st[0]][2]]
                 img = Image.alpha_composite(img, render_sub(words, st[1], sub_y))
             if tk is not None:
                 tf = title_frame((tk if isinstance(tk, int) else title_frames) / FPS, l1, l2)
                 img = Image.alpha_composite(img, tf)
-            if tk is None and st is None:
+            if tk is None and st is None and sk is None:
                 cache[k] = blank
             else:
                 p = os.path.join(tmp, f"ov{len(cache):05d}.png")
@@ -347,6 +415,50 @@ def build_overlay(tmp, total, blocks, l1, l2, sub_y):
             fh.write(f"file '{p}'\nduration {d:.6f}\n")
         fh.write(f"file '{entries[-1][0]}'\n")
     return lst
+
+
+# ---------------------------------------------------------------- effetti sonori (sintetizzati)
+SR = 44100
+
+
+def _whoosh(d=0.55):
+    import numpy as np
+    n = int(SR * d)
+    t = np.linspace(0, 1, n)
+    noise = np.random.default_rng(1).standard_normal(n)
+    cut = 250 + 5500 * np.sin(np.pi * t) ** 2                 # filtro che sale e scende
+    a = np.exp(-2 * np.pi * cut / SR)
+    y, prev = np.empty(n), 0.0
+    for i in range(n):
+        prev = (1 - a[i]) * noise[i] + a[i] * prev
+        y[i] = prev
+    env = np.sin(np.pi * t) ** 1.5
+    y = y * env
+    return 0.5 * y / np.abs(y).max()
+
+
+def _pop(d=0.12):
+    import numpy as np
+    t = np.arange(int(SR * d)) / SR
+    f = 300 + 900 * np.exp(-t * 45)
+    y = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 38)
+    return 0.45 * y
+
+
+def build_sfx(tmp, total, title, stickers):
+    """Traccia stereo con whoosh sul titolo e pop su ogni sticker."""
+    import numpy as np, wave
+    track = np.zeros(int(SR * (total + 1)))
+    events = ([(0.0, _whoosh())] if title else []) + [(sp["t"], _pop()) for sp in stickers]
+    for t0, snd in events:
+        i = int(t0 * SR)
+        track[i:i + len(snd)] += snd[:len(track) - i]
+    pcm = (np.clip(track, -1, 1) * 32767).astype("<i2")
+    path = os.path.join(tmp, "sfx.wav")
+    with wave.open(path, "wb") as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)
+        w.writeframes(pcm.tobytes())
+    return path
 
 
 # ---------------------------------------------------------------- main
@@ -365,6 +477,8 @@ def main():
     ap.add_argument("--pad", type=float, default=0.15)
     ap.add_argument("--taglia", default="", help="parti da togliere, es. '24.3-26.9,68.8-73.6'")
     ap.add_argument("--fine", type=float, help="taglia tutto dopo questo secondo (es. schermata CapCut)")
+    ap.add_argument("--sticker", help="JSON [{t (sec del grezzo), img, label?, pos?, dur?}]")
+    ap.add_argument("--no-sfx", action="store_true", help="niente whoosh/pop")
     ap.add_argument("--zoom", type=float, default=1.12, help="punch-in sui jump cut alternati (1 = off)")
     a = ap.parse_args()
     out = a.out or os.path.splitext(a.video)[0] + "_montato.mp4"
@@ -395,7 +509,12 @@ def main():
         blocks = words_to_blocks(json.load(open(pj)), mapper)
     tmp = tempfile.mkdtemp(prefix="monta_", dir=HERE)
     try:
-        lst = build_overlay(tmp, total, blocks, a.titolo.upper(), a.titolo2.upper(), a.sub_y)
+        stickers = []
+        for sp in (json.load(open(a.sticker)) if a.sticker else []):
+            t = mapper(sp["t"], True)
+            if t is not None:
+                stickers.append(dict(sp, t=t, dur=sp.get("dur", 2.2)))
+        lst = build_overlay(tmp, total, blocks, a.titolo.upper(), a.titolo2.upper(), a.sub_y, stickers)
         # ogni pezzo codificato a parte (con tutti i tagli in un solo filtro si esaurisce la RAM)
         cover = f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS}"
         parts = os.path.join(tmp, "parts.txt")
@@ -408,10 +527,17 @@ def main():
                      "-preset", "ultrafast", "-crf", "14", "-c:a", "pcm_s16le", "-ar", "44100", "-ac", "2", pf])
                 fh.write(f"file '{pf}'\n")
         fc = ["[1:v]format=rgba[ov]",
-              "[0:v][ov]overlay=0:0:format=auto:eof_action=pass,format=yuv420p[v]",
-              "[0:a]loudnorm=I=-14:TP=-1.5:LRA=11,aresample=44100[a]"]
+              "[0:v][ov]overlay=0:0:format=auto:eof_action=pass,format=yuv420p[v]"]
+        extra = []
+        if a.no_sfx:
+            fc.append("[0:a]loudnorm=I=-14:TP=-1.5:LRA=11,aresample=44100[a]")
+        else:
+            extra = ["-i", build_sfx(tmp, total, a.titolo, stickers)]
+            fc.append("[0:a]loudnorm=I=-14:TP=-1.5:LRA=11,aresample=44100[voce]")
+            fc.append("[2:a]volume=0.55,aresample=44100,aformat=channel_layouts=stereo[fx]")
+            fc.append("[voce][fx]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.89[a]")
         run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", parts,
-             "-f", "concat", "-safe", "0", "-i", lst, "-filter_complex", ";".join(fc),
+             "-f", "concat", "-safe", "0", "-i", lst, *extra, "-filter_complex", ";".join(fc),
              "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "medium", "-crf", "18",
              "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
              "-t", f"{total:.3f}", out])
