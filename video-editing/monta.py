@@ -25,7 +25,8 @@ TITLE_ANIM = 0.6
 
 
 def run(cmd, **kw):
-    return subprocess.run(cmd, check=True, text=True, **kw)
+    kw.setdefault("text", True)
+    return subprocess.run(cmd, check=True, **kw)
 
 
 def probe(path):
@@ -125,6 +126,59 @@ def word_timings(cues, mapper):
     return blocks
 
 
+# ---------------------------------------------------------------- trascrizione
+MODEL_DIR = os.path.join(HERE, "wmodel", "small")
+
+
+def transcribe(path):
+    """Whisper locale: lista di parole [{"w","s","e"}] coi tempi del grezzo."""
+    import numpy as np
+    from faster_whisper import WhisperModel
+    raw = run(["ffmpeg", "-v", "error", "-i", path, "-ac", "1", "-ar", "16000", "-f", "f32le", "-"],
+              capture_output=True, text=False).stdout
+    model = WhisperModel(MODEL_DIR, device="cpu", compute_type="int8", cpu_threads=os.cpu_count())
+    segs, _ = model.transcribe(np.frombuffer(raw, np.float32), language="it", word_timestamps=True)
+    return [{"w": w.word.strip(), "s": round(w.start, 3), "e": round(w.end, 3)}
+            for s in segs for w in s.words if w.word.strip()]
+
+
+def words_to_blocks(words, mapper):
+    """Raggruppa le parole in schermate (max 2 righe, si spezza su punteggiatura e pause)."""
+    font = ImageFont.truetype(SUB_FONT, SUB_SIZE)
+    items = []
+    for d in words:
+        s, e = mapper(d["s"], True), mapper(d["e"], False)
+        if e is None:
+            e = mapper(d["e"], True)
+        if s is None or e is None or e - s <= 0:
+            continue
+        txt = re.sub(r"[^\w'’?!À-ÿ%€]", "", d["w"].upper())
+        if txt:
+            items.append([txt, s, e, bool(re.search(r"[.?!,;:]$", d["w"]))])
+    blocks, cur = [], []
+    for i, it in enumerate(items):
+        if cur:
+            prev = cur[-1]
+            too_long = len(wrap([w for w, *_ in cur] + [it[0]], font)) > 2 or len(cur) >= 7
+            if too_long or prev[3] or it[1] - prev[2] > 0.4:
+                blocks.append(cur)
+                cur = []
+        cur.append(it)
+    if cur:
+        blocks.append(cur)
+    out = []
+    for bi, b in enumerate(blocks):
+        # la parola resta evidenziata fino all'inizio della successiva
+        for k in range(len(b) - 1):
+            b[k][2] = b[k + 1][1]
+        end = b[-1][2]
+        if bi + 1 < len(blocks) and blocks[bi + 1][0][1] - end < 0.3:
+            end = blocks[bi + 1][0][1]
+        b[-1][2] = end
+        out.append((b[0][1], end, [(w, s, e) for w, s, e, _ in b]))
+    return out
+
+
 # ---------------------------------------------------------------- grafica
 def text_w(font, s, track):
     return sum(font.getlength(c) for c in s) + track * max(len(s) - 1, 0)
@@ -200,9 +254,9 @@ def title_frame(t, l1, l2):
         return img
     p = min(t / TITLE_ANIM, 1.0)
     ease = 1 - (1 - p) ** 3
-    size1 = 84
+    size1 = 112
     f1 = ImageFont.truetype(TITLE_FONT, size1)
-    while text_w(f1, l1, 1) > W * 0.80 and size1 > 40:
+    while text_w(f1, l1, 1) > W * 0.84 and size1 > 40:
         size1 -= 2
         f1 = ImageFont.truetype(TITLE_FONT, size1)
     w1 = text_w(f1, l1, 1)
@@ -218,7 +272,7 @@ def title_frame(t, l1, l2):
     if l2:
         size2 = int(size1 * 1.12)
         f2 = ImageFont.truetype(TITLE_FONT, size2)
-        while text_w(f2, l2, 1) > W * 0.86 and size2 > 40:
+        while text_w(f2, l2, 1) > W * 0.90 and size2 > 40:
             size2 -= 2
             f2 = ImageFont.truetype(TITLE_FONT, size2)
         w2 = text_w(f2, l2, 1)
@@ -300,39 +354,63 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video")
     ap.add_argument("--out")
-    ap.add_argument("--srt")
+    ap.add_argument("--srt", help="sottotitoli esterni (tempi del grezzo)")
+    ap.add_argument("--parole", help="JSON parole [{w,s,e}]: se non esiste lo crea trascrivendo")
+    ap.add_argument("--solo-trascrivi", action="store_true", help="crea il JSON delle parole ed esce")
     ap.add_argument("--titolo", default="")
     ap.add_argument("--titolo2", default="")
     ap.add_argument("--sub-y", type=float, default=0.55)
     ap.add_argument("--no-cut", action="store_true")
     ap.add_argument("--min-sil", type=float, default=0.5)
     ap.add_argument("--pad", type=float, default=0.15)
+    ap.add_argument("--taglia", default="", help="parti da togliere, es. '24.3-26.9,68.8-73.6'")
+    ap.add_argument("--fine", type=float, help="taglia tutto dopo questo secondo (es. schermata CapCut)")
     ap.add_argument("--zoom", type=float, default=1.12, help="punch-in sui jump cut alternati (1 = off)")
     a = ap.parse_args()
     out = a.out or os.path.splitext(a.video)[0] + "_montato.mp4"
     dur, has_audio = probe(a.video)
     if not has_audio:
         sys.exit("Il video non ha audio.")
-    segs = [(0.0, dur)] if a.no_cut else keep_segments(a.video, dur, a.min_sil, a.pad)
+    if a.solo_trascrivi:
+        segs = [(0.0, dur)]
+    else:
+        segs = [(0.0, dur)] if a.no_cut else keep_segments(a.video, dur, a.min_sil, a.pad)
+    cuts = [tuple(map(float, r.split("-"))) for r in a.taglia.split(",") if r.strip()]
+    if a.fine:
+        cuts.append((a.fine, dur))
+    for c0, c1 in cuts:
+        segs = [p for s0, s1 in segs for p in ((s0, min(s1, c0)), (max(s0, c1), s1)) if p[1] - p[0] > 0.1]
+    segs = [(round(s0 * FPS) / FPS, round(s1 * FPS) / FPS) for s0, s1 in segs]  # tagli a frame interi
     mapper, total = time_mapper(segs)
-    blocks = word_timings(parse_srt(a.srt), mapper) if a.srt else []
+    if a.srt:
+        blocks = word_timings(parse_srt(a.srt), mapper)
+    else:
+        pj = a.parole or os.path.splitext(a.video)[0] + "_parole.json"
+        if not os.path.exists(pj):
+            print("Trascrivo l'audio...")
+            json.dump(transcribe(a.video), open(pj, "w"), ensure_ascii=False, indent=0)
+            print(f"Parole salvate in {pj} (correggibili a mano)")
+        if a.solo_trascrivi:
+            return
+        blocks = words_to_blocks(json.load(open(pj)), mapper)
     tmp = tempfile.mkdtemp(prefix="monta_", dir=HERE)
     try:
         lst = build_overlay(tmp, total, blocks, a.titolo.upper(), a.titolo2.upper(), a.sub_y)
-        fc, labels = [], ""
+        # ogni pezzo codificato a parte (con tutti i tagli in un solo filtro si esaurisce la RAM)
         cover = f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS}"
-        for i, (s, e) in enumerate(segs):
-            z = ""
-            if a.zoom > 1 and i % 2 == 1:
-                z = f",scale=iw*{a.zoom}:ih*{a.zoom},crop={W}:{H}"
-            fc.append(f"[0:v]trim={s:.3f}:{e:.3f},setpts=PTS-STARTPTS,{cover}{z},setsar=1[v{i}]")
-            fc.append(f"[0:a]atrim={s:.3f}:{e:.3f},asetpts=PTS-STARTPTS[a{i}]")
-            labels += f"[v{i}][a{i}]"
-        fc.append(f"{labels}concat=n={len(segs)}:v=1:a=1[bv][ba]")
-        fc.append("[1:v]format=rgba[ov]")
-        fc.append("[bv][ov]overlay=0:0:format=auto:eof_action=pass,format=yuv420p[v]")
-        fc.append("[ba]loudnorm=I=-14:TP=-1.5:LRA=11,aresample=44100[a]")
-        run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", a.video,
+        parts = os.path.join(tmp, "parts.txt")
+        with open(parts, "w") as fh:
+            for i, (s, e) in enumerate(segs):
+                z = f",scale=iw*{a.zoom}:ih*{a.zoom},crop={W}:{H}" if a.zoom > 1 and i % 2 == 1 else ""
+                pf = os.path.join(tmp, f"part{i:03d}.mkv")
+                run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{s:.4f}", "-i", a.video,
+                     "-t", f"{e - s:.4f}", "-vf", f"{cover}{z},setsar=1", "-c:v", "libx264",
+                     "-preset", "ultrafast", "-crf", "14", "-c:a", "pcm_s16le", "-ar", "44100", "-ac", "2", pf])
+                fh.write(f"file '{pf}'\n")
+        fc = ["[1:v]format=rgba[ov]",
+              "[0:v][ov]overlay=0:0:format=auto:eof_action=pass,format=yuv420p[v]",
+              "[0:a]loudnorm=I=-14:TP=-1.5:LRA=11,aresample=44100[a]"]
+        run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-f", "concat", "-safe", "0", "-i", parts,
              "-f", "concat", "-safe", "0", "-i", lst, "-filter_complex", ";".join(fc),
              "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "medium", "-crf", "18",
              "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
