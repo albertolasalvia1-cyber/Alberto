@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contatti | Padovani & Partners</title>
+  <meta name="description" content="Contatta Padovani & Partners per una consulenza assicurativa, di noleggio a lungo termine o di risk management.">
+  <link rel="icon" href="img/logo-pp.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Padovani &amp; Partners – Home"><img src="img/logo-pp.png" alt="Padovani &amp; Partners"></a>
+      <button class="menu-toggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+      <nav class="main-nav" id="main-nav" aria-label="Menu principale">
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="unipol.html">Unipol</a></li>
+        <li><a href="axa.html">AXA</a></li>
+        <li><a href="unibrokers.html">Unibrokers</a></li>
+        <li><a href="car-adviser.html">Car Adviser</a></li>
+        <li><a href="librici.html">Antonino Librici</a></li>
+        <li><a href="contatti.html" aria-current="page">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section-dark page-intro">
+      <div class="wrap">
+        <h1>Contattaci</h1>
+        <p class="center">Hai bisogno di una consulenza? Contattaci o vieni a trovarci: troveremo la soluzione adatta a te.</p>
+      </div>
+    </section>
+    <section class="section section-dark" id="contatti">
+      <div class="wrap contact-grid">
+        <div class="contact-info reveal">
+          <h2>Padovani &amp; Partners</h2>
+          <p><strong>AXA Assicurazioni – Pegaso SRL</strong><br>Tel: <a href="tel:+390490982994">049/0982994</a></p>
+          <p><strong>Unibrokers S.r.l.</strong><br>Tel: <a href="tel:+39049657501">049/657501</a></p>
+          <p>P.IVA 04661560286</p>
+        </div>
+        <form class="form reveal" name="contatti" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contatti">
+          <p class="hidden"><label>Non compilare: <input name="bot-field"></label></p>
+          <div class="field"><label for="contatti-nome">Nome e Cognome</label><input id="contatti-nome" name="nome" autocomplete="name" required></div>
+          <div class="field"><label for="contatti-email">Email</label><input id="contatti-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="contatti-tel">Tel</label><input id="contatti-tel" name="telefono" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="contatti-richiesta">Richiesta (facoltativo)</label><textarea id="contatti-richiesta" name="richiesta"></textarea></div>
+          <div class="field">
+            <label for="contatti-antispam">Domanda di sicurezza (Antispam)</label>
+            <p class="question">La capitale della Francia?</p>
+            <input id="contatti-antispam" name="antispam" required>
+          </div>
+          <button class="btn btn-green" type="submit">Invia</button>
+          <p class="form-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+    <section class="section section-band">
+      <div class="wrap">
+        <h2 class="partners-title">Proteggi la tua azienda con noi:<br>le soluzioni che fanno la differenza.</h2>
+        <div class="cards">
+        <article class="card reveal">
+          <div class="logo"><img src="img/logo-unipolsai.png" alt="UnipolSai Assicurazioni" loading="lazy"></div>
+          <h3>Unipol</h3>
+          <p class="sub">Assicurazioni</p>
+          <a class="btn" href="unipol.html">Scopri di più</a>
+        </article>
+        <article class="card reveal">
+          <div class="logo"><img src="img/logo-axa.png" alt="AXA" loading="lazy"></div>
+          <h3>AXA Assicurazioni Pegaso SRL</h3>
+          <p class="sub">Protezione Assicurativa Globale</p>
+          <a class="btn" href="axa.html">Scopri di più</a>
+        </article>
+        <article class="card reveal">
+          <div class="logo"><img src="img/logo-unibrokers.png" alt="Unibrokers" loading="lazy"></div>
+          <h3>Unibrokers SRL</h3>
+          <p class="sub">Brokeraggio assicurativo</p>
+          <a class="btn" href="unibrokers.html">Scopri di più</a>
+        </article>
+        <article class="card reveal">
+          <div class="logo"><img src="img/logo-car-adviser.png" alt="Car Adviser – servizi per la mobilità" loading="lazy"></div>
+          <h3>Car Adviser SRL</h3>
+          <p class="sub">Noleggio a lungo termine</p>
+          <a class="btn" href="car-adviser.html">Scopri di più</a>
+        </article>
+        <article class="card reveal">
+          <div class="logo"><img src="img/logo-librici.png" alt="Antonino Librici Risk Manager" loading="lazy"></div>
+          <h3>Antonino Librici &amp; Partners</h3>
+          <p class="sub">Consulenza di Risk Management</p>
+          <a class="btn" href="librici.html">Scopri di più</a>
+        </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav aria-label="Collegamenti"><a href="index.html">Home</a> <a href="unipol.html">Unipol</a> <a href="axa.html">AXA</a> <a href="unibrokers.html">Unibrokers</a> <a href="car-adviser.html">Car Adviser</a> <a href="librici.html">Antonino Librici</a> <a href="contatti.html">Contatti</a></nav>
+    <div>&copy; Padovani &amp; Partners P.IVA 04661560286</div>
+  </footer>
+
+  <button class="to-top" aria-label="Torna su"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg></button>
+  <script src="js/main.js"></script>
+</body>
+</html>
