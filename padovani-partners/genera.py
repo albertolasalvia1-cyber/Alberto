@@ -9,33 +9,123 @@ from pathlib import Path
 OUT = Path(__file__).parent
 PIVA = "04661560286"
 
-# (file, titolo card, sottotitolo card, logo, alt)
+ICON = {
+    "arrow": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+    "chev": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>',
+    "up": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>',
+    "phone": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>',
+    "shield": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>',
+    "umbrella": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12a10 10 0 0 0-20 0z"/><path d="M12 12v8a2 2 0 0 0 4 0"/><path d="M12 2v1"/></svg>',
+    "scale": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 21h14M3 7h18"/><path d="m6 7-3 7a3 3 0 0 0 6 0zM18 7l-3 7a3 3 0 0 0 6 0z"/></svg>',
+    "car": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14M5 17a2 2 0 1 1-4 0v-4l2.5-6h17L23 13v4a2 2 0 1 1-4 0"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M3 12h18"/></svg>',
+    "chart": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-7"/></svg>',
+    "award": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8.2 13 7 22l5-3 5 3-1.2-9"/></svg>',
+    "target": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>',
+    "handshake": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1 1 0 1 1-3-3l2.8-2.8a5 5 0 0 1 6.2-.6l.5.3a2 2 0 0 0 1.5.3L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>',
+}
+
+# Pagine dei partner. "tall" = logo quasi quadrato (AXA), che va mostrato più alto.
 PARTNERS = [
-    ("unipol.html", "Unipol", "Assicurazioni", "logo-unipolsai.png", "UnipolSai Assicurazioni"),
-    ("axa.html", "AXA Assicurazioni Pegaso SRL", "Protezione Assicurativa Globale", "logo-axa.png", "AXA"),
-    ("unibrokers.html", "Unibrokers SRL", "Brokeraggio assicurativo", "logo-unibrokers.png", "Unibrokers"),
-    ("car-adviser.html", "Car Adviser SRL", "Noleggio a lungo termine", "logo-car-adviser.png", "Car Adviser – servizi per la mobilità"),
-    ("librici.html", "Antonino Librici &amp; Partners", "Consulenza di Risk Management", "logo-librici.png", "Antonino Librici Risk Manager"),
+    dict(file="unipol.html", name="UnipolSai Assicurazioni", short="Unipol", tag="Assicurazioni", logo="logo-unipolsai.png",
+         icon="umbrella", blurb="Polizze per imprese, professionisti e famiglie con uno dei principali gruppi assicurativi italiani."),
+    dict(file="axa.html", name="AXA Assicurazioni – Pegaso SRL", short="AXA", tag="Protezione assicurativa globale", logo="logo-axa.png", tall=True,
+         icon="shield", blurb="Salute, tutela legale, viaggi: soluzioni complete e personalizzate, dal privato all’azienda."),
+    dict(file="unibrokers.html", name="Unibrokers S.r.l.", short="Unibrokers", tag="Brokeraggio assicurativo", logo="logo-unibrokers.png",
+         icon="scale", blurb="Broker indipendente dal 1997: selezioniamo per te le coperture migliori sul mercato, senza costi aggiuntivi."),
+    dict(file="car-adviser.html", name="Car Adviser SRL", short="Car Adviser", tag="Noleggio a lungo termine", logo="logo-car-adviser.png",
+         icon="car", blurb="Servizi per la mobilità: noleggio a lungo termine e gestione del parco veicoli aziendale."),
+    dict(file="librici.html", name="Antonino Librici & Partners", short="Antonino Librici", tag="Consulenza di risk management", logo="logo-librici.png",
+         icon="chart", blurb="Analisi, valutazione e gestione dei rischi d’impresa, per una protezione efficace nel tempo."),
 ]
 
-NAV = [("index.html", "Home")] + [(p[0], p[1].replace(" Assicurazioni Pegaso SRL", "").replace(" SRL", "").replace(" &amp; Partners", "")) for p in PARTNERS] + [("contatti.html", "Contatti")]
+PHONES = [
+    ("AXA Assicurazioni – Pegaso SRL", "049 098 2994", "+390490982994"),
+    ("Unibrokers S.r.l.", "049 657 501", "+39049657501"),
+]
 
-ICONS = {
-    "expertise": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-15.4 6.4"/><path d="M3 12A9 9 0 0 1 18.4 5.6"/><path d="M18 2v4h-4"/><path d="M6 22v-4h4"/><circle cx="12" cy="12" r="3"/></svg>',
-    "handshake": '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 6 7.5 9.5a1.5 1.5 0 0 0 2.1 2.1L12 9.2l5.6 5.6a1.4 1.4 0 0 1-2 2l-.6-.6.1.1a1.4 1.4 0 0 1-2 2l-.4-.4a1.4 1.4 0 0 1-2 2L6 15.3 2 11.3 6.8 6.5a2 2 0 0 1 2.4-.3zM13 6.6 14.8 5a2 2 0 0 1 2.6 0L22 9.4l-3.5 3.5z"/></svg>',
-    "shield": '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.6 8 11 4.6-1.4 8-6 8-11V5zm-1.2 14.2-3.6-3.6 1.4-1.4 2.2 2.2 5-5 1.4 1.4z"/></svg>',
-    "thumb": '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 10h4v11H2zM8 21V10l5-8 1 .5a2 2 0 0 1 1 2.3L14.2 9H20a2 2 0 0 1 2 2.3l-1.5 8A2 2 0 0 1 18.5 21z"/></svg>',
-    "check": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6"/></svg>',
-}
+
+def esc(s):
+    return s.replace("&", "&amp;")
+
+
+def logo_img(p, extra=""):
+    cls = ' class="tall"' if p.get("tall") else ""
+    return f'<img src="img/{p["logo"]}" alt="{esc(p["name"])}"{cls}{extra}>'
+
+
+def header(current):
+    def cur(f):
+        return ' aria-current="page"' if f == current else ""
+    items = "\n".join(
+        f'              <li><a href="{p["file"]}"{cur(p["file"])}>{esc(p["short"])}<span>{esc(p["tag"])}</span></a></li>'
+        for p in PARTNERS
+    )
+    return f"""  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html" aria-label="Padovani &amp; Partners – Home">
+        <span class="logo-mark" aria-hidden="true">PP</span>
+        <span class="logo-text">Padovani &amp; Partners<small>Consulenza assicurativa</small></span>
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Menu principale">
+        <ul>
+          <li><a href="index.html"{cur("index.html")}>Home</a></li>
+          <li><a href="index.html#chi-siamo">Chi siamo</a></li>
+          <li class="dd">
+            <button class="dd-btn" aria-expanded="false" aria-haspopup="true">Soluzioni {ICON["chev"]}</button>
+            <ul class="dd-menu">
+{items}
+            </ul>
+          </li>
+          <li><a href="index.html#metodo">Come lavoriamo</a></li>
+          <li><a class="btn btn-gold btn-sm" href="contatti.html"{cur("contatti.html")}>Richiedi una consulenza</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+    </div>
+  </header>"""
+
+
+def footer():
+    sol = "\n".join(f'            <li><a href="{p["file"]}">{esc(p["short"])}</a></li>' for p in PARTNERS)
+    tel = "\n".join(f'            <li><a href="tel:{t}">{esc(n)}<br>{d}</a></li>' for n, d, t in PHONES)
+    return f"""  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">PP</span><span class="logo-text">Padovani &amp; Partners<small>Consulenza assicurativa</small></span></a>
+          <p>Soluzioni assicurative, brokeraggio, noleggio a lungo termine e risk management per aziende, professionisti e privati.</p>
+        </div>
+        <div>
+          <h4>Soluzioni</h4>
+          <ul>
+{sol}
+          </ul>
+        </div>
+        <div>
+          <h4>Studio</h4>
+          <ul>
+            <li><a href="index.html#chi-siamo">Chi siamo</a></li>
+            <li><a href="index.html#soluzioni">Le nostre soluzioni</a></li>
+            <li><a href="index.html#metodo">Come lavoriamo</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contatti</h4>
+          <ul>
+{tel}
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; Padovani &amp; Partners · P.IVA {PIVA}</span>
+        <a href="contatti.html">Richiedi una consulenza</a>
+      </div>
+    </div>
+  </footer>"""
 
 
 def page(filename, title, description, body):
-    current = ' aria-current="page"'
-    nav = "\n".join(
-        f'        <li><a href="{href}"{current if href == filename else ""}>{label}</a></li>'
-        for href, label in NAV
-    )
-    foot_nav = " ".join(f'<a href="{href}">{label}</a>' for href, label in NAV)
     return f"""<!doctype html>
 <html lang="it">
 <head>
@@ -43,308 +133,399 @@ def page(filename, title, description, body):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title}</title>
   <meta name="description" content="{description}">
-  <link rel="icon" href="img/logo-pp.png">
+  <meta name="theme-color" content="#0f2f28">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <a class="brand" href="index.html" aria-label="Padovani &amp; Partners – Home"><img src="img/logo-pp.png" alt="Padovani &amp; Partners"></a>
-      <button class="menu-toggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
-      <nav class="main-nav" id="main-nav" aria-label="Menu principale">
-        <ul>
-{nav}
-        </ul>
-      </nav>
-    </div>
-  </header>
+{header(filename)}
 
   <main>
 {body}
   </main>
 
-  <footer class="site-footer">
-    <nav aria-label="Collegamenti">{foot_nav}</nav>
-    <div>&copy; Padovani &amp; Partners P.IVA {PIVA}</div>
-  </footer>
+{footer()}
 
-  <button class="to-top" aria-label="Torna su"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg></button>
+  <button class="to-top" aria-label="Torna su">{ICON["up"]}</button>
   <script src="js/main.js"></script>
 </body>
 </html>
 """
 
 
-def features(items, icon=None):
-    out = []
-    for ic, title, text in items:
-        out.append(f"""        <div class="feature reveal">
-          {ICONS[icon or ic]}
-          <div><h3>{title}</h3><p>{text}</p></div>
-        </div>""")
-    return '      <div class="features">\n' + "\n".join(out) + "\n      </div>"
+def phone_lines(only=None):
+    phones = [x for x in PHONES if x[0] == only] or PHONES
+    return "\n".join(
+        f'          <a class="phone-line" href="tel:{t}">{ICON["phone"]}<span><small>{esc(n)}</small><b>{d}</b></span></a>'
+        for n, d, t in phones
+    )
 
 
-def partner_cards(title, exclude=None):
-    cards = []
-    for href, name, sub, logo, alt in PARTNERS:
-        if href == exclude:
-            continue
-        cards.append(f"""        <article class="card reveal">
-          <div class="logo"><img src="img/{logo}" alt="{alt}" loading="lazy"></div>
-          <h3>{name}</h3>
-          <p class="sub">{sub}</p>
-          <a class="btn" href="{href}">Scopri di più</a>
-        </article>""")
-    return f"""    <section class="section section-band">
+def cta(title="Hai bisogno di una consulenza?"):
+    return f"""    <section class="section paper">
       <div class="wrap">
-        <h2 class="partners-title">{title}</h2>
-        <div class="cards">
-{chr(10).join(cards)}
-        </div>
-      </div>
-    </section>"""
-
-
-def cta(title, button=True):
-    btn = '\n        <p><a class="btn btn-green btn-upper" href="contatti.html">Contattaci</a></p>' if button else ""
-    return f"""    <section class="section section-dark cta center">
-      <div class="wrap">
-        <h2>{title}</h2>
-        <h3>contattaci o vieni a trovarci</h3>
-        <p>Troveremo la soluzione adatta a te.</p>{btn}
-      </div>
-    </section>"""
-
-
-def contact(form_name, info_html):
-    return f"""    <section class="section section-dark" id="contatti">
-      <div class="wrap contact-grid">
-        <div class="contact-info reveal">
-{info_html}
-        </div>
-        <form class="form reveal" name="{form_name}" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="{form_name}">
-          <p class="hidden"><label>Non compilare: <input name="bot-field"></label></p>
-          <div class="field"><label for="{form_name}-nome">Nome e Cognome</label><input id="{form_name}-nome" name="nome" autocomplete="name" required></div>
-          <div class="field"><label for="{form_name}-email">Email</label><input id="{form_name}-email" name="email" type="email" autocomplete="email" required></div>
-          <div class="field"><label for="{form_name}-tel">Tel</label><input id="{form_name}-tel" name="telefono" type="tel" autocomplete="tel"></div>
-          <div class="field"><label for="{form_name}-richiesta">Richiesta (facoltativo)</label><textarea id="{form_name}-richiesta" name="richiesta"></textarea></div>
-          <div class="field">
-            <label for="{form_name}-antispam">Domanda di sicurezza (Antispam)</label>
-            <p class="question">La capitale della Francia?</p>
-            <input id="{form_name}-antispam" name="antispam" required>
+        <div class="cta-box reveal">
+          <div>
+            <span class="eyebrow">Parliamone</span>
+            <h2>{title}</h2>
+            <p>Contattaci o vieni a trovarci: troveremo la soluzione adatta a te.</p>
           </div>
-          <button class="btn btn-green" type="submit">Invia</button>
+          <div class="cta-actions">
+            <a class="btn btn-gold" href="contatti.html">Richiedi una consulenza {ICON["arrow"]}</a>
+{phone_lines()}
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
+def form(name, subject):
+    return f"""        <form class="form form-card reveal d1" name="{name}" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <h3>Richiedi una consulenza</h3>
+          <p>{subject}</p>
+          <input type="hidden" name="form-name" value="{name}">
+          <p class="hidden"><label>Non compilare: <input name="bot-field"></label></p>
+          <div class="form-row">
+            <div class="field"><label for="{name}-nome">Nome e cognome</label><input id="{name}-nome" name="nome" autocomplete="name" required></div>
+            <div class="field"><label for="{name}-tel">Telefono</label><input id="{name}-tel" name="telefono" type="tel" autocomplete="tel"></div>
+          </div>
+          <div class="field"><label for="{name}-email">Email</label><input id="{name}-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="{name}-richiesta">Richiesta <small>(facoltativo)</small></label><textarea id="{name}-richiesta" name="richiesta" placeholder="Raccontaci in breve di cosa hai bisogno"></textarea></div>
+          <div class="field"><label for="{name}-antispam">Domanda di sicurezza: qual è la capitale della Francia?</label><input id="{name}-antispam" name="antispam" required></div>
+          <label class="consent"><input type="checkbox" name="consenso" required> Acconsento al trattamento dei dati personali per essere ricontattato in merito alla mia richiesta.</label>
+          <button class="btn btn-dark" type="submit">Invia la richiesta {ICON["arrow"]}</button>
           <p class="form-msg" role="status" aria-live="polite"></p>
-        </form>
+        </form>"""
+
+
+def contact_section(name, subject, intro_title, intro_text, extra=""):
+    return f"""    <section class="section dark" id="contatti">
+      <div class="wrap contact-grid">
+        <div class="reveal">
+          <span class="eyebrow">Contatti</span>
+          <h2>{intro_title}</h2>
+          <p class="lead">{intro_text}</p>
+          <div class="contact-points">
+{extra or phone_lines()}
+          </div>
+        </div>
+{form(name, subject)}
       </div>
     </section>"""
 
 
-def why(title_html, intro, items):
-    return f"""    <section class="section section-dark">
+def other_partners(exclude):
+    chips = "\n".join(
+        f"""          <a class="partner-chip reveal" href="{p["file"]}"><span class="brand">{logo_img(p, ' loading="lazy"')}</span><small>{esc(p["tag"])}</small><span class="link-arrow">Scopri di più {ICON["arrow"]}</span></a>"""
+        for p in PARTNERS if p["file"] != exclude
+    )
+    return f"""    <section class="section cream">
       <div class="wrap">
-        <h2 class="section-title">{title_html}</h2>
-        {f'<p class="lead">{intro}</p>' if intro else ''}
-      </div>
-    </section>
-    <section class="section section-teal">
-      <div class="wrap">
-{features(items, icon="check")}
+        <div class="section-head">
+          <span class="eyebrow">Le altre soluzioni</span>
+          <h2>Proteggi la tua azienda con noi: le soluzioni che fanno la differenza.</h2>
+        </div>
+        <div class="partner-strip">
+{chips}
+        </div>
       </div>
     </section>"""
 
 
-def partner_page(filename, title, description, hero_img, hero_alt, h1, intro_html, why_intro, why_items,
-                 extra_html, cta_html, contact_form, contact_info):
-    img = f'    <img class="page-hero-img" src="img/{hero_img}" alt="{hero_alt}">\n' if hero_img else ""
-    body = f"""{img}    <section class="section section-dark page-intro">
+def partner_page(p, title, description, h1, lead, hero_img, content, aside_rows, form_subject, banner=None):
+    media = f'<div class="media"><img src="img/{hero_img}" alt=""></div>' if hero_img else ""
+    panel_cls = "brand-panel" + ("" if hero_img else " only-logo")
+    rows = "\n".join(f"            <div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in aside_rows)
+    banner_html = f'\n          <div class="banner reveal"><p>{banner}</p></div>' if banner else ""
+    body = f"""    <section class="page-hero">
       <div class="wrap">
-        <h1>{h1}</h1>
-{intro_html}
-        <p class="center"><a class="btn btn-upper" href="#contatti">Contattaci</a></p>
+        <nav class="crumbs" aria-label="Percorso"><a href="index.html">Home</a><span>/</span><a href="index.html#soluzioni">Soluzioni</a><span>/</span>{esc(p["short"])}</nav>
+        <div class="page-hero-grid">
+          <div class="reveal">
+            <span class="eyebrow">{esc(p["tag"])}</span>
+            <h1>{h1}</h1>
+            <p class="lead">{lead}</p>
+            <div class="hero-ctas">
+              <a class="btn btn-gold" href="#contatti">Richiedi una consulenza {ICON["arrow"]}</a>
+            </div>
+          </div>
+          <div class="{panel_cls} reveal d2">
+            {media}
+            <div class="logo-box">{logo_img(p)}<span>{esc(p["name"])}</span></div>
+          </div>
+        </div>
       </div>
     </section>
-{why("Perché sceglierci?", why_intro, why_items)}
-{extra_html}
-{cta_html}
-{contact(contact_form, contact_info)}
-{partner_cards("Proteggi la tua azienda con noi:<br>le assicurazioni che fanno la differenza.", exclude=filename)}"""
-    (OUT / filename).write_text(page(filename, title, description, body), encoding="utf-8")
+
+    <section class="section paper">
+      <div class="wrap content-grid">
+        <div class="prose">
+{content}{banner_html}
+        </div>
+        <aside class="aside-card reveal d1">
+          <h3>{esc(p["name"])}</h3>
+          <p class="muted">{esc(p["tag"])}</p>
+          <dl>
+{rows}
+          </dl>
+          <a class="btn btn-dark" href="#contatti">Scrivici {ICON["arrow"]}</a>
+        </aside>
+      </div>
+    </section>
+
+{contact_section("contatti-" + p["file"].removesuffix(".html"), form_subject, "Parliamo delle tue esigenze", "Compila il modulo: ti ricontatteremo al più presto per fissare una consulenza, senza impegno.", phone_lines(p["name"]))}
+
+{other_partners(p["file"])}"""
+    (OUT / p["file"]).write_text(page(p["file"], title, description, body), encoding="utf-8")
 
 
-# ---------------------------------------------------------------- Home
-home = f"""    <section class="section section-dark hero">
-      <div class="wrap">
-        <h1>Proteggi il tuo business con soluzioni personalizzate e servizi su misura</h1>
-        <p>Benvenuti in <strong>Padovani &amp; Partners</strong>, il punto di riferimento per chi cerca soluzioni personalizzate, servizi dedicati al noleggio a lungo termine e risk manager. Il nostro obiettivo è offrirti la tranquillità di sapere che ogni aspetto della tua attività è protetto, lasciandoti libero di concentrarti sulla crescita del tuo business.</p>
-        <p>Con una gamma completa di polizze per aziende, professionisti e privati, una divisione specializzata nel noleggio a lungo termine e consulenza di risk management, siamo al tuo fianco per costruire un futuro sicuro e privo di preoccupazioni. Scopri come possiamo aiutarti a proteggere i tuoi asset e a gestire il tuo parco veicoli con soluzioni innovative e su misura.</p>
-        <p class="center"><a class="btn btn-upper" href="contatti.html">Contattaci</a></p>
+def features(items):
+    cards = "\n".join(
+        f"""            <div class="feature reveal d{i % 2 + 1}"><span class="num">0{i + 1}</span><h3>{t}</h3><p>{d}</p></div>"""
+        for i, (t, d) in enumerate(items)
+    )
+    return f'          <div class="features">\n{cards}\n          </div>'
+
+
+P = {p["file"]: p for p in PARTNERS}
+
+# ================================================================ Home
+areas = "\n".join(
+    f"""              <li><a href="{p["file"]}"><span class="ico">{ICON[p["icon"]]}</span><span><b>{esc(p["tag"])}</b><small>{esc(p["short"])}</small></span><span class="arr">{ICON["arrow"]}</span></a></li>"""
+    for p in PARTNERS
+)
+solutions = "\n".join(
+    f"""          <a class="solution reveal d{i % 3 + 1}" href="{p["file"]}">
+            <span class="brand">{logo_img(p, ' loading="lazy"')}</span>
+            <span class="tag">{esc(p["tag"])}</span>
+            <h3>{esc(p["name"])}</h3>
+            <p>{p["blurb"]}</p>
+            <span class="link-arrow">Scopri di più {ICON["arrow"]}</span>
+          </a>"""
+    for i, p in enumerate(PARTNERS)
+)
+values = [
+    ("award", "Esperienza e competenza in ambito assicurativo", "Siamo un team di professionisti qualificati con anni di esperienza, pronti a guidarti nel complesso mondo delle assicurazioni aziendali, offrendo consulenza specializzata e affidabile."),
+    ("target", "Consulenza assicurativa per il tuo successo", "Con le nostre soluzioni ti aiutiamo a concentrarti sulla crescita del tuo business, lasciando a noi la gestione dei rischi."),
+    ("shield", "Coperture personalizzate", "Specializzati nel settore aziendale, offriamo polizze su misura che coprono rischi finanziari, responsabilità civile e tutela del patrimonio, per garantire la massima sicurezza alla tua impresa."),
+    ("handshake", "Relazioni basate sulla fiducia", "Offriamo un servizio trasparente e professionale, diventando il tuo partner di riferimento per tutte le esigenze di brokeraggio e consulenza assicurativa."),
+]
+values_html = "\n".join(
+    f"""          <div class="value reveal d{i % 2 + 1}"><span class="ico">{ICON[ic]}</span><h3>{t}</h3><p>{d}</p></div>"""
+    for i, (ic, t, d) in enumerate(values)
+)
+steps = [
+    ("Analisi", "Studiamo la tua attività e le coperture già in essere per individuare rischi ed esigenze reali."),
+    ("Proposta", "Selezioniamo le soluzioni più adatte e convenienti tra compagnie italiane e internazionali."),
+    ("Gestione", "Monitoriamo scadenze, premi e aggiornamenti normativi: un unico referente per tutti i contratti."),
+    ("Assistenza", "Ti affianchiamo nella gestione dei sinistri, con un’assistenza completa e tempestiva."),
+]
+steps_html = "\n".join(
+    f"""          <div class="step reveal d{i + 1}"><h3>{t}</h3><p>{d}</p></div>""" for i, (t, d) in enumerate(steps)
+)
+
+home = f"""    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Padovani &amp; Partners</span>
+          <h1>Proteggi il tuo business con soluzioni <em class="accent">su misura</em></h1>
+          <p class="lead">Il punto di riferimento per aziende, professionisti e privati che cercano coperture personalizzate, noleggio a lungo termine e consulenza di risk management. Tu pensi alla crescita, noi alla tua tranquillità.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-gold" href="contatti.html">Richiedi una consulenza {ICON["arrow"]}</a>
+            <a class="btn btn-ghost" href="#soluzioni">Scopri le soluzioni</a>
+          </div>
+          <div class="hero-stats">
+            <div><b>5</b><span>partner specializzati</span></div>
+            <div><b>1</b><span>unico referente</span></div>
+            <div><b>360°</b><span>protezione per l’impresa</span></div>
+          </div>
+        </div>
+        <div class="glass reveal d2">
+          <h2>Le nostre aree</h2>
+          <ul class="area-list">
+{areas}
+          </ul>
+        </div>
       </div>
     </section>
-    <section class="section section-teal">
-      <div class="wrap">
-{features([
-    ("expertise", "Esperienza e competenza in ambito assicurativo", "Siamo un team di professionisti qualificati con anni di esperienza, pronti a guidarti nel complesso mondo delle assicurazioni aziendali, offrendo consulenza specializzata e affidabile."),
-    ("handshake", "Consulenza assicurativa per il tuo successo", "Con le nostre soluzioni, ti aiutiamo a concentrarti sulla crescita del tuo business, lasciando a noi la gestione dei rischi."),
-    ("shield", "Coperture personalizzate", "Specializzati nel settore <strong>AZIENDALE</strong>, offriamo polizze su misura che coprono rischi finanziari, responsabilità civile e tutela del patrimonio, per garantire la massima sicurezza alla vostra impresa."),
-    ("thumb", "Relazioni basate sulla fiducia", "Offriamo un servizio trasparente e professionale, diventando il tuo partner di riferimento per tutte le esigenze di brokeraggio e consulenza assicurativa."),
-])}
+
+    <section class="section cream" id="chi-siamo">
+      <div class="wrap split">
+        <div class="reveal">
+          <span class="eyebrow">Chi siamo</span>
+          <h2>Un unico partner per proteggere tutto ciò che conta</h2>
+          <p class="lead">Benvenuti in <strong>Padovani &amp; Partners</strong>. Il nostro obiettivo è offrirti la tranquillità di sapere che ogni aspetto della tua attività è protetto, lasciandoti libero di concentrarti sulla crescita del tuo business.</p>
+          <p>Con una gamma completa di polizze per aziende, professionisti e privati, una divisione specializzata nel noleggio a lungo termine e la consulenza di risk management, siamo al tuo fianco per costruire un futuro sicuro e privo di preoccupazioni. Scopri come possiamo aiutarti a proteggere i tuoi asset e a gestire il tuo parco veicoli con soluzioni innovative e su misura.</p>
+          <p class="quote">“Proteggi ciò che conta di più, con la nostra esperienza al tuo fianco.”</p>
+        </div>
+        <div class="values">
+{values_html}
+        </div>
       </div>
     </section>
-{partner_cards("Proteggi la tua azienda con noi:<br>le soluzioni che fanno la differenza.")}
-{cta("Hai bisogno di una consulenza?")}"""
+
+    <section class="section darker" id="soluzioni">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Le nostre soluzioni</span>
+          <h2>Proteggi la tua azienda con noi: le soluzioni che fanno la differenza.</h2>
+          <p class="lead">Lavoriamo con partner selezionati per offrirti, da un unico interlocutore, tutto ciò che serve alla tua sicurezza e alla tua mobilità.</p>
+        </div>
+        <div class="solutions">
+{solutions}
+        </div>
+      </div>
+    </section>
+
+    <section class="section paper" id="metodo">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Come lavoriamo</span>
+          <h2>Un metodo chiaro, dalla prima analisi all’assistenza sui sinistri</h2>
+        </div>
+        <div class="steps">
+{steps_html}
+        </div>
+      </div>
+    </section>
+
+{cta()}"""
 (OUT / "index.html").write_text(page(
-    "index.html", "Padovani & Partners",
+    "index.html", "Padovani & Partners — Consulenza assicurativa, brokeraggio e risk management",
     "Padovani & Partners: consulenza assicurativa, brokeraggio, noleggio a lungo termine e risk management per aziende, professionisti e privati.",
     home), encoding="utf-8")
 
-# ---------------------------------------------------------------- AXA
+# ================================================================ AXA
 partner_page(
-    "axa.html", "AXA Assicurazioni – Pegaso SRL | Padovani & Partners",
+    P["axa.html"], "AXA Assicurazioni – Pegaso SRL | Padovani & Partners",
     "AXA Assicurazioni – Pegaso SRL: protezione assicurativa globale, soluzioni su misura per privati e aziende.",
-    "hero-axa.jpg", "Protezione assicurativa globale AXA",
-    "Protezione Assicurativa Globale: Soluzioni su Misura per Privati e Aziende",
-    "        <p>Offriamo soluzioni assicurative complete e personalizzate, progettate per garantire una protezione globale e rispondere alle specifiche esigenze di ogni cliente, dal privato all’azienda.</p>",
-    None,
-    [
-        (None, "Coperture Sanitarie Complete", "Le nostre polizze sanitarie coprono ogni fase della tutela della salute: dalla prevenzione alla cura, fino all’assistenza. Soluzioni su misura per garantirti sicurezza in ogni momento della vita."),
-        (None, "Tutela Legale per Ogni Ambito", "Protezione completa per privati, aziende e holding. Le nostre polizze di tutela legale offrono un supporto affidabile per gestire eventuali controversie e garantire la massima tranquillità."),
-        (None, "Polizze Viaggi Personalizzabili", "Viaggia senza pensieri grazie a polizze viaggio con copertura sanitaria <strong>illimitata</strong> e moduli flessibili, adattabili a ogni esigenza personale o professionale."),
-        (None, "Sicurezza a 360°", "Siamo il tuo punto di riferimento per la <strong>consulenza assicurativa</strong> e il <strong>brokeraggio</strong>, con un approccio professionale e orientato al cliente. Proteggi ciò che conta di più, con la nostra esperienza al tuo fianco."),
-    ],
-    "",
-    cta("Hai bisogno di una consulenza assicurativa?", button=False),
-    "contatti-axa",
-    """          <h2>AXA Assicurazioni – Pegaso SRL</h2>
-          <p>Referenti aziendali: Nardo Stefano – codice RUI A000331871</p>
-          <p>Tel: <a href="tel:+390490982994">049/0982994</a></p>""",
+    "Protezione assicurativa globale, su misura per privati e aziende",
+    "Soluzioni assicurative complete e personalizzate, progettate per garantire una protezione globale e rispondere alle specifiche esigenze di ogni cliente, dal privato all’azienda.",
+    "hero-axa.jpg",
+    """          <h2>Perché sceglierci</h2>
+          <p>Siamo il tuo punto di riferimento per la <strong>consulenza assicurativa</strong> e il <strong>brokeraggio</strong>, con un approccio professionale e orientato al cliente.</p>
+""" + features([
+        ("Coperture sanitarie complete", "Le nostre polizze sanitarie coprono ogni fase della tutela della salute: dalla prevenzione alla cura, fino all’assistenza. Soluzioni su misura per garantirti sicurezza in ogni momento della vita."),
+        ("Tutela legale per ogni ambito", "Protezione completa per privati, aziende e holding. Le nostre polizze di tutela legale offrono un supporto affidabile per gestire eventuali controversie e garantire la massima tranquillità."),
+        ("Polizze viaggi personalizzabili", "Viaggia senza pensieri grazie a polizze viaggio con copertura sanitaria <strong>illimitata</strong> e moduli flessibili, adattabili a ogni esigenza personale o professionale."),
+        ("Sicurezza a 360°", "Proteggi ciò che conta di più, con la nostra esperienza al tuo fianco: un unico interlocutore per tutte le tue coperture."),
+    ]),
+    [("Referente aziendale", "Nardo Stefano"), ("Codice RUI", "A000331871"), ("Telefono", '<a href="tel:+390490982994">049 098 2994</a>')],
+    "Ti ricontatteremo per una consulenza sulle soluzioni AXA.",
 )
 
-# ---------------------------------------------------------------- Unibrokers
+# ================================================================ Unibrokers
 UB_RUI = "B000014279"
 partner_page(
-    "unibrokers.html", "Unibrokers S.r.l. | Padovani & Partners",
+    P["unibrokers.html"], "Unibrokers S.r.l. — Brokeraggio assicurativo | Padovani & Partners",
     "Unibrokers S.r.l.: servizi di consulenza e brokeraggio assicurativo a Padova dal 1997.",
-    "hero-unibrokers.jpg", "Unibrokers – consulenza e brokeraggio assicurativo",
-    "Servizi di consulenza e brokeraggio assicurativo",
-    f"""        <p><strong>Unibrokers S.r.l.</strong> è una società di brokeraggio assicurativo fondata nel 1997, con sede a Padova, e iscritta al <strong>Registro Unico degli Intermediari</strong> (R.U.I.) con il numero {UB_RUI}, sotto la vigilanza di IVASS.</p>
-        <p>Grazie a oltre 20 anni di esperienza nel settore assicurativo, la nostra missione è garantire la <strong>tutela degli interessi del cliente</strong>, offrendo soluzioni su misura per la gestione dei rischi. Analizziamo le esigenze assicurative, proponiamo le migliori coperture contrattuali e collaboriamo con compagnie assicurative italiane e internazionali per garantire il massimo vantaggio. Inoltre, supportiamo i clienti nella gestione dei sinistri, assicurando un’assistenza completa.</p>""",
-    "Siamo il tuo partner di fiducia per una consulenza assicurativa completa e personalizzata. La nostra esperienza ci permette di gestire sia le polizze sottoscritte attraverso di noi che quelle già in essere. I principali vantaggi includono:",
-    [
-        (None, "Gestione completa delle polizze", "Monitoriamo le scadenze contrattuali e ci occupiamo dell’incasso dei premi, trasferendoli alle compagnie competenti."),
-        (None, "Aggiornamenti costanti", "Informiamo i clienti su nuovi prodotti assicurativi, modifiche legislative e opportunità di aggiornamento delle polizze in corso."),
-        (None, "Personalizzazione", "Concordiamo con i clienti eventuali integrazioni o modifiche, per garantire che le coperture siano sempre adeguate."),
-    ],
-    """    <section class="section section-dark">
-      <div class="wrap">
-        <h2 class="section-title">I Vantaggi di Affidarsi a Noi</h2>
-        <p class="lead">Scegliere Unibrokers significa beneficiare di un approccio professionale e orientato al cliente, con vantaggi concreti:</p>
-        <ul class="bullets">
-          <li><strong>Unico referente</strong> per la gestione di tutti i contratti assicurativi.</li>
-          <li><strong>Consulenza imparziale</strong>, grazie alla nostra indipendenza dalle compagnie assicurative.</li>
-          <li><strong>Trattative flessibili</strong> con le principali compagnie italiane e straniere.</li>
-          <li><strong>Ottimizzazione dei costi e delle garanzie</strong>, senza costi aggiuntivi per il cliente.</li>
-        </ul>
-        <h2 class="section-title" style="margin-top:1.4em">I Nostri Servizi</h2>
-        <p class="lead">Unibrokers offre un’ampia gamma di servizi per rispondere a tutte le esigenze assicurative:</p>
-        <ul class="bullets">
-          <li><strong>Consulenza indipendente</strong>: In qualità di broker assicurativo, operiamo in completa autonomia, selezionando la copertura più adatta e conveniente tra le migliori compagnie sul mercato.</li>
-          <li><strong>Nessun costo aggiuntivo</strong>: Il nostro servizio non comporta oneri economici per il cliente, poiché il broker è remunerato direttamente dalle compagnie assicurative.</li>
-          <li><strong>Assistenza dedicata</strong>: Offriamo un unico punto di riferimento per tutte le esigenze assicurative, garantendo semplicità e trasparenza nella gestione dei contratti.</li>
-          <li><strong>Libertà di scelta</strong>: Trattiamo con compagnie italiane e internazionali per ottenere le migliori condizioni economiche e di copertura.</li>
-        </ul>
-      </div>
-    </section>""",
-    """    <section class="section section-teal banner">
-      <div class="wrap">
-        <h2>Affidati a Unibrokers S.r.l. per la gestione completa e personalizzata delle tue polizze assicurative. Richiedi una consulenza gratuita e scopri come possiamo aiutarti a semplificare e ottimizzare il tuo pacchetto assicurativo.</h2>
-      </div>
-    </section>""",
-    "contatti-unibrokers",
-    f"""          <h2>Unibrokers S.r.l.</h2>
-          <p><strong>Referenti aziendali:</strong></p>
-          <p>NALIN ROBERTA, amministratore unico, broker</p>
-          <p>SAGGIN ENRICO, responsabile commerciale</p>
-          <p>Tel: <a href="tel:+39049657501">049/657501</a></p>
-          <p>ISCR.RUI UNIBROKER: {UB_RUI}</p>""",
+    "Consulenza e brokeraggio assicurativo indipendente",
+    "Dal 1997 tuteliamo gli interessi dei nostri clienti: analizziamo le esigenze, selezioniamo le coperture migliori sul mercato e ti seguiamo anche nella gestione dei sinistri.",
+    "hero-unibrokers.jpg",
+    f"""          <h2>Chi siamo</h2>
+          <p><strong>Unibrokers S.r.l.</strong> è una società di brokeraggio assicurativo fondata nel 1997, con sede a Padova, iscritta al <strong>Registro Unico degli Intermediari</strong> (R.U.I.) con il numero {UB_RUI}, sotto la vigilanza di IVASS.</p>
+          <p>Grazie a oltre 20 anni di esperienza nel settore assicurativo, la nostra missione è garantire la <strong>tutela degli interessi del cliente</strong>, offrendo soluzioni su misura per la gestione dei rischi. Analizziamo le esigenze assicurative, proponiamo le migliori coperture contrattuali e collaboriamo con compagnie italiane e internazionali per garantire il massimo vantaggio. Inoltre supportiamo i clienti nella gestione dei sinistri, assicurando un’assistenza completa.</p>
+          <h2>Perché sceglierci</h2>
+          <p>Siamo il tuo partner di fiducia per una consulenza assicurativa completa e personalizzata. La nostra esperienza ci permette di gestire sia le polizze sottoscritte attraverso di noi sia quelle già in essere.</p>
+""" + features([
+        ("Gestione completa delle polizze", "Monitoriamo le scadenze contrattuali e ci occupiamo dell’incasso dei premi, trasferendoli alle compagnie competenti."),
+        ("Aggiornamenti costanti", "Informiamo i clienti su nuovi prodotti assicurativi, modifiche legislative e opportunità di aggiornamento delle polizze in corso."),
+        ("Personalizzazione", "Concordiamo con i clienti eventuali integrazioni o modifiche, per garantire che le coperture siano sempre adeguate."),
+        ("Nessun costo aggiuntivo", "Il nostro servizio non comporta oneri per il cliente: il broker è remunerato direttamente dalle compagnie assicurative."),
+    ]) + """
+          <h2>I vantaggi di affidarsi a noi</h2>
+          <ul class="checklist">
+            <li><strong>Unico referente</strong> per la gestione di tutti i contratti assicurativi.</li>
+            <li><strong>Consulenza imparziale</strong>, grazie alla nostra indipendenza dalle compagnie assicurative.</li>
+            <li><strong>Trattative flessibili</strong> con le principali compagnie italiane e straniere.</li>
+            <li><strong>Ottimizzazione dei costi e delle garanzie</strong>, senza costi aggiuntivi per il cliente.</li>
+          </ul>
+          <h2>I nostri servizi</h2>
+          <ul class="checklist">
+            <li><strong>Consulenza indipendente</strong>: in qualità di broker operiamo in completa autonomia, selezionando la copertura più adatta e conveniente tra le migliori compagnie sul mercato.</li>
+            <li><strong>Assistenza dedicata</strong>: un unico punto di riferimento per tutte le esigenze assicurative, con semplicità e trasparenza nella gestione dei contratti.</li>
+            <li><strong>Libertà di scelta</strong>: trattiamo con compagnie italiane e internazionali per ottenere le migliori condizioni economiche e di copertura.</li>
+          </ul>""",
+    [("Amministratore unico, broker", "Nalin Roberta"), ("Responsabile commerciale", "Saggin Enrico"),
+     ("Telefono", '<a href="tel:+39049657501">049 657 501</a>'), ("Iscrizione RUI", UB_RUI)],
+    "Richiedi una consulenza gratuita sul tuo pacchetto assicurativo.",
+    banner="Affidati a Unibrokers per la gestione completa e personalizzata delle tue polizze. Richiedi una consulenza gratuita e scopri come semplificare e ottimizzare il tuo pacchetto assicurativo.",
 )
 
-# ---------------------------------------------------------------- Pagine senza contenuto nel video
-# Testi provvisori: da sostituire con quelli definitivi del sito originale.
+# ================================================================ Pagine senza contenuto nel video
+# Testi provvisori: da sostituire con quelli definitivi.
 partner_page(
-    "unipol.html", "UnipolSai Assicurazioni | Padovani & Partners",
+    P["unipol.html"], "UnipolSai Assicurazioni | Padovani & Partners",
     "UnipolSai Assicurazioni: polizze per aziende, professionisti e privati.",
-    None, "",
-    "UnipolSai Assicurazioni: coperture per aziende, professionisti e privati",
-    "        <p>Attraverso UnipolSai Assicurazioni offriamo una gamma completa di polizze per proteggere la tua attività, il tuo patrimonio e la tua famiglia, con soluzioni costruite sulle tue esigenze.</p>",
+    "Coperture assicurative per imprese, professionisti e famiglie",
+    "Attraverso UnipolSai Assicurazioni offriamo una gamma completa di polizze per proteggere la tua attività, il tuo patrimonio e le persone a cui tieni.",
     None,
-    [
-        (None, "Polizze per le imprese", "Coperture per rischi finanziari, responsabilità civile e tutela del patrimonio aziendale."),
-        (None, "Protezione per privati e famiglie", "Soluzioni per la casa, la salute e la persona, per vivere ogni giorno con serenità."),
-        (None, "Consulenza dedicata", "Un unico referente che ti segue nella scelta delle coperture e nella gestione dei sinistri."),
-    ],
-    "",
-    cta("Hai bisogno di una consulenza assicurativa?", button=False),
-    "contatti-unipol",
-    """          <h2>Unipol Assicurazioni</h2>
-          <p>Compila il modulo: ti ricontatteremo al più presto per fissare una consulenza.</p>""",
+    """          <h2>Cosa possiamo fare per te</h2>
+          <p>Ti accompagniamo nella scelta delle coperture più adatte, con un’analisi attenta delle tue esigenze e un unico referente per ogni necessità.</p>
+""" + features([
+        ("Polizze per le imprese", "Coperture per rischi finanziari, responsabilità civile e tutela del patrimonio aziendale."),
+        ("Professionisti", "Responsabilità civile professionale e tutela dell’attività, su misura per la tua professione."),
+        ("Privati e famiglie", "Soluzioni per la casa, la salute e la persona, per vivere ogni giorno con serenità."),
+        ("Assistenza sui sinistri", "Ti affianchiamo in ogni fase, dalla denuncia alla liquidazione."),
+    ]),
+    [("Area", "Assicurazioni"), ("Per informazioni", '<a href="contatti.html">Contatta lo studio</a>')],
+    "Ti ricontatteremo per una consulenza sulle soluzioni UnipolSai.",
 )
 
 partner_page(
-    "car-adviser.html", "Car Adviser SRL – Noleggio a lungo termine | Padovani & Partners",
+    P["car-adviser.html"], "Car Adviser SRL — Noleggio a lungo termine | Padovani & Partners",
     "Car Adviser SRL: noleggio a lungo termine e servizi per la mobilità di aziende, professionisti e privati.",
-    None, "",
-    "Noleggio a lungo termine: servizi per la mobilità",
-    "        <p>Con Car Adviser SRL, la nostra divisione dedicata alla mobilità, ti aiutiamo a gestire il tuo parco veicoli con soluzioni di noleggio a lungo termine innovative e su misura, per aziende, professionisti e privati.</p>",
+    "Noleggio a lungo termine e servizi per la mobilità",
+    "Con Car Adviser, la nostra divisione dedicata alla mobilità, ti aiutiamo a gestire il tuo parco veicoli con soluzioni di noleggio innovative e su misura.",
     None,
-    [
-        (None, "Un canone, tutto incluso", "Un’unica rata mensile che comprende assicurazione, manutenzione e assistenza."),
-        (None, "Flotte aziendali", "Gestione completa del parco veicoli, per concentrarti solo sulla tua attività."),
-        (None, "Consulenza su misura", "Ti aiutiamo a scegliere veicolo, durata e chilometraggio più adatti alle tue esigenze."),
-    ],
-    "",
-    cta("Hai bisogno di una consulenza?", button=False),
-    "contatti-car-adviser",
-    """          <h2>Car Adviser SRL</h2>
-          <p>Compila il modulo: ti ricontatteremo al più presto con una proposta di noleggio.</p>""",
+    """          <h2>La mobilità, senza pensieri</h2>
+          <p>Per aziende, professionisti e privati: scegli il veicolo, noi pensiamo a tutto il resto.</p>
+""" + features([
+        ("Un canone, tutto incluso", "Un’unica rata mensile che comprende assicurazione, manutenzione e assistenza."),
+        ("Flotte aziendali", "Gestione completa del parco veicoli, per concentrarti solo sulla tua attività."),
+        ("Consulenza su misura", "Ti aiutiamo a scegliere veicolo, durata e chilometraggio più adatti alle tue esigenze."),
+        ("Costi certi", "Nessuna sorpresa: spese prevedibili e pianificabili nel tempo."),
+    ]),
+    [("Area", "Noleggio a lungo termine"), ("Per informazioni", '<a href="contatti.html">Contatta lo studio</a>')],
+    "Ti ricontatteremo con una proposta di noleggio su misura.",
 )
 
 partner_page(
-    "librici.html", "Antonino Librici & Partners – Risk Management | Padovani & Partners",
+    P["librici.html"], "Antonino Librici & Partners — Risk management | Padovani & Partners",
     "Antonino Librici & Partners: consulenza di risk management per le imprese.",
-    None, "",
-    "Consulenza di Risk Management",
-    "        <p>Con Antonino Librici &amp; Partners accompagniamo le imprese nell’analisi, nella valutazione e nella gestione dei rischi aziendali, per costruire una protezione efficace e sostenibile nel tempo.</p>",
+    "Consulenza di risk management per la tua impresa",
+    "Analizziamo, valutiamo e gestiamo i rischi aziendali per costruire una protezione efficace e sostenibile nel tempo.",
     None,
-    [
-        (None, "Analisi dei rischi", "Mappatura dei rischi operativi, finanziari e di responsabilità della tua impresa."),
-        (None, "Strategie di protezione", "Definizione delle coperture e delle misure di prevenzione più adatte."),
-        (None, "Monitoraggio continuo", "Revisione periodica del programma assicurativo al variare dell’attività."),
-    ],
-    "",
-    cta("Hai bisogno di una consulenza?", button=False),
-    "contatti-librici",
-    """          <h2>Antonino Librici &amp; Partners</h2>
-          <p>Compila il modulo: ti ricontatteremo al più presto per fissare una consulenza.</p>""",
+    """          <h2>Conoscere i rischi per governarli</h2>
+          <p>Un programma di risk management ben costruito riduce l’esposizione dell’impresa e rende più efficaci le coperture assicurative.</p>
+""" + features([
+        ("Analisi dei rischi", "Mappatura dei rischi operativi, finanziari e di responsabilità della tua impresa."),
+        ("Strategie di protezione", "Definizione delle coperture e delle misure di prevenzione più adatte."),
+        ("Ottimizzazione dei costi", "Garanzie calibrate sui rischi reali, senza sovrapposizioni né scoperture."),
+        ("Monitoraggio continuo", "Revisione periodica del programma assicurativo al variare dell’attività."),
+    ]),
+    [("Area", "Risk management"), ("Per informazioni", '<a href="contatti.html">Contatta lo studio</a>')],
+    "Ti ricontatteremo per fissare una consulenza di risk management.",
 )
 
-# ---------------------------------------------------------------- Contatti
-contatti = f"""    <section class="section section-dark page-intro">
+# ================================================================ Contatti
+contatti = f"""    <section class="page-hero">
       <div class="wrap">
-        <h1>Contattaci</h1>
-        <p class="center">Hai bisogno di una consulenza? Contattaci o vieni a trovarci: troveremo la soluzione adatta a te.</p>
+        <nav class="crumbs" aria-label="Percorso"><a href="index.html">Home</a><span>/</span>Contatti</nav>
+        <div class="reveal">
+          <span class="eyebrow">Contatti</span>
+          <h1>Hai bisogno di una consulenza?</h1>
+          <p class="lead">Contattaci o vieni a trovarci: troveremo la soluzione adatta a te.</p>
+        </div>
       </div>
     </section>
-{contact("contatti", '''          <h2>Padovani &amp; Partners</h2>
-          <p><strong>AXA Assicurazioni – Pegaso SRL</strong><br>Tel: <a href="tel:+390490982994">049/0982994</a></p>
-          <p><strong>Unibrokers S.r.l.</strong><br>Tel: <a href="tel:+39049657501">049/657501</a></p>
-          <p>P.IVA ''' + PIVA + '''</p>''')}
-{partner_cards("Proteggi la tua azienda con noi:<br>le soluzioni che fanno la differenza.")}"""
+
+{contact_section("contatti", "Compila il modulo, ti ricontatteremo al più presto.", "Scrivici o chiamaci", "Raccontaci di cosa hai bisogno: ti metteremo in contatto con il professionista giusto per la tua richiesta.")}
+
+{other_partners(None)}"""
 (OUT / "contatti.html").write_text(page(
     "contatti.html", "Contatti | Padovani & Partners",
     "Contatta Padovani & Partners per una consulenza assicurativa, di noleggio a lungo termine o di risk management.",

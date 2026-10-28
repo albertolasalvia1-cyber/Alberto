@@ -3,117 +3,214 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Padovani & Partners</title>
+  <title>Padovani & Partners — Consulenza assicurativa, brokeraggio e risk management</title>
   <meta name="description" content="Padovani & Partners: consulenza assicurativa, brokeraggio, noleggio a lungo termine e risk management per aziende, professionisti e privati.">
-  <link rel="icon" href="img/logo-pp.png">
+  <meta name="theme-color" content="#0f2f28">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="index.html" aria-label="Padovani &amp; Partners – Home"><img src="img/logo-pp.png" alt="Padovani &amp; Partners"></a>
-      <button class="menu-toggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+      <a class="logo" href="index.html" aria-label="Padovani &amp; Partners – Home">
+        <span class="logo-mark" aria-hidden="true">PP</span>
+        <span class="logo-text">Padovani &amp; Partners<small>Consulenza assicurativa</small></span>
+      </a>
       <nav class="main-nav" id="main-nav" aria-label="Menu principale">
         <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="unipol.html">Unipol</a></li>
-        <li><a href="axa.html">AXA</a></li>
-        <li><a href="unibrokers.html">Unibrokers</a></li>
-        <li><a href="car-adviser.html">Car Adviser</a></li>
-        <li><a href="librici.html">Antonino Librici</a></li>
-        <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="index.html#chi-siamo">Chi siamo</a></li>
+          <li class="dd">
+            <button class="dd-btn" aria-expanded="false" aria-haspopup="true">Soluzioni <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <ul class="dd-menu">
+              <li><a href="unipol.html">Unipol<span>Assicurazioni</span></a></li>
+              <li><a href="axa.html">AXA<span>Protezione assicurativa globale</span></a></li>
+              <li><a href="unibrokers.html">Unibrokers<span>Brokeraggio assicurativo</span></a></li>
+              <li><a href="car-adviser.html">Car Adviser<span>Noleggio a lungo termine</span></a></li>
+              <li><a href="librici.html">Antonino Librici<span>Consulenza di risk management</span></a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#metodo">Come lavoriamo</a></li>
+          <li><a class="btn btn-gold btn-sm" href="contatti.html">Richiedi una consulenza</a></li>
         </ul>
       </nav>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
     </div>
   </header>
 
   <main>
-    <section class="section section-dark hero">
-      <div class="wrap">
-        <h1>Proteggi il tuo business con soluzioni personalizzate e servizi su misura</h1>
-        <p>Benvenuti in <strong>Padovani &amp; Partners</strong>, il punto di riferimento per chi cerca soluzioni personalizzate, servizi dedicati al noleggio a lungo termine e risk manager. Il nostro obiettivo è offrirti la tranquillità di sapere che ogni aspetto della tua attività è protetto, lasciandoti libero di concentrarti sulla crescita del tuo business.</p>
-        <p>Con una gamma completa di polizze per aziende, professionisti e privati, una divisione specializzata nel noleggio a lungo termine e consulenza di risk management, siamo al tuo fianco per costruire un futuro sicuro e privo di preoccupazioni. Scopri come possiamo aiutarti a proteggere i tuoi asset e a gestire il tuo parco veicoli con soluzioni innovative e su misura.</p>
-        <p class="center"><a class="btn btn-upper" href="contatti.html">Contattaci</a></p>
-      </div>
-    </section>
-    <section class="section section-teal">
-      <div class="wrap">
-      <div class="features">
-        <div class="feature reveal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 1-15.4 6.4"/><path d="M3 12A9 9 0 0 1 18.4 5.6"/><path d="M18 2v4h-4"/><path d="M6 22v-4h4"/><circle cx="12" cy="12" r="3"/></svg>
-          <div><h3>Esperienza e competenza in ambito assicurativo</h3><p>Siamo un team di professionisti qualificati con anni di esperienza, pronti a guidarti nel complesso mondo delle assicurazioni aziendali, offrendo consulenza specializzata e affidabile.</p></div>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Padovani &amp; Partners</span>
+          <h1>Proteggi il tuo business con soluzioni <em class="accent">su misura</em></h1>
+          <p class="lead">Il punto di riferimento per aziende, professionisti e privati che cercano coperture personalizzate, noleggio a lungo termine e consulenza di risk management. Tu pensi alla crescita, noi alla tua tranquillità.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-gold" href="contatti.html">Richiedi una consulenza <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn-ghost" href="#soluzioni">Scopri le soluzioni</a>
+          </div>
+          <div class="hero-stats">
+            <div><b>5</b><span>partner specializzati</span></div>
+            <div><b>1</b><span>unico referente</span></div>
+            <div><b>360°</b><span>protezione per l’impresa</span></div>
+          </div>
         </div>
-        <div class="feature reveal">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 6 7.5 9.5a1.5 1.5 0 0 0 2.1 2.1L12 9.2l5.6 5.6a1.4 1.4 0 0 1-2 2l-.6-.6.1.1a1.4 1.4 0 0 1-2 2l-.4-.4a1.4 1.4 0 0 1-2 2L6 15.3 2 11.3 6.8 6.5a2 2 0 0 1 2.4-.3zM13 6.6 14.8 5a2 2 0 0 1 2.6 0L22 9.4l-3.5 3.5z"/></svg>
-          <div><h3>Consulenza assicurativa per il tuo successo</h3><p>Con le nostre soluzioni, ti aiutiamo a concentrarti sulla crescita del tuo business, lasciando a noi la gestione dei rischi.</p></div>
-        </div>
-        <div class="feature reveal">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 5v6c0 5 3.4 9.6 8 11 4.6-1.4 8-6 8-11V5zm-1.2 14.2-3.6-3.6 1.4-1.4 2.2 2.2 5-5 1.4 1.4z"/></svg>
-          <div><h3>Coperture personalizzate</h3><p>Specializzati nel settore <strong>AZIENDALE</strong>, offriamo polizze su misura che coprono rischi finanziari, responsabilità civile e tutela del patrimonio, per garantire la massima sicurezza alla vostra impresa.</p></div>
-        </div>
-        <div class="feature reveal">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 10h4v11H2zM8 21V10l5-8 1 .5a2 2 0 0 1 1 2.3L14.2 9H20a2 2 0 0 1 2 2.3l-1.5 8A2 2 0 0 1 18.5 21z"/></svg>
-          <div><h3>Relazioni basate sulla fiducia</h3><p>Offriamo un servizio trasparente e professionale, diventando il tuo partner di riferimento per tutte le esigenze di brokeraggio e consulenza assicurativa.</p></div>
-        </div>
-      </div>
-      </div>
-    </section>
-    <section class="section section-band">
-      <div class="wrap">
-        <h2 class="partners-title">Proteggi la tua azienda con noi:<br>le soluzioni che fanno la differenza.</h2>
-        <div class="cards">
-        <article class="card reveal">
-          <div class="logo"><img src="img/logo-unipolsai.png" alt="UnipolSai Assicurazioni" loading="lazy"></div>
-          <h3>Unipol</h3>
-          <p class="sub">Assicurazioni</p>
-          <a class="btn" href="unipol.html">Scopri di più</a>
-        </article>
-        <article class="card reveal">
-          <div class="logo"><img src="img/logo-axa.png" alt="AXA" loading="lazy"></div>
-          <h3>AXA Assicurazioni Pegaso SRL</h3>
-          <p class="sub">Protezione Assicurativa Globale</p>
-          <a class="btn" href="axa.html">Scopri di più</a>
-        </article>
-        <article class="card reveal">
-          <div class="logo"><img src="img/logo-unibrokers.png" alt="Unibrokers" loading="lazy"></div>
-          <h3>Unibrokers SRL</h3>
-          <p class="sub">Brokeraggio assicurativo</p>
-          <a class="btn" href="unibrokers.html">Scopri di più</a>
-        </article>
-        <article class="card reveal">
-          <div class="logo"><img src="img/logo-car-adviser.png" alt="Car Adviser – servizi per la mobilità" loading="lazy"></div>
-          <h3>Car Adviser SRL</h3>
-          <p class="sub">Noleggio a lungo termine</p>
-          <a class="btn" href="car-adviser.html">Scopri di più</a>
-        </article>
-        <article class="card reveal">
-          <div class="logo"><img src="img/logo-librici.png" alt="Antonino Librici Risk Manager" loading="lazy"></div>
-          <h3>Antonino Librici &amp; Partners</h3>
-          <p class="sub">Consulenza di Risk Management</p>
-          <a class="btn" href="librici.html">Scopri di più</a>
-        </article>
+        <div class="glass reveal d2">
+          <h2>Le nostre aree</h2>
+          <ul class="area-list">
+              <li><a href="unipol.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12a10 10 0 0 0-20 0z"/><path d="M12 12v8a2 2 0 0 0 4 0"/><path d="M12 2v1"/></svg></span><span><b>Assicurazioni</b><small>Unipol</small></span><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+              <li><a href="axa.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><span><b>Protezione assicurativa globale</b><small>AXA</small></span><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+              <li><a href="unibrokers.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 21h14M3 7h18"/><path d="m6 7-3 7a3 3 0 0 0 6 0zM18 7l-3 7a3 3 0 0 0 6 0z"/></svg></span><span><b>Brokeraggio assicurativo</b><small>Unibrokers</small></span><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+              <li><a href="car-adviser.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14M5 17a2 2 0 1 1-4 0v-4l2.5-6h17L23 13v4a2 2 0 1 1-4 0"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M3 12h18"/></svg></span><span><b>Noleggio a lungo termine</b><small>Car Adviser</small></span><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+              <li><a href="librici.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-7"/></svg></span><span><b>Consulenza di risk management</b><small>Antonino Librici</small></span><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+          </ul>
         </div>
       </div>
     </section>
-    <section class="section section-dark cta center">
+
+    <section class="section cream" id="chi-siamo">
+      <div class="wrap split">
+        <div class="reveal">
+          <span class="eyebrow">Chi siamo</span>
+          <h2>Un unico partner per proteggere tutto ciò che conta</h2>
+          <p class="lead">Benvenuti in <strong>Padovani &amp; Partners</strong>. Il nostro obiettivo è offrirti la tranquillità di sapere che ogni aspetto della tua attività è protetto, lasciandoti libero di concentrarti sulla crescita del tuo business.</p>
+          <p>Con una gamma completa di polizze per aziende, professionisti e privati, una divisione specializzata nel noleggio a lungo termine e la consulenza di risk management, siamo al tuo fianco per costruire un futuro sicuro e privo di preoccupazioni. Scopri come possiamo aiutarti a proteggere i tuoi asset e a gestire il tuo parco veicoli con soluzioni innovative e su misura.</p>
+          <p class="quote">“Proteggi ciò che conta di più, con la nostra esperienza al tuo fianco.”</p>
+        </div>
+        <div class="values">
+          <div class="value reveal d1"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8.2 13 7 22l5-3 5 3-1.2-9"/></svg></span><h3>Esperienza e competenza in ambito assicurativo</h3><p>Siamo un team di professionisti qualificati con anni di esperienza, pronti a guidarti nel complesso mondo delle assicurazioni aziendali, offrendo consulenza specializzata e affidabile.</p></div>
+          <div class="value reveal d2"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span><h3>Consulenza assicurativa per il tuo successo</h3><p>Con le nostre soluzioni ti aiutiamo a concentrarti sulla crescita del tuo business, lasciando a noi la gestione dei rischi.</p></div>
+          <div class="value reveal d1"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Coperture personalizzate</h3><p>Specializzati nel settore aziendale, offriamo polizze su misura che coprono rischi finanziari, responsabilità civile e tutela del patrimonio, per garantire la massima sicurezza alla tua impresa.</p></div>
+          <div class="value reveal d2"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.9-3.9a3 3 0 0 0-4.2 0l-.9.9a1 1 0 1 1-3-3l2.8-2.8a5 5 0 0 1 6.2-.6l.5.3a2 2 0 0 0 1.5.3L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></span><h3>Relazioni basate sulla fiducia</h3><p>Offriamo un servizio trasparente e professionale, diventando il tuo partner di riferimento per tutte le esigenze di brokeraggio e consulenza assicurativa.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section darker" id="soluzioni">
       <div class="wrap">
-        <h2>Hai bisogno di una consulenza?</h2>
-        <h3>contattaci o vieni a trovarci</h3>
-        <p>Troveremo la soluzione adatta a te.</p>
-        <p><a class="btn btn-green btn-upper" href="contatti.html">Contattaci</a></p>
+        <div class="section-head reveal">
+          <span class="eyebrow">Le nostre soluzioni</span>
+          <h2>Proteggi la tua azienda con noi: le soluzioni che fanno la differenza.</h2>
+          <p class="lead">Lavoriamo con partner selezionati per offrirti, da un unico interlocutore, tutto ciò che serve alla tua sicurezza e alla tua mobilità.</p>
+        </div>
+        <div class="solutions">
+          <a class="solution reveal d1" href="unipol.html">
+            <span class="brand"><img src="img/logo-unipolsai.png" alt="UnipolSai Assicurazioni" loading="lazy"></span>
+            <span class="tag">Assicurazioni</span>
+            <h3>UnipolSai Assicurazioni</h3>
+            <p>Polizze per imprese, professionisti e famiglie con uno dei principali gruppi assicurativi italiani.</p>
+            <span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="solution reveal d2" href="axa.html">
+            <span class="brand"><img src="img/logo-axa.png" alt="AXA Assicurazioni – Pegaso SRL" class="tall" loading="lazy"></span>
+            <span class="tag">Protezione assicurativa globale</span>
+            <h3>AXA Assicurazioni – Pegaso SRL</h3>
+            <p>Salute, tutela legale, viaggi: soluzioni complete e personalizzate, dal privato all’azienda.</p>
+            <span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="solution reveal d3" href="unibrokers.html">
+            <span class="brand"><img src="img/logo-unibrokers.png" alt="Unibrokers S.r.l." loading="lazy"></span>
+            <span class="tag">Brokeraggio assicurativo</span>
+            <h3>Unibrokers S.r.l.</h3>
+            <p>Broker indipendente dal 1997: selezioniamo per te le coperture migliori sul mercato, senza costi aggiuntivi.</p>
+            <span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="solution reveal d1" href="car-adviser.html">
+            <span class="brand"><img src="img/logo-car-adviser.png" alt="Car Adviser SRL" loading="lazy"></span>
+            <span class="tag">Noleggio a lungo termine</span>
+            <h3>Car Adviser SRL</h3>
+            <p>Servizi per la mobilità: noleggio a lungo termine e gestione del parco veicoli aziendale.</p>
+            <span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="solution reveal d2" href="librici.html">
+            <span class="brand"><img src="img/logo-librici.png" alt="Antonino Librici &amp; Partners" loading="lazy"></span>
+            <span class="tag">Consulenza di risk management</span>
+            <h3>Antonino Librici &amp; Partners</h3>
+            <p>Analisi, valutazione e gestione dei rischi d’impresa, per una protezione efficace nel tempo.</p>
+            <span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section paper" id="metodo">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Come lavoriamo</span>
+          <h2>Un metodo chiaro, dalla prima analisi all’assistenza sui sinistri</h2>
+        </div>
+        <div class="steps">
+          <div class="step reveal d1"><h3>Analisi</h3><p>Studiamo la tua attività e le coperture già in essere per individuare rischi ed esigenze reali.</p></div>
+          <div class="step reveal d2"><h3>Proposta</h3><p>Selezioniamo le soluzioni più adatte e convenienti tra compagnie italiane e internazionali.</p></div>
+          <div class="step reveal d3"><h3>Gestione</h3><p>Monitoriamo scadenze, premi e aggiornamenti normativi: un unico referente per tutti i contratti.</p></div>
+          <div class="step reveal d4"><h3>Assistenza</h3><p>Ti affianchiamo nella gestione dei sinistri, con un’assistenza completa e tempestiva.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section paper">
+      <div class="wrap">
+        <div class="cta-box reveal">
+          <div>
+            <span class="eyebrow">Parliamone</span>
+            <h2>Hai bisogno di una consulenza?</h2>
+            <p>Contattaci o vieni a trovarci: troveremo la soluzione adatta a te.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-gold" href="contatti.html">Richiedi una consulenza <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="phone-line" href="tel:+390490982994"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><small>AXA Assicurazioni – Pegaso SRL</small><b>049 098 2994</b></span></a>
+          <a class="phone-line" href="tel:+39049657501"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><small>Unibrokers S.r.l.</small><b>049 657 501</b></span></a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <nav aria-label="Collegamenti"><a href="index.html">Home</a> <a href="unipol.html">Unipol</a> <a href="axa.html">AXA</a> <a href="unibrokers.html">Unibrokers</a> <a href="car-adviser.html">Car Adviser</a> <a href="librici.html">Antonino Librici</a> <a href="contatti.html">Contatti</a></nav>
-    <div>&copy; Padovani &amp; Partners P.IVA 04661560286</div>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">PP</span><span class="logo-text">Padovani &amp; Partners<small>Consulenza assicurativa</small></span></a>
+          <p>Soluzioni assicurative, brokeraggio, noleggio a lungo termine e risk management per aziende, professionisti e privati.</p>
+        </div>
+        <div>
+          <h4>Soluzioni</h4>
+          <ul>
+            <li><a href="unipol.html">Unipol</a></li>
+            <li><a href="axa.html">AXA</a></li>
+            <li><a href="unibrokers.html">Unibrokers</a></li>
+            <li><a href="car-adviser.html">Car Adviser</a></li>
+            <li><a href="librici.html">Antonino Librici</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Studio</h4>
+          <ul>
+            <li><a href="index.html#chi-siamo">Chi siamo</a></li>
+            <li><a href="index.html#soluzioni">Le nostre soluzioni</a></li>
+            <li><a href="index.html#metodo">Come lavoriamo</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contatti</h4>
+          <ul>
+            <li><a href="tel:+390490982994">AXA Assicurazioni – Pegaso SRL<br>049 098 2994</a></li>
+            <li><a href="tel:+39049657501">Unibrokers S.r.l.<br>049 657 501</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; Padovani &amp; Partners · P.IVA 04661560286</span>
+        <a href="contatti.html">Richiedi una consulenza</a>
+      </div>
+    </div>
   </footer>
 
-  <button class="to-top" aria-label="Torna su"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg></button>
+  <button class="to-top" aria-label="Torna su"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button>
   <script src="js/main.js"></script>
 </body>
 </html>
