@@ -1,60 +1,42 @@
-// Header, menu mobile, tendina "Soluzioni", pulsante "torna su", animazioni allo scroll e form di contatto.
+// Menu (pannello "Società e partner" e menu mobile), pulsante "torna su", form di contatto.
 (function () {
   var body = document.body;
-  var header = document.querySelector('.site-header');
-  var toTop = document.querySelector('.to-top');
+  var desktop = window.matchMedia('(min-width: 1081px) and (hover: hover)');
 
-  function onScroll() {
-    var y = window.scrollY;
-    header.classList.toggle('solid', y > 24);
-    if (toTop) toTop.classList.toggle('show', y > 600);
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-  if (toTop) toTop.addEventListener('click', function () { window.scrollTo({ top: 0 }); });
-
-  var toggle = document.querySelector('.menu-toggle');
-  function closeMenu() {
-    body.classList.remove('menu-open');
-    if (toggle) toggle.setAttribute('aria-expanded', 'false');
-  }
-  if (toggle) {
-    toggle.addEventListener('click', function () {
-      var open = body.classList.toggle('menu-open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  }
-  document.querySelectorAll('.main-nav a').forEach(function (a) { a.addEventListener('click', closeMenu); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeMenu(); closeDropdowns(); } });
-
-  function closeDropdowns() {
-    document.querySelectorAll('.dd.open').forEach(function (d) {
-      d.classList.remove('open');
-      d.querySelector('.dd-btn').setAttribute('aria-expanded', 'false');
-    });
-  }
-  document.querySelectorAll('.dd-btn').forEach(function (btn) {
+  // ---- Pannello a tendina: si apre al passaggio del mouse (desktop) o al clic/tocco, con un breve ritardo in chiusura
+  document.querySelectorAll('.dd').forEach(function (dd) {
+    var btn = dd.querySelector('.nav-link');
+    var timer;
+    function open() { clearTimeout(timer); dd.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+    function close() { clearTimeout(timer); dd.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
-      var dd = btn.closest('.dd');
-      var open = dd.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      dd.classList.contains('open') ? close() : open();
     });
+    dd.addEventListener('mouseenter', function () { if (desktop.matches) open(); });
+    dd.addEventListener('mouseleave', function () { if (desktop.matches) timer = setTimeout(close, 220); });
+    dd.addEventListener('focusout', function (e) { if (desktop.matches && !dd.contains(e.relatedTarget)) close(); });
+    document.addEventListener('click', function (e) { if (desktop.matches && !dd.contains(e.target)) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && dd.classList.contains('open')) { close(); btn.focus(); } });
   });
-  document.addEventListener('click', function (e) { if (!e.target.closest('.dd')) closeDropdowns(); });
 
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-  } else {
-    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
-  }
+  // ---- Menu mobile
+  var toggle = document.querySelector('.menu-toggle');
+  function closeMenu() { body.classList.remove('menu-open'); toggle.setAttribute('aria-expanded', 'false'); }
+  toggle.addEventListener('click', function () {
+    var open = body.classList.toggle('menu-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('.main-nav a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+  desktop.addEventListener && desktop.addEventListener('change', closeMenu);
 
-  // Form: controllo antispam ("La capitale della Francia?") e invio a Netlify Forms.
+  // ---- Torna su
+  var toTop = document.querySelector('.to-top');
+  window.addEventListener('scroll', function () { toTop.classList.toggle('show', window.scrollY > 700); }, { passive: true });
+  toTop.addEventListener('click', function () { window.scrollTo({ top: 0 }); });
+
+  // ---- Form: controllo antispam ("La capitale della Francia?") e invio a Netlify Forms
   document.querySelectorAll('form.form').forEach(function (form) {
     var msg = form.querySelector('.form-msg');
     form.addEventListener('submit', function (ev) {
@@ -68,17 +50,20 @@
       }
       var button = form.querySelector('button[type="submit"]');
       button.disabled = true;
-      var body = new URLSearchParams(new FormData(form)).toString();
-      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
         .then(function (r) {
           if (!r.ok) throw new Error(r.status);
           form.reset();
           msg.className = 'form-msg ok';
-          msg.textContent = 'Grazie! Abbiamo ricevuto la tua richiesta: ti ricontatteremo al più presto.';
+          msg.textContent = 'Richiesta inviata correttamente. Sarete ricontattati al più presto.';
         })
         .catch(function () {
           msg.className = 'form-msg err';
-          msg.textContent = 'Invio non riuscito. Riprova più tardi oppure chiamaci direttamente.';
+          msg.textContent = 'Invio non riuscito. Riprovare più tardi oppure contattarci telefonicamente.';
         })
         .then(function () { button.disabled = false; });
     });

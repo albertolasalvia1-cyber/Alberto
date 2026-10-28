@@ -1,7 +1,8 @@
 # Padovani & Partners — Sito Web
 
-Nuova versione di padovaniepartners.it: stessi contenuti e stesse pagine del sito originale, con un design
-rifatto da zero (verde foresta e avorio con accenti ottone, titoli serif Fraunces, testo Inter).
+Nuova versione di padovaniepartners.it: stessi contenuti e stesse pagine del sito originale, con
+un'impostazione istituzionale (bianco e verde scuro del marchio, filetti sottili, nessun effetto decorativo).
+Caratteri: Source Serif 4 per i titoli, Source Sans 3 per il testo (Google Fonts).
 HTML + CSS + JS puri, nessuna dipendenza (a parte i Google Fonts): si pubblica su qualsiasi hosting statico.
 
 ## Pagine e collegamenti
@@ -16,9 +17,10 @@ HTML + CSS + JS puri, nessuna dipendenza (a parte i Google Fonts): si pubblica s
 | `librici.html` | Antonino Librici & Partners – risk management |
 | `contatti.html` | Form di contatto generale (i pulsanti "Contattaci" della home portano qui) |
 
-Ogni pagina ha il menu in alto con tendina "Soluzioni" (menu a schermo intero su mobile), il logo che riporta
-alla home, il percorso (Home / Soluzioni / ...), il footer con tutti i collegamenti, le card verso le altre
-pagine partner e il pulsante "torna su". Nelle pagine partner una scheda laterale riporta referenti e telefono.
+Ogni pagina ha il menu in alto con il pannello "Società e partner" (si apre al passaggio del mouse o al clic;
+su mobile il menu è a schermo intero con la voce che si espande), il logo che riporta alla home, il percorso
+(Home / Società e partner / ...), il footer con tutti i collegamenti, i rimandi alle altre società e il
+pulsante "torna su". Nelle pagine delle società una scheda laterale riporta referenti, RUI e telefono.
 I numeri di telefono sono cliccabili (`tel:`).
 
 ## Testi da completare
@@ -40,9 +42,10 @@ Lo stile è in `css/style.css` (colori in cima al file), il comportamento in `js
 
 ## Immagini
 
-Il logo Padovani & Partners è ridisegnato in HTML/CSS (monogramma PP), `img/favicon.svg` è l'icona del browser.
-Loghi dei partner e foto in `img/` sono ritagliati dalla registrazione dello schermo, quindi a bassa risoluzione:
-conviene sostituirli con i file originali (loghi bianchi su fondo trasparente, PNG o SVG) mantenendo gli stessi nomi.
+Il logo Padovani & Partners è composto in HTML/CSS (monogramma PP e nome), `img/favicon.svg` è l'icona del browser.
+I loghi delle società in `img/` sono ritagliati dalla registrazione dello schermo, quindi a bassa risoluzione.
+Ognuno esiste in due versioni: `logo-*.png` bianco (per i fondi scuri) e `logo-*-dark.png` scuro (per i fondi chiari).
+Conviene sostituirli con i file originali in PNG trasparente o SVG, mantenendo gli stessi nomi.
 
 ## Form di contatto
 

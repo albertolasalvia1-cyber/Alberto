@@ -5,128 +5,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AXA Assicurazioni – Pegaso SRL | Padovani & Partners</title>
   <meta name="description" content="AXA Assicurazioni – Pegaso SRL: protezione assicurativa globale, soluzioni su misura per privati e aziende.">
-  <meta name="theme-color" content="#0f2f28">
+  <meta name="theme-color" content="#0f2a24">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="logo" href="index.html" aria-label="Padovani &amp; Partners – Home">
-        <span class="logo-mark" aria-hidden="true">PP</span>
-        <span class="logo-text">Padovani &amp; Partners<small>Consulenza assicurativa</small></span>
-      </a>
+      <a class="logo" href="index.html" aria-label="Padovani &amp; Partners, home"><span class="logo-mark" aria-hidden="true">PP</span><span class="logo-name">Padovani<br>&amp; Partners</span></a>
       <nav class="main-nav" id="main-nav" aria-label="Menu principale">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#chi-siamo">Chi siamo</a></li>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html#chi-siamo">Chi siamo</a></li>
           <li class="dd">
-            <button class="dd-btn" aria-expanded="false" aria-haspopup="true">Soluzioni <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-            <ul class="dd-menu">
-              <li><a href="unipol.html">Unipol<span>Assicurazioni</span></a></li>
-              <li><a href="axa.html" aria-current="page">AXA<span>Protezione assicurativa globale</span></a></li>
-              <li><a href="unibrokers.html">Unibrokers<span>Brokeraggio assicurativo</span></a></li>
-              <li><a href="car-adviser.html">Car Adviser<span>Noleggio a lungo termine</span></a></li>
-              <li><a href="librici.html">Antonino Librici<span>Consulenza di risk management</span></a></li>
-            </ul>
+            <button class="nav-link" aria-expanded="false" aria-controls="dd-societa">Società e partner <svg class="chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></button>
+            <div class="dd-panel" id="dd-societa">
+              <div class="wrap dd-inner">
+                <div class="dd-intro">
+                  <span class="label">Società e partner</span>
+                  <p>Un unico interlocutore per assicurazione, brokeraggio, mobilità aziendale e gestione del rischio.</p>
+                  <a class="more" href="index.html#societa">Panoramica <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+                </div>
+                <ul class="dd-links">
+                  <li><a href="unipol.html"><b>UnipolSai Assicurazioni</b><span>Assicurazioni</span></a></li>
+                  <li><a href="axa.html" aria-current="page"><b>AXA Assicurazioni – Pegaso SRL</b><span>Protezione assicurativa globale</span></a></li>
+                  <li><a href="unibrokers.html"><b>Unibrokers S.r.l.</b><span>Brokeraggio assicurativo</span></a></li>
+                  <li><a href="car-adviser.html"><b>Car Adviser SRL</b><span>Noleggio a lungo termine</span></a></li>
+                  <li><a href="librici.html"><b>Antonino Librici &amp; Partners</b><span>Consulenza di risk management</span></a></li>
+                </ul>
+              </div>
+            </div>
           </li>
-          <li><a href="index.html#metodo">Come lavoriamo</a></li>
-          <li><a class="btn btn-gold btn-sm" href="contatti.html">Richiedi una consulenza</a></li>
+          <li><a class="nav-link" href="index.html#metodo">Metodo</a></li>
+          <li><a class="nav-link" href="contatti.html">Contatti</a></li>
+          <li class="nav-cta-li"><a class="btn nav-cta" href="contatti.html#richiesta">Richiedi una consulenza</a></li>
         </ul>
       </nav>
-      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span class="bars" aria-hidden="true"></span></button>
     </div>
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-head on-dark">
       <div class="wrap">
-        <nav class="crumbs" aria-label="Percorso"><a href="index.html">Home</a><span>/</span><a href="index.html#soluzioni">Soluzioni</a><span>/</span>AXA</nav>
-        <div class="page-hero-grid">
-          <div class="reveal">
-            <span class="eyebrow">Protezione assicurativa globale</span>
-            <h1>Protezione assicurativa globale, su misura per privati e aziende</h1>
+        <nav class="crumbs" aria-label="Percorso"><a href="index.html">Home</a><span>/</span><a href="index.html#societa">Società e partner</a><span>/</span>AXA</nav>
+        <div class="page-head-grid">
+          <div>
+            <span class="label">Protezione assicurativa globale</span>
+            <h1>Protezione assicurativa globale: soluzioni su misura per privati e aziende</h1>
             <p class="lead">Soluzioni assicurative complete e personalizzate, progettate per garantire una protezione globale e rispondere alle specifiche esigenze di ogni cliente, dal privato all’azienda.</p>
-            <div class="hero-ctas">
-              <a class="btn btn-gold" href="#contatti">Richiedi una consulenza <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            </div>
           </div>
-          <div class="brand-panel reveal d2">
-            <div class="media"><img src="img/hero-axa.jpg" alt=""></div>
-            <div class="logo-box"><img src="img/logo-axa.png" alt="AXA Assicurazioni – Pegaso SRL" class="tall"><span>AXA Assicurazioni – Pegaso SRL</span></div>
-          </div>
+          <div class="brand"><img src="img/logo-axa.png" alt="AXA Assicurazioni – Pegaso SRL" class="tall"></div>
         </div>
       </div>
     </section>
 
-    <section class="section paper">
+    <section class="section">
       <div class="wrap content-grid">
         <div class="prose">
-          <h2>Perché sceglierci</h2>
-          <p>Siamo il tuo punto di riferimento per la <strong>consulenza assicurativa</strong> e il <strong>brokeraggio</strong>, con un approccio professionale e orientato al cliente.</p>
+          <span class="label">Perché sceglierci</span>
+          <h2>Sicurezza a 360°</h2>
+          <p>Siamo il tuo punto di riferimento per la consulenza assicurativa e il brokeraggio, con un approccio professionale e orientato al cliente. Proteggi ciò che conta di più, con la nostra esperienza al tuo fianco.</p>
           <div class="features">
-            <div class="feature reveal d1"><span class="num">01</span><h3>Coperture sanitarie complete</h3><p>Le nostre polizze sanitarie coprono ogni fase della tutela della salute: dalla prevenzione alla cura, fino all’assistenza. Soluzioni su misura per garantirti sicurezza in ogni momento della vita.</p></div>
-            <div class="feature reveal d2"><span class="num">02</span><h3>Tutela legale per ogni ambito</h3><p>Protezione completa per privati, aziende e holding. Le nostre polizze di tutela legale offrono un supporto affidabile per gestire eventuali controversie e garantire la massima tranquillità.</p></div>
-            <div class="feature reveal d1"><span class="num">03</span><h3>Polizze viaggi personalizzabili</h3><p>Viaggia senza pensieri grazie a polizze viaggio con copertura sanitaria <strong>illimitata</strong> e moduli flessibili, adattabili a ogni esigenza personale o professionale.</p></div>
-            <div class="feature reveal d2"><span class="num">04</span><h3>Sicurezza a 360°</h3><p>Proteggi ciò che conta di più, con la nostra esperienza al tuo fianco: un unico interlocutore per tutte le tue coperture.</p></div>
+            <div><h3>Coperture sanitarie complete</h3><p>Le nostre polizze sanitarie coprono ogni fase della tutela della salute: dalla prevenzione alla cura, fino all’assistenza. Soluzioni su misura per garantirti sicurezza in ogni momento della vita.</p></div>
+            <div><h3>Tutela legale per ogni ambito</h3><p>Protezione completa per privati, aziende e holding. Le polizze di tutela legale offrono un supporto affidabile per gestire eventuali controversie e garantire la massima tranquillità.</p></div>
+            <div><h3>Polizze viaggi personalizzabili</h3><p>Viaggia senza pensieri grazie a polizze viaggio con copertura sanitaria illimitata e moduli flessibili, adattabili a ogni esigenza personale o professionale.</p></div>
+            <div><h3>Un unico interlocutore</h3><p>Un referente dedicato per tutte le coperture, dalla scelta della polizza alla gestione dei sinistri.</p></div>
           </div>
         </div>
-        <aside class="aside-card reveal d1">
+        <aside class="sidebar">
+          <span class="label">Riferimenti</span>
           <h3>AXA Assicurazioni – Pegaso SRL</h3>
-          <p class="muted">Protezione assicurativa globale</p>
+          <p class="sector">Protezione assicurativa globale</p>
           <dl>
-            <div><dt>Referente aziendale</dt><dd>Nardo Stefano</dd></div>
-            <div><dt>Codice RUI</dt><dd>A000331871</dd></div>
-            <div><dt>Telefono</dt><dd><a href="tel:+390490982994">049 098 2994</a></dd></div>
+              <div><dt>Referente aziendale</dt><dd>Nardo Stefano</dd></div>
+              <div><dt>Codice RUI</dt><dd>A000331871</dd></div>
+              <div><dt>Telefono</dt><dd><a href="tel:+390490982994">049 098 2994</a></dd></div>
           </dl>
-          <a class="btn btn-dark" href="#contatti">Scrivici <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn" href="#richiesta">Richiedi una consulenza</a>
         </aside>
       </div>
     </section>
 
-    <section class="section dark" id="contatti">
+    <section class="section alt" id="richiesta">
       <div class="wrap contact-grid">
-        <div class="reveal">
-          <span class="eyebrow">Contatti</span>
+        <div class="intro">
+          <span class="label">Richiesta di consulenza</span>
           <h2>Parliamo delle tue esigenze</h2>
-          <p class="lead">Compila il modulo: ti ricontatteremo al più presto per fissare una consulenza, senza impegno.</p>
-          <div class="contact-points">
-          <a class="phone-line" href="tel:+390490982994"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><small>AXA Assicurazioni – Pegaso SRL</small><b>049 098 2994</b></span></a>
+          <p>Compila il modulo: sarai ricontattato al più presto per fissare un appuntamento, senza impegno.</p>
+          <div class="contact-phones">
+            <a href="tel:+390490982994"><small>AXA Assicurazioni – Pegaso SRL</small><b>049 098 2994</b></a>
           </div>
         </div>
-        <form class="form form-card reveal d1" name="contatti-axa" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <h3>Richiedi una consulenza</h3>
-          <p>Ti ricontatteremo per una consulenza sulle soluzioni AXA.</p>
-          <input type="hidden" name="form-name" value="contatti-axa">
+        <form class="form" name="richiesta-axa" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="richiesta-axa">
+          <input type="hidden" name="oggetto" value="AXA Assicurazioni – Pegaso SRL">
           <p class="hidden"><label>Non compilare: <input name="bot-field"></label></p>
           <div class="form-row">
-            <div class="field"><label for="contatti-axa-nome">Nome e cognome</label><input id="contatti-axa-nome" name="nome" autocomplete="name" required></div>
-            <div class="field"><label for="contatti-axa-tel">Telefono</label><input id="contatti-axa-tel" name="telefono" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="richiesta-axa-nome">Nome e cognome</label><input id="richiesta-axa-nome" name="nome" autocomplete="name" required></div>
+            <div class="field"><label for="richiesta-axa-tel">Telefono</label><input id="richiesta-axa-tel" name="telefono" type="tel" autocomplete="tel"></div>
           </div>
-          <div class="field"><label for="contatti-axa-email">Email</label><input id="contatti-axa-email" name="email" type="email" autocomplete="email" required></div>
-          <div class="field"><label for="contatti-axa-richiesta">Richiesta <small>(facoltativo)</small></label><textarea id="contatti-axa-richiesta" name="richiesta" placeholder="Raccontaci in breve di cosa hai bisogno"></textarea></div>
-          <div class="field"><label for="contatti-axa-antispam">Domanda di sicurezza: qual è la capitale della Francia?</label><input id="contatti-axa-antispam" name="antispam" required></div>
-          <label class="consent"><input type="checkbox" name="consenso" required> Acconsento al trattamento dei dati personali per essere ricontattato in merito alla mia richiesta.</label>
-          <button class="btn btn-dark" type="submit">Invia la richiesta <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <div class="field"><label for="richiesta-axa-email">Email</label><input id="richiesta-axa-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="richiesta-axa-richiesta">Richiesta <small>(facoltativo)</small></label><textarea id="richiesta-axa-richiesta" name="richiesta"></textarea></div>
+          <div class="field"><label for="richiesta-axa-antispam">Domanda di sicurezza: qual è la capitale della Francia?</label><input id="richiesta-axa-antispam" name="antispam" required></div>
+          <label class="consent"><input type="checkbox" name="consenso" required> Acconsento al trattamento dei dati personali per essere ricontattato in merito alla richiesta.</label>
+          <button class="btn" type="submit">Invia la richiesta <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></button>
           <p class="form-msg" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
 
-    <section class="section cream">
+    <section class="section">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">Le altre soluzioni</span>
-          <h2>Proteggi la tua azienda con noi: le soluzioni che fanno la differenza.</h2>
+          <div><span class="label">Società e partner</span><h2>Le altre realtà con cui lavoriamo</h2></div>
+          <p>Proteggi la tua azienda con noi: le soluzioni che fanno la differenza.</p>
         </div>
-        <div class="partner-strip">
-          <a class="partner-chip reveal" href="unipol.html"><span class="brand"><img src="img/logo-unipolsai.png" alt="UnipolSai Assicurazioni" loading="lazy"></span><small>Assicurazioni</small><span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-          <a class="partner-chip reveal" href="unibrokers.html"><span class="brand"><img src="img/logo-unibrokers.png" alt="Unibrokers S.r.l." loading="lazy"></span><small>Brokeraggio assicurativo</small><span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-          <a class="partner-chip reveal" href="car-adviser.html"><span class="brand"><img src="img/logo-car-adviser.png" alt="Car Adviser SRL" loading="lazy"></span><small>Noleggio a lungo termine</small><span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-          <a class="partner-chip reveal" href="librici.html"><span class="brand"><img src="img/logo-librici.png" alt="Antonino Librici &amp; Partners" loading="lazy"></span><small>Consulenza di risk management</small><span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <div class="others">
+          <a href="unipol.html"><span class="brand"><img src="img/logo-unipolsai-dark.png" alt="UnipolSai Assicurazioni" loading="lazy"></span><span>Assicurazioni</span><span class="more">Unipol <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></a>
+          <a href="unibrokers.html"><span class="brand"><img src="img/logo-unibrokers-dark.png" alt="Unibrokers S.r.l." loading="lazy"></span><span>Brokeraggio assicurativo</span><span class="more">Unibrokers <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></a>
+          <a href="car-adviser.html"><span class="brand"><img src="img/logo-car-adviser-dark.png" alt="Car Adviser SRL" loading="lazy"></span><span>Noleggio a lungo termine</span><span class="more">Car Adviser <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></a>
+          <a href="librici.html"><span class="brand"><img src="img/logo-librici-dark.png" alt="Antonino Librici &amp; Partners" loading="lazy"></span><span>Consulenza di risk management</span><span class="more">Antonino Librici <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span></a>
         </div>
       </div>
     </section>
@@ -136,44 +137,44 @@
     <div class="wrap">
       <div class="footer-grid">
         <div>
-          <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">PP</span><span class="logo-text">Padovani &amp; Partners<small>Consulenza assicurativa</small></span></a>
+          <a class="logo" href="index.html" aria-label="Padovani &amp; Partners, home"><span class="logo-mark" aria-hidden="true">PP</span><span class="logo-name">Padovani<br>&amp; Partners</span></a>
           <p>Soluzioni assicurative, brokeraggio, noleggio a lungo termine e risk management per aziende, professionisti e privati.</p>
         </div>
         <div>
-          <h4>Soluzioni</h4>
+          <h4>Padovani &amp; Partners</h4>
           <ul>
-            <li><a href="unipol.html">Unipol</a></li>
-            <li><a href="axa.html">AXA</a></li>
-            <li><a href="unibrokers.html">Unibrokers</a></li>
-            <li><a href="car-adviser.html">Car Adviser</a></li>
-            <li><a href="librici.html">Antonino Librici</a></li>
+            <li><a href="index.html#chi-siamo">Chi siamo</a></li>
+            <li><a href="index.html#societa">Società e partner</a></li>
+            <li><a href="index.html#metodo">Metodo</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
           </ul>
         </div>
         <div>
-          <h4>Studio</h4>
+          <h4>Società e partner</h4>
           <ul>
-            <li><a href="index.html#chi-siamo">Chi siamo</a></li>
-            <li><a href="index.html#soluzioni">Le nostre soluzioni</a></li>
-            <li><a href="index.html#metodo">Come lavoriamo</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="unipol.html">UnipolSai Assicurazioni</a></li>
+            <li><a href="axa.html">AXA Assicurazioni – Pegaso SRL</a></li>
+            <li><a href="unibrokers.html">Unibrokers S.r.l.</a></li>
+            <li><a href="car-adviser.html">Car Adviser SRL</a></li>
+            <li><a href="librici.html">Antonino Librici &amp; Partners</a></li>
           </ul>
         </div>
         <div>
           <h4>Contatti</h4>
           <ul>
-            <li><a href="tel:+390490982994">AXA Assicurazioni – Pegaso SRL<br>049 098 2994</a></li>
-            <li><a href="tel:+39049657501">Unibrokers S.r.l.<br>049 657 501</a></li>
+            <li>AXA Assicurazioni – Pegaso SRL<br><a href="tel:+390490982994">049 098 2994</a></li>
+            <li>Unibrokers S.r.l.<br><a href="tel:+39049657501">049 657 501</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; Padovani &amp; Partners · P.IVA 04661560286</span>
-        <a href="contatti.html">Richiedi una consulenza</a>
+        <span>&copy; Padovani &amp; Partners — P.IVA 04661560286</span>
+        <a href="contatti.html#richiesta">Richiedi una consulenza</a>
       </div>
     </div>
   </footer>
 
-  <button class="to-top" aria-label="Torna su"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button>
+  <button class="to-top" aria-label="Torna all’inizio della pagina"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5"/></svg></button>
   <script src="js/main.js"></script>
 </body>
 </html>

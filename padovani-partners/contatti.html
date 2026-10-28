@@ -5,97 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contatti | Padovani & Partners</title>
   <meta name="description" content="Contatta Padovani & Partners per una consulenza assicurativa, di noleggio a lungo termine o di risk management.">
-  <meta name="theme-color" content="#0f2f28">
+  <meta name="theme-color" content="#0f2a24">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="wrap">
-      <a class="logo" href="index.html" aria-label="Padovani &amp; Partners – Home">
-        <span class="logo-mark" aria-hidden="true">PP</span>
-        <span class="logo-text">Padovani &amp; Partners<small>Consulenza assicurativa</small></span>
-      </a>
+      <a class="logo" href="index.html" aria-label="Padovani &amp; Partners, home"><span class="logo-mark" aria-hidden="true">PP</span><span class="logo-name">Padovani<br>&amp; Partners</span></a>
       <nav class="main-nav" id="main-nav" aria-label="Menu principale">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#chi-siamo">Chi siamo</a></li>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html#chi-siamo">Chi siamo</a></li>
           <li class="dd">
-            <button class="dd-btn" aria-expanded="false" aria-haspopup="true">Soluzioni <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-            <ul class="dd-menu">
-              <li><a href="unipol.html">Unipol<span>Assicurazioni</span></a></li>
-              <li><a href="axa.html">AXA<span>Protezione assicurativa globale</span></a></li>
-              <li><a href="unibrokers.html">Unibrokers<span>Brokeraggio assicurativo</span></a></li>
-              <li><a href="car-adviser.html">Car Adviser<span>Noleggio a lungo termine</span></a></li>
-              <li><a href="librici.html">Antonino Librici<span>Consulenza di risk management</span></a></li>
-            </ul>
+            <button class="nav-link" aria-expanded="false" aria-controls="dd-societa">Società e partner <svg class="chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg></button>
+            <div class="dd-panel" id="dd-societa">
+              <div class="wrap dd-inner">
+                <div class="dd-intro">
+                  <span class="label">Società e partner</span>
+                  <p>Un unico interlocutore per assicurazione, brokeraggio, mobilità aziendale e gestione del rischio.</p>
+                  <a class="more" href="index.html#societa">Panoramica <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+                </div>
+                <ul class="dd-links">
+                  <li><a href="unipol.html"><b>UnipolSai Assicurazioni</b><span>Assicurazioni</span></a></li>
+                  <li><a href="axa.html"><b>AXA Assicurazioni – Pegaso SRL</b><span>Protezione assicurativa globale</span></a></li>
+                  <li><a href="unibrokers.html"><b>Unibrokers S.r.l.</b><span>Brokeraggio assicurativo</span></a></li>
+                  <li><a href="car-adviser.html"><b>Car Adviser SRL</b><span>Noleggio a lungo termine</span></a></li>
+                  <li><a href="librici.html"><b>Antonino Librici &amp; Partners</b><span>Consulenza di risk management</span></a></li>
+                </ul>
+              </div>
+            </div>
           </li>
-          <li><a href="index.html#metodo">Come lavoriamo</a></li>
-          <li><a class="btn btn-gold btn-sm" href="contatti.html" aria-current="page">Richiedi una consulenza</a></li>
+          <li><a class="nav-link" href="index.html#metodo">Metodo</a></li>
+          <li><a class="nav-link" href="contatti.html" aria-current="page">Contatti</a></li>
+          <li class="nav-cta-li"><a class="btn nav-cta" href="contatti.html#richiesta">Richiedi una consulenza</a></li>
         </ul>
       </nav>
-      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span class="bars" aria-hidden="true"></span></button>
     </div>
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-head on-dark">
       <div class="wrap">
         <nav class="crumbs" aria-label="Percorso"><a href="index.html">Home</a><span>/</span>Contatti</nav>
-        <div class="reveal">
-          <span class="eyebrow">Contatti</span>
-          <h1>Hai bisogno di una consulenza?</h1>
-          <p class="lead">Contattaci o vieni a trovarci: troveremo la soluzione adatta a te.</p>
-        </div>
+        <span class="label">Contatti</span>
+        <h1>Hai bisogno di una consulenza?</h1>
+        <p class="lead">Contattaci o vieni a trovarci. Troveremo la soluzione adatta a te.</p>
       </div>
     </section>
 
-    <section class="section dark" id="contatti">
+    <section class="section " id="richiesta">
       <div class="wrap contact-grid">
-        <div class="reveal">
-          <span class="eyebrow">Contatti</span>
-          <h2>Scrivici o chiamaci</h2>
-          <p class="lead">Raccontaci di cosa hai bisogno: ti metteremo in contatto con il professionista giusto per la tua richiesta.</p>
-          <div class="contact-points">
-          <a class="phone-line" href="tel:+390490982994"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><small>AXA Assicurazioni – Pegaso SRL</small><b>049 098 2994</b></span></a>
-          <a class="phone-line" href="tel:+39049657501"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><small>Unibrokers S.r.l.</small><b>049 657 501</b></span></a>
+        <div class="intro">
+          <span class="label">Richiesta di consulenza</span>
+          <h2>Parliamo delle tue esigenze</h2>
+          <p>Compila il modulo: sarai ricontattato al più presto per fissare un appuntamento, senza impegno.</p>
+          <div class="contact-phones">
+            <a href="tel:+390490982994"><small>AXA Assicurazioni – Pegaso SRL</small><b>049 098 2994</b></a>
+            <a href="tel:+39049657501"><small>Unibrokers S.r.l.</small><b>049 657 501</b></a>
           </div>
         </div>
-        <form class="form form-card reveal d1" name="contatti" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <h3>Richiedi una consulenza</h3>
-          <p>Compila il modulo, ti ricontatteremo al più presto.</p>
-          <input type="hidden" name="form-name" value="contatti">
+        <form class="form" name="richiesta-generale" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="richiesta-generale">
+          <input type="hidden" name="oggetto" value="Richiesta generale">
           <p class="hidden"><label>Non compilare: <input name="bot-field"></label></p>
           <div class="form-row">
-            <div class="field"><label for="contatti-nome">Nome e cognome</label><input id="contatti-nome" name="nome" autocomplete="name" required></div>
-            <div class="field"><label for="contatti-tel">Telefono</label><input id="contatti-tel" name="telefono" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="richiesta-generale-nome">Nome e cognome</label><input id="richiesta-generale-nome" name="nome" autocomplete="name" required></div>
+            <div class="field"><label for="richiesta-generale-tel">Telefono</label><input id="richiesta-generale-tel" name="telefono" type="tel" autocomplete="tel"></div>
           </div>
-          <div class="field"><label for="contatti-email">Email</label><input id="contatti-email" name="email" type="email" autocomplete="email" required></div>
-          <div class="field"><label for="contatti-richiesta">Richiesta <small>(facoltativo)</small></label><textarea id="contatti-richiesta" name="richiesta" placeholder="Raccontaci in breve di cosa hai bisogno"></textarea></div>
-          <div class="field"><label for="contatti-antispam">Domanda di sicurezza: qual è la capitale della Francia?</label><input id="contatti-antispam" name="antispam" required></div>
-          <label class="consent"><input type="checkbox" name="consenso" required> Acconsento al trattamento dei dati personali per essere ricontattato in merito alla mia richiesta.</label>
-          <button class="btn btn-dark" type="submit">Invia la richiesta <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <div class="field"><label for="richiesta-generale-email">Email</label><input id="richiesta-generale-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="richiesta-generale-richiesta">Richiesta <small>(facoltativo)</small></label><textarea id="richiesta-generale-richiesta" name="richiesta"></textarea></div>
+          <div class="field"><label for="richiesta-generale-antispam">Domanda di sicurezza: qual è la capitale della Francia?</label><input id="richiesta-generale-antispam" name="antispam" required></div>
+          <label class="consent"><input type="checkbox" name="consenso" required> Acconsento al trattamento dei dati personali per essere ricontattato in merito alla richiesta.</label>
+          <button class="btn" type="submit">Invia la richiesta <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></button>
           <p class="form-msg" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
 
-    <section class="section cream">
+    <section class="section alt">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">Le altre soluzioni</span>
-          <h2>Proteggi la tua azienda con noi: le soluzioni che fanno la differenza.</h2>
+          <div><span class="label">Società e partner</span><h2>Le realtà con cui lavoriamo</h2></div>
+          <p>Proteggi la tua azienda con noi: le soluzioni che fanno la differenza.</p>
         </div>
-        <div class="partner-strip">
-          <a class="partner-chip reveal" href="unipol.html"><span class="brand"><img src="img/logo-unipolsai.png" alt="UnipolSai Assicurazioni" loading="lazy"></span><small>Assicurazioni</small><span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-          <a class="partner-chip reveal" href="axa.html"><span class="brand"><img src="img/logo-axa.png" alt="AXA Assicurazioni – Pegaso SRL" class="tall" loading="lazy"></span><small>Protezione assicurativa globale</small><span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-          <a class="partner-chip reveal" href="unibrokers.html"><span class="brand"><img src="img/logo-unibrokers.png" alt="Unibrokers S.r.l." loading="lazy"></span><small>Brokeraggio assicurativo</small><span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-          <a class="partner-chip reveal" href="car-adviser.html"><span class="brand"><img src="img/logo-car-adviser.png" alt="Car Adviser SRL" loading="lazy"></span><small>Noleggio a lungo termine</small><span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-          <a class="partner-chip reveal" href="librici.html"><span class="brand"><img src="img/logo-librici.png" alt="Antonino Librici &amp; Partners" loading="lazy"></span><small>Consulenza di risk management</small><span class="link-arrow">Scopri di più <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-        </div>
+        <ul class="companies">
+          <li><a class="company" href="unipol.html">
+            <span class="brand"><img src="img/logo-unipolsai-dark.png" alt="UnipolSai Assicurazioni" loading="lazy"></span>
+            <div class="text"><h3>UnipolSai Assicurazioni</h3><span class="sector">Assicurazioni</span></div>
+            <p>Polizze per imprese, professionisti e famiglie con uno dei principali gruppi assicurativi italiani.</p>
+            <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
+          </a></li>
+          <li><a class="company" href="axa.html">
+            <span class="brand"><img src="img/logo-axa-dark.png" alt="AXA Assicurazioni – Pegaso SRL" class="tall" loading="lazy"></span>
+            <div class="text"><h3>AXA Assicurazioni – Pegaso SRL</h3><span class="sector">Protezione assicurativa globale</span></div>
+            <p>Salute, tutela legale e viaggi: soluzioni complete e personalizzate, dal privato all’azienda.</p>
+            <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
+          </a></li>
+          <li><a class="company" href="unibrokers.html">
+            <span class="brand"><img src="img/logo-unibrokers-dark.png" alt="Unibrokers S.r.l." loading="lazy"></span>
+            <div class="text"><h3>Unibrokers S.r.l.</h3><span class="sector">Brokeraggio assicurativo</span></div>
+            <p>Broker indipendente dal 1997, iscritto al RUI: le migliori coperture sul mercato, senza costi aggiuntivi per il cliente.</p>
+            <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
+          </a></li>
+          <li><a class="company" href="car-adviser.html">
+            <span class="brand"><img src="img/logo-car-adviser-dark.png" alt="Car Adviser SRL" loading="lazy"></span>
+            <div class="text"><h3>Car Adviser SRL</h3><span class="sector">Noleggio a lungo termine</span></div>
+            <p>Servizi per la mobilità: noleggio a lungo termine e gestione del parco veicoli aziendale.</p>
+            <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
+          </a></li>
+          <li><a class="company" href="librici.html">
+            <span class="brand"><img src="img/logo-librici-dark.png" alt="Antonino Librici &amp; Partners" loading="lazy"></span>
+            <div class="text"><h3>Antonino Librici &amp; Partners</h3><span class="sector">Consulenza di risk management</span></div>
+            <p>Analisi, valutazione e gestione dei rischi d’impresa, per una protezione efficace nel tempo.</p>
+            <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
+          </a></li>
+        </ul>
       </div>
     </section>
   </main>
@@ -104,44 +132,44 @@
     <div class="wrap">
       <div class="footer-grid">
         <div>
-          <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">PP</span><span class="logo-text">Padovani &amp; Partners<small>Consulenza assicurativa</small></span></a>
+          <a class="logo" href="index.html" aria-label="Padovani &amp; Partners, home"><span class="logo-mark" aria-hidden="true">PP</span><span class="logo-name">Padovani<br>&amp; Partners</span></a>
           <p>Soluzioni assicurative, brokeraggio, noleggio a lungo termine e risk management per aziende, professionisti e privati.</p>
         </div>
         <div>
-          <h4>Soluzioni</h4>
+          <h4>Padovani &amp; Partners</h4>
           <ul>
-            <li><a href="unipol.html">Unipol</a></li>
-            <li><a href="axa.html">AXA</a></li>
-            <li><a href="unibrokers.html">Unibrokers</a></li>
-            <li><a href="car-adviser.html">Car Adviser</a></li>
-            <li><a href="librici.html">Antonino Librici</a></li>
+            <li><a href="index.html#chi-siamo">Chi siamo</a></li>
+            <li><a href="index.html#societa">Società e partner</a></li>
+            <li><a href="index.html#metodo">Metodo</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
           </ul>
         </div>
         <div>
-          <h4>Studio</h4>
+          <h4>Società e partner</h4>
           <ul>
-            <li><a href="index.html#chi-siamo">Chi siamo</a></li>
-            <li><a href="index.html#soluzioni">Le nostre soluzioni</a></li>
-            <li><a href="index.html#metodo">Come lavoriamo</a></li>
-            <li><a href="contatti.html">Contatti</a></li>
+            <li><a href="unipol.html">UnipolSai Assicurazioni</a></li>
+            <li><a href="axa.html">AXA Assicurazioni – Pegaso SRL</a></li>
+            <li><a href="unibrokers.html">Unibrokers S.r.l.</a></li>
+            <li><a href="car-adviser.html">Car Adviser SRL</a></li>
+            <li><a href="librici.html">Antonino Librici &amp; Partners</a></li>
           </ul>
         </div>
         <div>
           <h4>Contatti</h4>
           <ul>
-            <li><a href="tel:+390490982994">AXA Assicurazioni – Pegaso SRL<br>049 098 2994</a></li>
-            <li><a href="tel:+39049657501">Unibrokers S.r.l.<br>049 657 501</a></li>
+            <li>AXA Assicurazioni – Pegaso SRL<br><a href="tel:+390490982994">049 098 2994</a></li>
+            <li>Unibrokers S.r.l.<br><a href="tel:+39049657501">049 657 501</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; Padovani &amp; Partners · P.IVA 04661560286</span>
-        <a href="contatti.html">Richiedi una consulenza</a>
+        <span>&copy; Padovani &amp; Partners — P.IVA 04661560286</span>
+        <a href="contatti.html#richiesta">Richiedi una consulenza</a>
       </div>
     </div>
   </footer>
 
-  <button class="to-top" aria-label="Torna su"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button>
+  <button class="to-top" aria-label="Torna all’inizio della pagina"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M8 14V2M3 7l5-5 5 5"/></svg></button>
   <script src="js/main.js"></script>
 </body>
 </html>
