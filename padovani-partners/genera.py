@@ -140,7 +140,8 @@ def page(filename, title, description, body):
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -259,15 +260,16 @@ def company_page(c, title, description, h1, lead, content, aside, subject):
     rows = "\n".join(f"              <div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in aside)
     phones = [x for x in PHONES if x[0] == c["name"]] or PHONES
     body = f"""    <section class="page-head on-dark">
+      <div class="page-globe" aria-hidden="true"><canvas data-globe="small"></canvas></div>
       <div class="wrap">
-        <nav class="crumbs" aria-label="Percorso"><a href="index.html">Home</a><span>/</span><a href="index.html#societa">Società e partner</a><span>/</span>{esc(c["short"])}</nav>
+        <nav class="crumbs intro" aria-label="Percorso"><a href="index.html">Home</a><span>/</span><a href="index.html#societa">Società e partner</a><span>/</span>{esc(c["short"])}</nav>
         <div class="page-head-grid">
           <div>
-            <span class="label">{esc(c["sector"])}</span>
-            <h1>{h1}</h1>
-            <p class="lead">{lead}</p>
+            <span class="label intro" style="--d:.1s">{esc(c["sector"])}</span>
+            <h1 class="split">{h1}</h1>
+            <p class="lead intro" style="--d:.7s">{lead}</p>
           </div>
-          <div class="brand">{logo(c)}</div>
+          <div class="brand intro" style="--d:.8s">{logo(c)}</div>
         </div>
       </div>
     </section>
@@ -296,9 +298,22 @@ def company_page(c, title, description, h1, lead, content, aside, subject):
 
 
 # ================================================================ Home
-index_links = "\n".join(
-    f'            <li><a href="{c["file"]}"><span><b>{esc(c["name"])}</b><span>{esc(c["sector"])}</span></span>{ARROW}</a></li>'
-    for c in COMPANIES
+strip = "\n".join(
+    f'          <a href="{c["file"]}" data-reveal style="--d:{0.9 + i * 0.08:.2f}s"><span class="sector">{esc(c["sector"])}</span><b>{esc(c["name"])}</b>{ARROW}</a>'
+    for i, c in enumerate(COMPANIES)
+)
+cards = "\n".join(
+    f"""          <a class="card3d" href="{c["file"]}" data-reveal style="--d:{i * 0.08:.2f}s">
+            <span class="sheen" aria-hidden="true"></span>
+            <span class="brand">{logo(c, lazy=True)}</span>
+            <span class="body">
+              <span class="sector">{esc(c["sector"])}</span>
+              <h3>{esc(c["name"])}</h3>
+              <p>{c["blurb"]}</p>
+            </span>
+            <span class="more">Scopri {ARROW}</span>
+          </a>"""
+    for i, c in enumerate(COMPANIES)
 )
 pillars = [
     ("Esperienza e competenza", "Un team di professionisti qualificati, con anni di esperienza, pronti a guidarti nel complesso mondo delle assicurazioni aziendali con una consulenza specializzata e affidabile."),
@@ -306,46 +321,57 @@ pillars = [
     ("Coperture personalizzate", "Specializzati nel settore aziendale, offriamo polizze su misura per rischi finanziari, responsabilità civile e tutela del patrimonio."),
     ("Relazioni basate sulla fiducia", "Un servizio trasparente e professionale: il tuo partner di riferimento per ogni esigenza di brokeraggio e consulenza assicurativa."),
 ]
-pillars_html = "\n".join(f'          <div class="pillar"><h3>{t}</h3><p>{d}</p></div>' for t, d in pillars)
+pillars_html = "\n".join(
+    f'          <div class="pillar" data-reveal style="--d:{i * 0.08:.2f}s"><h3>{t}</h3><p>{d}</p></div>' for i, (t, d) in enumerate(pillars)
+)
+facts = [
+    ("5", None, "Società e partner", "per assicurazione, brokeraggio, mobilità e gestione del rischio"),
+    ("1997", "1975", "Anno di fondazione", "di Unibrokers S.r.l., broker iscritto al Registro Unico degli Intermediari"),
+    ("20", None, "Anni di esperienza", "nel brokeraggio assicurativo, a tutela degli interessi del cliente", ),
+]
+def fact(i, n, fr, t, d):
+    start = f' data-from="{fr}"' if fr else ""
+    plus = "<sup>+</sup>" if n == "20" else ""
+    return f'          <div class="fact" data-reveal style="--d:{i * 0.1:.1f}s"><span class="num"><span data-count="{n}"{start}>{n}</span>{plus}</span><h3>{t}</h3><p>{d}</p></div>'
+
+
+facts_html = "\n".join(fact(i, *f) for i, f in enumerate(facts))
 steps = [
     ("Analisi", "Studiamo l’attività e le coperture già in essere per individuare rischi ed esigenze reali."),
     ("Proposta", "Selezioniamo le soluzioni più adatte e convenienti tra compagnie italiane e internazionali."),
     ("Gestione", "Seguiamo scadenze, premi e aggiornamenti normativi, con un unico referente per tutti i contratti."),
     ("Assistenza", "Affianchiamo il cliente nella gestione dei sinistri, con un’assistenza completa."),
 ]
-steps_html = "\n".join(f"          <li><h3>{t}</h3><p>{d}</p></li>" for t, d in steps)
+steps_html = "\n".join(
+    f'          <li data-reveal style="--d:{i * 0.08:.2f}s"><span class="dot" aria-hidden="true"></span><span class="phase">Fase {i + 1}</span><h3>{t}</h3><p>{d}</p></li>'
+    for i, (t, d) in enumerate(steps)
+)
 
 home = f"""    <section class="hero on-dark">
-      <div class="wrap hero-grid">
-        <div>
-          <span class="label">Padovani &amp; Partners</span>
-          <h1>Proteggi il tuo business con soluzioni personalizzate e servizi su misura</h1>
-          <p class="lead">Il punto di riferimento per chi cerca soluzioni assicurative personalizzate, servizi dedicati al noleggio a lungo termine e consulenza di risk management.</p>
-          <div class="hero-actions">
-            <a class="btn btn-light" href="contatti.html#richiesta">Richiedi una consulenza</a>
-            <a class="more" href="#societa">Società e partner {ARROW}</a>
-          </div>
+      <div class="hero-globe" aria-hidden="true"><canvas data-globe="hub"></canvas></div>
+      <div class="wrap hero-content">
+        <span class="label intro" style="--d:.1s">Padovani &amp; Partners</span>
+        <h1 class="split">Proteggi il tuo business con soluzioni personalizzate e servizi su misura</h1>
+        <p class="lead intro" style="--d:.75s">Il punto di riferimento per chi cerca soluzioni assicurative personalizzate, servizi dedicati al noleggio a lungo termine e consulenza di risk management.</p>
+        <div class="hero-actions intro" style="--d:.85s">
+          <a class="btn btn-light" href="contatti.html#richiesta">Richiedi una consulenza</a>
+          <a class="more" href="#societa">Società e partner {ARROW}</a>
         </div>
-        <div>
-          <span class="label">Società e partner</span>
-          <ul class="index-list">
-{index_links}
-          </ul>
-        </div>
+      </div>
+      <div class="wrap">
+        <nav class="hero-strip" aria-label="Società e partner">
+{strip}
+        </nav>
       </div>
     </section>
 
     <section class="section" id="chi-siamo">
       <div class="wrap">
+        <span class="label" data-reveal>Chi siamo</span>
+        <p class="statement-fill">Il nostro obiettivo è offrirti la tranquillità di sapere che ogni aspetto della tua attività è protetto, lasciandoti libero di concentrarti sulla crescita del tuo business.</p>
         <div class="about">
-          <div>
-            <span class="label">Chi siamo</span>
-            <h2>Un unico punto di riferimento per la protezione dell’impresa</h2>
-          </div>
-          <div>
-            <p class="lead">Il nostro obiettivo è offrirti la tranquillità di sapere che ogni aspetto della tua attività è protetto, lasciandoti libero di concentrarti sulla crescita del tuo business.</p>
-            <p>Con una gamma completa di polizze per aziende, professionisti e privati, una divisione specializzata nel noleggio a lungo termine e la consulenza di risk management, siamo al tuo fianco per costruire un futuro sicuro e privo di preoccupazioni: per proteggere i tuoi asset e gestire il tuo parco veicoli con soluzioni innovative e su misura.</p>
-          </div>
+          <h2 data-reveal>Un unico punto di riferimento per la protezione dell’impresa</h2>
+          <p data-reveal style="--d:.1s">Con una gamma completa di polizze per aziende, professionisti e privati, una divisione specializzata nel noleggio a lungo termine e la consulenza di risk management, siamo al tuo fianco per costruire un futuro sicuro e privo di preoccupazioni: per proteggere i tuoi asset e gestire il tuo parco veicoli con soluzioni innovative e su misura.</p>
         </div>
         <div class="pillars">
 {pillars_html}
@@ -353,25 +379,38 @@ home = f"""    <section class="hero on-dark">
       </div>
     </section>
 
-    <section class="section alt" id="societa">
+    <section class="section alt facts-section">
+      <div class="wrap facts">
+{facts_html}
+      </div>
+    </section>
+
+    <section class="section companies-3d on-dark" id="societa">
       <div class="wrap">
         <div class="section-head">
-          <div><span class="label">Società e partner</span><h2>Proteggi la tua azienda con noi: le soluzioni che fanno la differenza</h2></div>
-          <p>Un unico interlocutore per assicurazione, brokeraggio, mobilità aziendale e gestione del rischio, insieme a partner selezionati.</p>
+          <div><span class="label" data-reveal>Società e partner</span><h2 data-reveal style="--d:.08s">Proteggi la tua azienda con noi: le soluzioni che fanno la differenza</h2></div>
+          <p data-reveal style="--d:.16s">Un unico interlocutore per assicurazione, brokeraggio, mobilità aziendale e gestione del rischio, insieme a partner selezionati.</p>
         </div>
-{companies_list()}
+      </div>
+      <div class="wrap cards3d-wrap">
+        <div class="cards3d">
+{cards}
+        </div>
       </div>
     </section>
 
     <section class="section" id="metodo">
       <div class="wrap">
         <div class="section-head">
-          <div><span class="label">Metodo</span><h2>Dall’analisi dei rischi all’assistenza sui sinistri</h2></div>
-          <p>Un percorso chiaro, seguito da un unico referente in ogni fase.</p>
+          <div><span class="label" data-reveal>Metodo</span><h2 data-reveal style="--d:.08s">Dall’analisi dei rischi all’assistenza sui sinistri</h2></div>
+          <p data-reveal style="--d:.16s">Un percorso chiaro, seguito da un unico referente in ogni fase.</p>
         </div>
-        <ol class="steps">
+        <div class="steps-wrap">
+          <div class="track" aria-hidden="true"><span></span></div>
+          <ol class="steps">
 {steps_html}
-        </ol>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -496,11 +535,12 @@ company_page(
 
 # ================================================================ Contatti
 contatti = f"""    <section class="page-head on-dark">
+      <div class="page-globe" aria-hidden="true"><canvas data-globe="small"></canvas></div>
       <div class="wrap">
-        <nav class="crumbs" aria-label="Percorso"><a href="index.html">Home</a><span>/</span>Contatti</nav>
-        <span class="label">Contatti</span>
-        <h1>Hai bisogno di una consulenza?</h1>
-        <p class="lead">Contattaci o vieni a trovarci. Troveremo la soluzione adatta a te.</p>
+        <nav class="crumbs intro" aria-label="Percorso"><a href="index.html">Home</a><span>/</span>Contatti</nav>
+        <span class="label intro" style="--d:.1s">Contatti</span>
+        <h1 class="split">Hai bisogno di una consulenza?</h1>
+        <p class="lead intro" style="--d:.6s">Contattaci o vieni a trovarci. Troveremo la soluzione adatta a te.</p>
       </div>
     </section>
 

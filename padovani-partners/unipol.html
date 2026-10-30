@@ -9,7 +9,8 @@
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -49,15 +50,16 @@
 
   <main>
     <section class="page-head on-dark">
+      <div class="page-globe" aria-hidden="true"><canvas data-globe="small"></canvas></div>
       <div class="wrap">
-        <nav class="crumbs" aria-label="Percorso"><a href="index.html">Home</a><span>/</span><a href="index.html#societa">Società e partner</a><span>/</span>Unipol</nav>
+        <nav class="crumbs intro" aria-label="Percorso"><a href="index.html">Home</a><span>/</span><a href="index.html#societa">Società e partner</a><span>/</span>Unipol</nav>
         <div class="page-head-grid">
           <div>
-            <span class="label">Assicurazioni</span>
-            <h1>Coperture assicurative per imprese, professionisti e famiglie</h1>
-            <p class="lead">Attraverso UnipolSai Assicurazioni offriamo una gamma completa di polizze per proteggere l’attività, il patrimonio e le persone.</p>
+            <span class="label intro" style="--d:.1s">Assicurazioni</span>
+            <h1 class="split">Coperture assicurative per imprese, professionisti e famiglie</h1>
+            <p class="lead intro" style="--d:.7s">Attraverso UnipolSai Assicurazioni offriamo una gamma completa di polizze per proteggere l’attività, il patrimonio e le persone.</p>
           </div>
-          <div class="brand"><img src="img/logo-unipolsai.png" alt="UnipolSai Assicurazioni"></div>
+          <div class="brand intro" style="--d:.8s"><img src="img/logo-unipolsai.png" alt="UnipolSai Assicurazioni"></div>
         </div>
       </div>
     </section>

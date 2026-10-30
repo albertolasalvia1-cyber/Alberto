@@ -9,7 +9,8 @@
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -49,15 +50,16 @@
 
   <main>
     <section class="page-head on-dark">
+      <div class="page-globe" aria-hidden="true"><canvas data-globe="small"></canvas></div>
       <div class="wrap">
-        <nav class="crumbs" aria-label="Percorso"><a href="index.html">Home</a><span>/</span><a href="index.html#societa">Società e partner</a><span>/</span>AXA</nav>
+        <nav class="crumbs intro" aria-label="Percorso"><a href="index.html">Home</a><span>/</span><a href="index.html#societa">Società e partner</a><span>/</span>AXA</nav>
         <div class="page-head-grid">
           <div>
-            <span class="label">Protezione assicurativa globale</span>
-            <h1>Protezione assicurativa globale: soluzioni su misura per privati e aziende</h1>
-            <p class="lead">Soluzioni assicurative complete e personalizzate, progettate per garantire una protezione globale e rispondere alle specifiche esigenze di ogni cliente, dal privato all’azienda.</p>
+            <span class="label intro" style="--d:.1s">Protezione assicurativa globale</span>
+            <h1 class="split">Protezione assicurativa globale: soluzioni su misura per privati e aziende</h1>
+            <p class="lead intro" style="--d:.7s">Soluzioni assicurative complete e personalizzate, progettate per garantire una protezione globale e rispondere alle specifiche esigenze di ogni cliente, dal privato all’azienda.</p>
           </div>
-          <div class="brand"><img src="img/logo-axa.png" alt="AXA Assicurazioni – Pegaso SRL" class="tall"></div>
+          <div class="brand intro" style="--d:.8s"><img src="img/logo-axa.png" alt="AXA Assicurazioni – Pegaso SRL" class="tall"></div>
         </div>
       </div>
     </section>

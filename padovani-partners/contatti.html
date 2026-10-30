@@ -9,7 +9,8 @@
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -49,11 +50,12 @@
 
   <main>
     <section class="page-head on-dark">
+      <div class="page-globe" aria-hidden="true"><canvas data-globe="small"></canvas></div>
       <div class="wrap">
-        <nav class="crumbs" aria-label="Percorso"><a href="index.html">Home</a><span>/</span>Contatti</nav>
-        <span class="label">Contatti</span>
-        <h1>Hai bisogno di una consulenza?</h1>
-        <p class="lead">Contattaci o vieni a trovarci. Troveremo la soluzione adatta a te.</p>
+        <nav class="crumbs intro" aria-label="Percorso"><a href="index.html">Home</a><span>/</span>Contatti</nav>
+        <span class="label intro" style="--d:.1s">Contatti</span>
+        <h1 class="split">Hai bisogno di una consulenza?</h1>
+        <p class="lead intro" style="--d:.6s">Contattaci o vieni a trovarci. Troveremo la soluzione adatta a te.</p>
       </div>
     </section>
 

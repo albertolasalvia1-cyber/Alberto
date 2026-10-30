@@ -9,7 +9,8 @@
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -49,103 +50,130 @@
 
   <main>
     <section class="hero on-dark">
-      <div class="wrap hero-grid">
-        <div>
-          <span class="label">Padovani &amp; Partners</span>
-          <h1>Proteggi il tuo business con soluzioni personalizzate e servizi su misura</h1>
-          <p class="lead">Il punto di riferimento per chi cerca soluzioni assicurative personalizzate, servizi dedicati al noleggio a lungo termine e consulenza di risk management.</p>
-          <div class="hero-actions">
-            <a class="btn btn-light" href="contatti.html#richiesta">Richiedi una consulenza</a>
-            <a class="more" href="#societa">Società e partner <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
-          </div>
+      <div class="hero-globe" aria-hidden="true"><canvas data-globe="hub"></canvas></div>
+      <div class="wrap hero-content">
+        <span class="label intro" style="--d:.1s">Padovani &amp; Partners</span>
+        <h1 class="split">Proteggi il tuo business con soluzioni personalizzate e servizi su misura</h1>
+        <p class="lead intro" style="--d:.75s">Il punto di riferimento per chi cerca soluzioni assicurative personalizzate, servizi dedicati al noleggio a lungo termine e consulenza di risk management.</p>
+        <div class="hero-actions intro" style="--d:.85s">
+          <a class="btn btn-light" href="contatti.html#richiesta">Richiedi una consulenza</a>
+          <a class="more" href="#societa">Società e partner <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
         </div>
-        <div>
-          <span class="label">Società e partner</span>
-          <ul class="index-list">
-            <li><a href="unipol.html"><span><b>UnipolSai Assicurazioni</b><span>Assicurazioni</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a></li>
-            <li><a href="axa.html"><span><b>AXA Assicurazioni – Pegaso SRL</b><span>Protezione assicurativa globale</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a></li>
-            <li><a href="unibrokers.html"><span><b>Unibrokers S.r.l.</b><span>Brokeraggio assicurativo</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a></li>
-            <li><a href="car-adviser.html"><span><b>Car Adviser SRL</b><span>Noleggio a lungo termine</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a></li>
-            <li><a href="librici.html"><span><b>Antonino Librici &amp; Partners</b><span>Consulenza di risk management</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a></li>
-          </ul>
-        </div>
+      </div>
+      <div class="wrap">
+        <nav class="hero-strip" aria-label="Società e partner">
+          <a href="unipol.html" data-reveal style="--d:0.90s"><span class="sector">Assicurazioni</span><b>UnipolSai Assicurazioni</b><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+          <a href="axa.html" data-reveal style="--d:0.98s"><span class="sector">Protezione assicurativa globale</span><b>AXA Assicurazioni – Pegaso SRL</b><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+          <a href="unibrokers.html" data-reveal style="--d:1.06s"><span class="sector">Brokeraggio assicurativo</span><b>Unibrokers S.r.l.</b><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+          <a href="car-adviser.html" data-reveal style="--d:1.14s"><span class="sector">Noleggio a lungo termine</span><b>Car Adviser SRL</b><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+          <a href="librici.html" data-reveal style="--d:1.22s"><span class="sector">Consulenza di risk management</span><b>Antonino Librici &amp; Partners</b><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+        </nav>
       </div>
     </section>
 
     <section class="section" id="chi-siamo">
       <div class="wrap">
+        <span class="label" data-reveal>Chi siamo</span>
+        <p class="statement-fill">Il nostro obiettivo è offrirti la tranquillità di sapere che ogni aspetto della tua attività è protetto, lasciandoti libero di concentrarti sulla crescita del tuo business.</p>
         <div class="about">
-          <div>
-            <span class="label">Chi siamo</span>
-            <h2>Un unico punto di riferimento per la protezione dell’impresa</h2>
-          </div>
-          <div>
-            <p class="lead">Il nostro obiettivo è offrirti la tranquillità di sapere che ogni aspetto della tua attività è protetto, lasciandoti libero di concentrarti sulla crescita del tuo business.</p>
-            <p>Con una gamma completa di polizze per aziende, professionisti e privati, una divisione specializzata nel noleggio a lungo termine e la consulenza di risk management, siamo al tuo fianco per costruire un futuro sicuro e privo di preoccupazioni: per proteggere i tuoi asset e gestire il tuo parco veicoli con soluzioni innovative e su misura.</p>
-          </div>
+          <h2 data-reveal>Un unico punto di riferimento per la protezione dell’impresa</h2>
+          <p data-reveal style="--d:.1s">Con una gamma completa di polizze per aziende, professionisti e privati, una divisione specializzata nel noleggio a lungo termine e la consulenza di risk management, siamo al tuo fianco per costruire un futuro sicuro e privo di preoccupazioni: per proteggere i tuoi asset e gestire il tuo parco veicoli con soluzioni innovative e su misura.</p>
         </div>
         <div class="pillars">
-          <div class="pillar"><h3>Esperienza e competenza</h3><p>Un team di professionisti qualificati, con anni di esperienza, pronti a guidarti nel complesso mondo delle assicurazioni aziendali con una consulenza specializzata e affidabile.</p></div>
-          <div class="pillar"><h3>Consulenza per il tuo successo</h3><p>Con le nostre soluzioni ti aiutiamo a concentrarti sulla crescita del tuo business, lasciando a noi la gestione dei rischi.</p></div>
-          <div class="pillar"><h3>Coperture personalizzate</h3><p>Specializzati nel settore aziendale, offriamo polizze su misura per rischi finanziari, responsabilità civile e tutela del patrimonio.</p></div>
-          <div class="pillar"><h3>Relazioni basate sulla fiducia</h3><p>Un servizio trasparente e professionale: il tuo partner di riferimento per ogni esigenza di brokeraggio e consulenza assicurativa.</p></div>
+          <div class="pillar" data-reveal style="--d:0.00s"><h3>Esperienza e competenza</h3><p>Un team di professionisti qualificati, con anni di esperienza, pronti a guidarti nel complesso mondo delle assicurazioni aziendali con una consulenza specializzata e affidabile.</p></div>
+          <div class="pillar" data-reveal style="--d:0.08s"><h3>Consulenza per il tuo successo</h3><p>Con le nostre soluzioni ti aiutiamo a concentrarti sulla crescita del tuo business, lasciando a noi la gestione dei rischi.</p></div>
+          <div class="pillar" data-reveal style="--d:0.16s"><h3>Coperture personalizzate</h3><p>Specializzati nel settore aziendale, offriamo polizze su misura per rischi finanziari, responsabilità civile e tutela del patrimonio.</p></div>
+          <div class="pillar" data-reveal style="--d:0.24s"><h3>Relazioni basate sulla fiducia</h3><p>Un servizio trasparente e professionale: il tuo partner di riferimento per ogni esigenza di brokeraggio e consulenza assicurativa.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="section alt" id="societa">
+    <section class="section alt facts-section">
+      <div class="wrap facts">
+          <div class="fact" data-reveal style="--d:0.0s"><span class="num"><span data-count="5">5</span></span><h3>Società e partner</h3><p>per assicurazione, brokeraggio, mobilità e gestione del rischio</p></div>
+          <div class="fact" data-reveal style="--d:0.1s"><span class="num"><span data-count="1997" data-from="1975">1997</span></span><h3>Anno di fondazione</h3><p>di Unibrokers S.r.l., broker iscritto al Registro Unico degli Intermediari</p></div>
+          <div class="fact" data-reveal style="--d:0.2s"><span class="num"><span data-count="20">20</span><sup>+</sup></span><h3>Anni di esperienza</h3><p>nel brokeraggio assicurativo, a tutela degli interessi del cliente</p></div>
+      </div>
+    </section>
+
+    <section class="section companies-3d on-dark" id="societa">
       <div class="wrap">
         <div class="section-head">
-          <div><span class="label">Società e partner</span><h2>Proteggi la tua azienda con noi: le soluzioni che fanno la differenza</h2></div>
-          <p>Un unico interlocutore per assicurazione, brokeraggio, mobilità aziendale e gestione del rischio, insieme a partner selezionati.</p>
+          <div><span class="label" data-reveal>Società e partner</span><h2 data-reveal style="--d:.08s">Proteggi la tua azienda con noi: le soluzioni che fanno la differenza</h2></div>
+          <p data-reveal style="--d:.16s">Un unico interlocutore per assicurazione, brokeraggio, mobilità aziendale e gestione del rischio, insieme a partner selezionati.</p>
         </div>
-        <ul class="companies">
-          <li><a class="company" href="unipol.html">
-            <span class="brand"><img src="img/logo-unipolsai-dark.png" alt="UnipolSai Assicurazioni" loading="lazy"></span>
-            <div class="text"><h3>UnipolSai Assicurazioni</h3><span class="sector">Assicurazioni</span></div>
-            <p>Polizze per imprese, professionisti e famiglie con uno dei principali gruppi assicurativi italiani.</p>
-            <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
-          </a></li>
-          <li><a class="company" href="axa.html">
-            <span class="brand"><img src="img/logo-axa-dark.png" alt="AXA Assicurazioni – Pegaso SRL" class="tall" loading="lazy"></span>
-            <div class="text"><h3>AXA Assicurazioni – Pegaso SRL</h3><span class="sector">Protezione assicurativa globale</span></div>
-            <p>Salute, tutela legale e viaggi: soluzioni complete e personalizzate, dal privato all’azienda.</p>
-            <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
-          </a></li>
-          <li><a class="company" href="unibrokers.html">
-            <span class="brand"><img src="img/logo-unibrokers-dark.png" alt="Unibrokers S.r.l." loading="lazy"></span>
-            <div class="text"><h3>Unibrokers S.r.l.</h3><span class="sector">Brokeraggio assicurativo</span></div>
-            <p>Broker indipendente dal 1997, iscritto al RUI: le migliori coperture sul mercato, senza costi aggiuntivi per il cliente.</p>
-            <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
-          </a></li>
-          <li><a class="company" href="car-adviser.html">
-            <span class="brand"><img src="img/logo-car-adviser-dark.png" alt="Car Adviser SRL" loading="lazy"></span>
-            <div class="text"><h3>Car Adviser SRL</h3><span class="sector">Noleggio a lungo termine</span></div>
-            <p>Servizi per la mobilità: noleggio a lungo termine e gestione del parco veicoli aziendale.</p>
-            <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
-          </a></li>
-          <li><a class="company" href="librici.html">
-            <span class="brand"><img src="img/logo-librici-dark.png" alt="Antonino Librici &amp; Partners" loading="lazy"></span>
-            <div class="text"><h3>Antonino Librici &amp; Partners</h3><span class="sector">Consulenza di risk management</span></div>
-            <p>Analisi, valutazione e gestione dei rischi d’impresa, per una protezione efficace nel tempo.</p>
-            <span class="go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
-          </a></li>
-        </ul>
+      </div>
+      <div class="wrap cards3d-wrap">
+        <div class="cards3d">
+          <a class="card3d" href="unipol.html" data-reveal style="--d:0.00s">
+            <span class="sheen" aria-hidden="true"></span>
+            <span class="brand"><img src="img/logo-unipolsai.png" alt="UnipolSai Assicurazioni" loading="lazy"></span>
+            <span class="body">
+              <span class="sector">Assicurazioni</span>
+              <h3>UnipolSai Assicurazioni</h3>
+              <p>Polizze per imprese, professionisti e famiglie con uno dei principali gruppi assicurativi italiani.</p>
+            </span>
+            <span class="more">Scopri <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
+          </a>
+          <a class="card3d" href="axa.html" data-reveal style="--d:0.08s">
+            <span class="sheen" aria-hidden="true"></span>
+            <span class="brand"><img src="img/logo-axa.png" alt="AXA Assicurazioni – Pegaso SRL" class="tall" loading="lazy"></span>
+            <span class="body">
+              <span class="sector">Protezione assicurativa globale</span>
+              <h3>AXA Assicurazioni – Pegaso SRL</h3>
+              <p>Salute, tutela legale e viaggi: soluzioni complete e personalizzate, dal privato all’azienda.</p>
+            </span>
+            <span class="more">Scopri <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
+          </a>
+          <a class="card3d" href="unibrokers.html" data-reveal style="--d:0.16s">
+            <span class="sheen" aria-hidden="true"></span>
+            <span class="brand"><img src="img/logo-unibrokers.png" alt="Unibrokers S.r.l." loading="lazy"></span>
+            <span class="body">
+              <span class="sector">Brokeraggio assicurativo</span>
+              <h3>Unibrokers S.r.l.</h3>
+              <p>Broker indipendente dal 1997, iscritto al RUI: le migliori coperture sul mercato, senza costi aggiuntivi per il cliente.</p>
+            </span>
+            <span class="more">Scopri <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
+          </a>
+          <a class="card3d" href="car-adviser.html" data-reveal style="--d:0.24s">
+            <span class="sheen" aria-hidden="true"></span>
+            <span class="brand"><img src="img/logo-car-adviser.png" alt="Car Adviser SRL" loading="lazy"></span>
+            <span class="body">
+              <span class="sector">Noleggio a lungo termine</span>
+              <h3>Car Adviser SRL</h3>
+              <p>Servizi per la mobilità: noleggio a lungo termine e gestione del parco veicoli aziendale.</p>
+            </span>
+            <span class="more">Scopri <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
+          </a>
+          <a class="card3d" href="librici.html" data-reveal style="--d:0.32s">
+            <span class="sheen" aria-hidden="true"></span>
+            <span class="brand"><img src="img/logo-librici.png" alt="Antonino Librici &amp; Partners" loading="lazy"></span>
+            <span class="body">
+              <span class="sector">Consulenza di risk management</span>
+              <h3>Antonino Librici &amp; Partners</h3>
+              <p>Analisi, valutazione e gestione dei rischi d’impresa, per una protezione efficace nel tempo.</p>
+            </span>
+            <span class="more">Scopri <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5"/></svg></span>
+          </a>
+        </div>
       </div>
     </section>
 
     <section class="section" id="metodo">
       <div class="wrap">
         <div class="section-head">
-          <div><span class="label">Metodo</span><h2>Dall’analisi dei rischi all’assistenza sui sinistri</h2></div>
-          <p>Un percorso chiaro, seguito da un unico referente in ogni fase.</p>
+          <div><span class="label" data-reveal>Metodo</span><h2 data-reveal style="--d:.08s">Dall’analisi dei rischi all’assistenza sui sinistri</h2></div>
+          <p data-reveal style="--d:.16s">Un percorso chiaro, seguito da un unico referente in ogni fase.</p>
         </div>
-        <ol class="steps">
-          <li><h3>Analisi</h3><p>Studiamo l’attività e le coperture già in essere per individuare rischi ed esigenze reali.</p></li>
-          <li><h3>Proposta</h3><p>Selezioniamo le soluzioni più adatte e convenienti tra compagnie italiane e internazionali.</p></li>
-          <li><h3>Gestione</h3><p>Seguiamo scadenze, premi e aggiornamenti normativi, con un unico referente per tutti i contratti.</p></li>
-          <li><h3>Assistenza</h3><p>Affianchiamo il cliente nella gestione dei sinistri, con un’assistenza completa.</p></li>
-        </ol>
+        <div class="steps-wrap">
+          <div class="track" aria-hidden="true"><span></span></div>
+          <ol class="steps">
+          <li data-reveal style="--d:0.00s"><span class="dot" aria-hidden="true"></span><span class="phase">Fase 1</span><h3>Analisi</h3><p>Studiamo l’attività e le coperture già in essere per individuare rischi ed esigenze reali.</p></li>
+          <li data-reveal style="--d:0.08s"><span class="dot" aria-hidden="true"></span><span class="phase">Fase 2</span><h3>Proposta</h3><p>Selezioniamo le soluzioni più adatte e convenienti tra compagnie italiane e internazionali.</p></li>
+          <li data-reveal style="--d:0.16s"><span class="dot" aria-hidden="true"></span><span class="phase">Fase 3</span><h3>Gestione</h3><p>Seguiamo scadenze, premi e aggiornamenti normativi, con un unico referente per tutti i contratti.</p></li>
+          <li data-reveal style="--d:0.24s"><span class="dot" aria-hidden="true"></span><span class="phase">Fase 4</span><h3>Assistenza</h3><p>Affianchiamo il cliente nella gestione dei sinistri, con un’assistenza completa.</p></li>
+          </ol>
+        </div>
       </div>
     </section>
 

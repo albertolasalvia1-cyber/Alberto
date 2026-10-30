@@ -1,15 +1,30 @@
 # Padovani & Partners — Sito Web
 
 Nuova versione di padovaniepartners.it: stessi contenuti e stesse pagine del sito originale, con
-un'impostazione istituzionale (bianco e verde scuro del marchio, filetti sottili, nessun effetto decorativo).
+un'impostazione istituzionale (bianco e verde scuro del marchio, filetti sottili).
 Caratteri: Source Serif 4 per i titoli, Source Sans 3 per il testo (Google Fonts).
+
+## Animazioni
+
+Tutte in `js/main.js`, senza librerie esterne:
+
+- **Globo 3D** (canvas) nella testata: sfera di punti con un nodo centrale collegato alle società da archi
+  percorsi da un impulso; oscilla lentamente e si inclina seguendo il mouse. Si ferma quando non è visibile.
+- **Titoli** che entrano parola per parola, **testo di presentazione** che si accende scorrendo.
+- **Header** trasparente sopra la testata, bianco allo scorrimento, nascosto scendendo e di nuovo visibile risalendo;
+  barra di avanzamento della lettura in alto.
+- **Card delle società** con inclinazione 3D e riflesso che seguono il mouse.
+- **Contatori** dei dati, **linea del metodo** che avanza con lo scorrimento, comparsa morbida delle sezioni,
+  dissolvenza tra una pagina e l'altra.
+
+Con l'impostazione di sistema "riduci movimento" il sito resta completamente statico.
 HTML + CSS + JS puri, nessuna dipendenza (a parte i Google Fonts): si pubblica su qualsiasi hosting statico.
 
 ## Pagine e collegamenti
 
 | Pagina | Contenuto |
 | --- | --- |
-| `index.html` | Home: presentazione, i 4 punti di forza, card dei partner, invito al contatto |
+| `index.html` | Home: testata con globo, chi siamo, dati, società e partner, metodo, contatti |
 | `unipol.html` | UnipolSai Assicurazioni |
 | `axa.html` | AXA Assicurazioni – Pegaso SRL (referente, telefono, form) |
 | `unibrokers.html` | Unibrokers S.r.l. (referenti, telefono, RUI, form) |
