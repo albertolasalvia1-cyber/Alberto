@@ -1,19 +1,11 @@
-# video/ — video del sito
+# video/ — video del sito (facoltativi)
 
-Stessi nomi delle foto in `img/`, con estensione `.mp4` (consigliato), `.webm` o `.mov`.
-Il video, se presente, ha la precedenza sulla foto; parte da solo, muto e in loop, solo quando è visibile.
-Con "riduci movimento" attivo o in modalità risparmio dati i video non vengono caricati e si usa la foto
-(o il segnaposto).
+Stessi nomi delle foto, in `.mp4` (consigliato), `.webm` o `.mov`. Se c'è il video prende il posto della foto:
+parte da solo, muto e in loop, solo quando è visibile. Non viene caricato con "riduci movimento" o risparmio dati.
 
-| File | Dove appare |
-| --- | --- |
-| `hero.mp4` | sfondo a tutto schermo della home (senza video resta il gradiente blu navy) |
-| `pesce-intero.mp4` `molluschi-crostacei.mp4` `crudo-di-pesce.mp4` `pesce-di-stagione.mp4` | reel nella sezione "Il pescato" |
-| `serena.mp4` `serena-ritratto.mp4` `bancone.mp4` | home e pagina Chi siamo |
-| `galleria-1.mp4` … `galleria-8.mp4` | galleria della pagina Chi siamo |
-| `<prodotto>.mp4` | schede della pagina Prodotti (es. `canocchie.mp4`) |
+- `hero.mp4` — prima schermata della home
+- `serena.mp4` — sezione Serena
+- `reel-<titolo>.mp4` — anteprima animata nella griglia dei video (es. `reel-canocchie-preparazione.mp4`)
 
-Consigli per non appesantire il sito:
-- H.264 in MP4, senza audio, 8–15 secondi, max ~720p per i reel e 1080p per l'hero, 2–5 MB ciascuno.
-- I `.mov` dell'iPhone funzionano bene su Safari ma non sempre su Chrome/Android: meglio convertirli in MP4,
-  ad esempio: `ffmpeg -i input.mov -an -vcodec libx264 -crf 26 -preset slow -vf scale=-2:1080 -movflags +faststart hero.mp4`
+Consiglio: MP4 H.264 senza audio, 8–15 s, 720p, 2–5 MB. I `.mov` dell'iPhone conviene convertirli:
+`ffmpeg -i input.mov -an -vcodec libx264 -crf 26 -vf scale=-2:1280 -movflags +faststart hero.mp4`

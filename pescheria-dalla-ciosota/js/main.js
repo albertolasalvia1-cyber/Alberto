@@ -122,6 +122,7 @@
       else { const p = el.play(); if (p) p.catch(() => {}); }
     }
     box.classList.add('has-media');
+    box.dispatchEvent(new Event('media:ok'));
   };
 
   const loadMedia = (box) => {
@@ -132,10 +133,25 @@
     const tryImage = () => (img
       ? firstAvailable(IMG_EXT.map((x) => `img/${img}.${x}`), probeImage).then((el) => mount(box, el, 'img'))
       : Promise.reject());
-    tryVideo().catch(tryImage).catch(() => box.classList.add('is-placeholder'));
+    tryVideo().catch(tryImage).catch(() => {
+      box.classList.add('is-placeholder');
+      box.dispatchEvent(new Event('media:none'));
+    });
   };
 
-  const mediaBoxes = doc.querySelectorAll('.media[data-img], .media[data-video]');
+  /* Gruppi opzionali (es. galleria): restano nascosti finché non c'è almeno una foto;
+     le caselle senza file vengono tolte invece di mostrare un segnaposto. */
+  const optionalBoxes = new Set();
+  doc.querySelectorAll('[data-optional-group]').forEach((group) => {
+    group.querySelectorAll('[data-optional] .media').forEach((box) => {
+      optionalBoxes.add(box);
+      box.addEventListener('media:ok', () => { group.hidden = false; }, { once: true });
+      box.addEventListener('media:none', () => box.closest('[data-optional]').remove(), { once: true });
+      loadMedia(box);
+    });
+  });
+
+  const mediaBoxes = [...doc.querySelectorAll('.media[data-img], .media[data-video]')].filter((b) => !optionalBoxes.has(b));
   if (hasIO) {
     const mediaIO = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -207,7 +223,7 @@
     const months = parseMonths(el.dataset.months);
     const cell = el.querySelectorAll('.season__bar span')[month - 1];
     if (cell) cell.classList.add('now');
-    const card = el.closest('.pcard');
+    const card = el.closest('[data-cat]');
     if (card && months.size < 12 && months.has(month)) card.classList.add('is-season');
   });
 
@@ -215,7 +231,7 @@
   const filterBar = doc.querySelector('[data-filters]');
   if (filterBar) {
     const buttons = [...filterBar.querySelectorAll('[data-filter]')];
-    const cards = [...doc.querySelectorAll('.pcard[data-cat]')];
+    const cards = [...doc.querySelectorAll('.board [data-cat]')];
     const counter = doc.querySelector('[data-count]');
 
     const apply = (wanted, animate) => {
@@ -232,7 +248,7 @@
           card.classList.add('is-in');
           if (!reduced() && card.animate) {
             card.animate(
-              [{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }],
+              [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }],
               { duration: 450, delay: Math.min(shown, 10) * 35, easing: 'cubic-bezier(.22,.7,.2,1)', fill: 'backwards' }
             );
           }

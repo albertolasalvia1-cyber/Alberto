@@ -1,22 +1,15 @@
 # img/ — foto del sito
 
-Basta copiare qui le foto con **questi nomi esatti**: il sito le carica da solo, senza toccare il codice.
-Formati accettati (in ordine di preferenza): `.webp`, `.jpg`, `.jpeg`, `.png`.
-Se un file manca, al suo posto compare un segnaposto SVG blu navy con icona e nome del prodotto.
+Copiate qui le foto con questi nomi: il sito le carica da solo. Formati: `.webp`, `.jpg`, `.jpeg`, `.png`.
 
-Consigli: lato lungo ~1600 px, JPG qualità 75–80 o WebP. Le foto sono caricate in lazy loading.
+| File | Dove appare |
+| --- | --- |
+| `hero.jpg` | prima schermata della home (verticale) e pagina Chi siamo |
+| `serena.jpg` | home, sezione Serena, e pagina Chi siamo (verticale 4:5) |
+| `reel-<titolo>.jpg` | copertine nella griglia "I video di Serena" (verticale 9:16) |
+| `banco.jpg` `negozio.jpg` `mercato.jpg` `foto-1.jpg` `foto-2.jpg` `foto-3.jpg` | pagina Chi siamo, sezione Foto (compare solo se c'è almeno una foto) |
 
-| File | Dove appare | Formato consigliato |
-| --- | --- | --- |
-| `hero.jpg` | sfondo prima schermata (se non c'è il video) | orizzontale 16:9 |
-| `pesce-intero.jpg` `molluschi-crostacei.jpg` `crudo-di-pesce.jpg` `pesce-di-stagione.jpg` | home, "Il pescato" (card stile reel) | verticale 9:14 |
-| `serena.jpg` | home, sezione Serena | verticale 4:5 |
-| `bancone.jpg` `serena-ritratto.jpg` | pagina Chi siamo | verticale 4:5 |
-| `galleria-1.jpg` … `galleria-8.jpg` | pagina Chi siamo, galleria (1 e 5 verticali, 2 e 8 orizzontali) | misti |
-| `<prodotto>.jpg` | pagina Prodotti, una per scheda | verticale 4:5 |
-
-Nomi delle schede prodotto:
-`ombrina-nostrana` `branzino` `orata` `sogliola` `rombo` `san-pietro` `coda-di-rospo` `triglia`
-`sardoni` `sgombro` `go` `seppie` `calamari` `moscardini` `capesante` `canestrelli` `vongole-veraci`
-`cozze` `fasolari` `ostriche` `cappelunghe` `canocchie` `scampi` `gamberi-rosa` `mazzancolle`
-`granseola` `schie` `moeche`
+Copertine reel previste (senza copertina si vede il titolo bianco su fondo blu):
+`reel-ostrica-signature` `reel-folpetti-alla-veneta` `reel-canocchie-preparazione` `reel-quanto-pesa`
+`reel-pesce-ad-amo-e-a-rete` `reel-calamari-gratinati` `reel-antipasto-gamberetti` `reel-routine-in-pescheria`
+`reel-stagionalita-del-pesce` `reel-sgombri-marinati` `reel-capesante-in-padella` `reel-pulitura-scampi-in-pochi-secondi`

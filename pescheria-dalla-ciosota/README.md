@@ -5,21 +5,23 @@ HTML5 + CSS + JavaScript puri, nessuna dipendenza esterna (solo Google Fonts): s
 statico caricando questa cartella così com'è.
 
 ## Pagine
-- `index.html` — home: hero con video, info, chi siamo, il pescato (card stile reel), Serena, dove siamo, seguici
-- `chi-siamo.html` — storia della pescheria, Serena, come scegliamo il pesce, galleria
-- `prodotti.html` — 28 prodotti con filtri (Pesci, Molluschi, Crostacei, Stagionale) e stagionalità mese per mese
-- `contatti.html` — mappa Google, orari completi, form contatto (apre il programma di posta), social
+- `index.html` — home: foto di Serena, chi siamo, il banco, i video di Serena (griglia stile Instagram), dove siamo
+- `chi-siamo.html` — la pescheria, Serena, come lavoriamo, foto (sezione che compare solo se ci sono foto)
+- `prodotti.html` — "il banco": 23 prodotti con filtri e calendario di stagione
+- `contatti.html` — orari, contatti, mappa Google, form (apre il programma di posta)
+
+Contenuti presi da fonti reali: profilo Instagram (bio, numeri, titoli dei reel), registro imprese
+(ragione sociale e P.IVA), pagina Facebook, account TikTok.
 
 ## Foto e video
-Copia i file in `img/` e `video/` con i nomi indicati nei rispettivi `README.md`: compaiono in automatico.
-Finché mancano, il sito mostra segnaposto SVG coordinati (mai immagini "rotte").
+Copiate i file in `img/` e `video/` con i nomi indicati nei rispettivi `README.md`.
 
-## Da completare prima della pubblicazione
-- **Partita IVA** nel footer di ogni pagina (cerca `TODO` / "da inserire").
-- **Link Facebook**: verificare l'indirizzo esatto della pagina (attualmente `facebook.com/pescheriadallaciosota`).
-- **Testi e citazioni** di Serena: sono bozze da far rileggere/approvare a lei.
-- **Stagionalità** dei prodotti: indicativa, da confermare con Serena.
-- Immagine di anteprima per i social (`og:image`, 1200×630 JPG) se desiderata.
+## Da verificare prima della pubblicazione
+- **Orari**: nel sito Lun–Sab 7:30–13:00. Una scheda online (maggio 2026) riporta invece mar–sab 8:30–13:30,
+  chiuso domenica e lunedì. Confermare con Serena (orari in home, contatti, footer e in `js/main.js`, costante `HOURS`).
+- **Anno di apertura** (2020, dalla data di iscrizione della società).
+- Periodi di stagione dei prodotti: indicativi.
+- Logo: il sito usa una scritta che richiama il logo; meglio sostituirla con il file originale.
 
 ## Note tecniche
 - Mobile-first, breakpoint 600px e 800px; font Barlow Condensed + Barlow con `display=swap`.
